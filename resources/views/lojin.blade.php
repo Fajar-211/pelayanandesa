@@ -55,6 +55,7 @@
         }
         body{
             background-color: lightseagreen;
+            padding-top: 11%;
         }
         .box{
             width: 350px;
@@ -93,11 +94,7 @@
     <div class="box">
         <input type="text" name="" id="" class="username" placeholder="email">
         <input type="password" name="" id="" class="pwd" placeholder="password">
-        <button class="btn btn-info">Info</button>
-        <button class="btn btn-success">Success</button>
-        <button class="btn btn-warning">Warning</button>
-        <button class="btn btn-error">Error</button>
-        <input type="file" class="file-input w-full max-w-xs" />
+        <button class="btn">MASUK</button>
         {{$nama}}
     </div>
 </body>

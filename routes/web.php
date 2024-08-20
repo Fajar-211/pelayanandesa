@@ -19,4 +19,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/lojin', function () {
     return view("lojin", ["nama" => "fajar"]);
 });
+Route::get('/user', function () {
+    return view("user",["nama" => "pengguna"]);
+});
 require __DIR__.'/auth.php';
