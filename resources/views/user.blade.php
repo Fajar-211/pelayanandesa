@@ -83,6 +83,10 @@
             box-sizing: border-box;
             text-align: right;
         }
+        .atas ul li{
+            display: inline-block;
+            margin-left: 10px;
+        }
         .konten{
             width: 80%;
             height: 100%;
@@ -90,7 +94,7 @@
             box-sizing: border-box;
             float: left;
         }
-        #surat, #kas, #lapor{
+        #surat, #kas, #lapor, #profil, #edit{
             width: 100%;
             height: 100%;
             display: none;
@@ -108,6 +112,25 @@
             font-family: Arial, Helvetica, sans-serif;
             font-size: 30px;
             margin-bottom: 50px;
+            font-size: 20px;
+            color:  #3AAFA9;
+        }
+        .konten p{
+            color:  #3AAFA9;
+            text-align: center;
+            font-size: 25px;
+            text-transform: capitalize;
+            margin-bottom: 30px;
+        }
+        .konten .judul{
+            color:  #3AAFA9;
+        }
+        .konten .isi{
+            color: black;
+            opacity: 70%;
+        }
+        .konten .box-profil{
+            margin-bottom: 30px;
         }
     </style>
 </head>
@@ -119,7 +142,11 @@
         <button class="btn btn-accent" onclick="showDiv('lapor')">Wajib Lapor</button>
     </div>
     <div class="atas">
-        <h2>Hallo</h2>
+        <ul>
+            <li>Hallo {{$nama}}</li>
+            <li><button onclick="showDiv('profil')">profil</button></li>
+            <li><a href="#">Notif</a></li>
+        </ul>
     </div>
     <div class="konten">
         <div class="surat" id="surat">
@@ -141,7 +168,7 @@
                             </tr>
                             <tr>
                                 <td><label for="keperluan">Keperluan</label></td>
-                                <td><textarea name="" id=""></textarea></td>
+                                <td><textarea placeholder="Keperluan" class="textarea textarea-bordered textarea-xs w-full max-w-xs"></textarea></td>
                             </tr>
                     </form>
                 </table>
@@ -166,12 +193,71 @@
                         </tr>
                         <tr>
                             <td><label for="keperluan">Upload Foto</label></td>
-                            <td><button>upload</button></td>
+                            <td><input type="file" class="file-input w-full max-w-xs" /></td>
                         </tr>
                     </form>
                 </table>
             </div>
             <button class="btn btn-accent">Ajukan</button>
+        </div>
+        <div class="Profil" id="profil">
+            <div class="box-profil">
+                <h2>Profil</h2>
+                <p>{{$nama}}</p>
+                <table>
+                    <tr>
+                        <td class="judul">Nomor KK</td>
+                    </tr>
+                    <tr>
+                        <td class="isi">123456789</td>
+                    </tr>
+                    <tr>
+                        <td><br></td>
+                    </tr>
+                    <tr>
+                        <td class="judul">NIK</td>
+                    </tr>
+                    <tr>
+                        <td class="isi">123456789</td>
+                    </tr>
+                    <tr>
+                        <td><br></td>
+                    </tr>
+                    <tr>
+                        <td class="judul">Jenis Kelamin</td>
+                    </tr>
+                    <tr>
+                        <td class="isi">Laki-laki</td>
+                    </tr>
+                    <tr>
+                        <td><br></td>
+                    </tr>
+                    <tr>
+                        <td class="judul">Tanggal Lahir</td>
+                    </tr>
+                    <tr>
+                        <td class="isi">1/1/2024</td>
+                    </tr>
+                    <tr>
+                        <td><br></td>
+                    </tr>
+                    <tr>
+                        <td class="judul">Email</td>
+                    </tr>
+                    <tr>
+                        <td class="isi">user@gmail.com</td>
+                    </tr>
+                </table>
+            </div>
+            <button onclick="showDiv('edit')">Edit</button>
+        </div>
+        <div class="edit" id="edit">
+            <div class="edit-profil">
+                <h2>Profil</h2>
+                <form action="">
+                    
+                </form>
+            </div>
         </div>
     </div>
     <script>
@@ -180,10 +266,21 @@
             document.getElementById('surat').style.display = 'none';
             document.getElementById('kas').style.display = 'none';
             document.getElementById('lapor').style.display = 'none';
+            document.getElementById('profil').style.display = 'none';
+            document.getElementById('edit').style.display = 'none' ;
             
             // Tampilkan div yang dipilih
             document.getElementById(divId).style.display = 'block';
         }
+        // document.getElementById('showprofil').addEventListener('click', function(event) {
+        //     event.preventDefault(); // Mencegah aksi default dari link
+        //     var myDiv = document.getElementById('profil');
+        //     if (myDiv.style.display === 'none' || myDiv.style.display === '') {
+        //         myDiv.style.display = 'block'; // Menampilkan div
+        //     } else {
+        //         myDiv.style.display = 'none'; // Menyembunyikan div
+        //     }
+        // });
     </script>
 </body>
 </html>
