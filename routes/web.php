@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -8,7 +10,19 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    // Ambil user yang sedang logged in
+    $user = User::find(Auth::id());
+
+    if($user->hasRole('admin')) {
+        return view('dashboard');
+    }
+
+    if($user->hasRole('user')) {
+        return view('user');
+    }
+
+    return 'Unauthorized Role!';
+
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
