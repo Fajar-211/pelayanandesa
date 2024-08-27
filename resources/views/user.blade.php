@@ -1,60 +1,49 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard User') }}
-        </h2>
-    </x-slot>
+  <!-- <x-slot name="header">
+    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+      {{ __('Dashboard User') }}
+    </h2>
+  </x-slot> -->
 
-    <div>
-        <div class="drawer lg:drawer-open">
-            <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-            <div class="drawer-content flex flex-col items-center justify-center">
-
-                <div class="card bg-white w-[80%] shadow-xl">
-                    <div class="card-body">
-                      <h2 class="card-title text-base-200">Isi Form</h2>
-                      <div class="w-full flex gap-2 items-center">
-                        <label for="nomorkk" class="w-1/3 text-base-200">Nomer KK</label>
-
-                          <input id="nomorkk" type="text" placeholder="Type here" class="input  w-full border border-black/30 bg-white text-base-200" />
-                      </div>
-                      <div class="w-full flex gap-2 items-center">
-                        <label for="nik" class="w-1/3 text-base-200">NIK</label>
-
-                          <input id="nik" type="text" placeholder="Type here" class="input  w-full border border-black/30 bg-white text-base-200" />
-                      </div>
-                      <div class="w-full flex gap-2 items-center">
-                        <label for="nama" class="w-1/3 text-base-200">Nama</label>
-
-                          <input id="nama" type="text" placeholder="Type here" class="input  w-full border border-black/30 bg-white text-base-200" />
-                      </div>
-                      <div class="w-full flex gap-2 items-center">
-                        <label for="keperluan" class="w-1/3 text-base-200">Keperluan</label>
-
-                          <input id="keperluan" type="text" placeholder="Type here" class="input  w-full border border-black/30 bg-white text-base-200" />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="w-[80%] flex justify-end mt-5">
-                      <button class="btn">Button</button>
-                  </div>
-
-              <!-- Page content here -->
-              <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">
-                Open drawer
-              </label>
-            </div>
-            <div class="drawer-side ">
-              <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay"></label>
-              <ul class="menu bg-[#3AAFA9] text-base-content min-h-full w-80 p-4">
-                <h1 class="text-white text-xl text-center py-12">Judul</h1>
-                <!-- Sidebar content here -->
-                <li class="text-white"><a>Surat Pengantar</a></li>
-                <li class="text-white"><a>Kas Warga</a></li>
-                <li class="text-white"><a>Wajib Lapor</a></li>
-              </ul>
-            </div>
-          </div>
+  <div class="h-svh w-full bg-grey">
+    <!-- box kiri -->
+    <div class="h-svh w-1/6 bg-[#3AAFA9] float-left">
+      <div class="drawer lg:drawer-open">
+        <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
+        <div class="drawer-content flex flex-col items-center justify-center">
+          <!-- Page content here -->
+          <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">
+            Open drawer
+          </label>
+        </div>
+        <div class="drawer-side">
+          <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay"></label>
+          <ul class="menu text-white min-h-full w-full p-4">
+            <!-- Sidebar content here -->
+            <li><a>Surat Pengantar</a></li>
+            <li><a>Kas Warga</a></li>
+            <li><a>Wajib Lapor</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
+
+    <!-- box kanan -->
+    <d class="w-5/6 h-svh bg-[#DEF2F1] float-left">
+      <!-- header -->
+      <div class="w-full h-32 bg-white grid justify-items-end">
+        <ul class="menu menu-vertical lg:menu-horizontal bg-base-200 rounded-box h-3/6">
+          <li><a>Hallo, {{$nama}}</a></li>
+          <li><a>Item 2</a></li>
+          <li><a>Item 3</a></li>
+        </ul>
+      </div>
+
+      <!-- Isi konten -->
+      <div class="h-[calc(100vh-8rem)] w-full">
+        <button class="btn btn-accent text-white">Masuk</button>
+      </div>
+
+  </div>
+  </div>
 </x-app-layout>
