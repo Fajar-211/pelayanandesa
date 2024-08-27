@@ -13,10 +13,12 @@ Route::get('/dashboard', function () {
     // Ambil user yang sedang logged in
     $user = User::find(Auth::id());
 
+    // redirect user ke view dashboard jike role == admin
     if($user->hasRole('admin')) {
         return view('dashboard');
     }
 
+    // redirect user ke view user jika role == user
     if($user->hasRole('user')) {
         return view('user');
     }
