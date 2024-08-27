@@ -16,7 +16,8 @@
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
-            <!-- @include('layouts.navigation') -->
+            {{-- CTRL + / for commenting code --}}
+            {{-- @include('layouts.navigation') --}}
 
             <!-- Page Heading -->
             @isset($header)
