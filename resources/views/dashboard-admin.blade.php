@@ -5,13 +5,12 @@
       {{ __('Dashboard User') }}
     </h2>
   </x-slot> --}}
-
   <div class="h-svh w-full bg-grey">
     <!-- box kiri -->
     <div class="h-svh w-1/6 bg-[#3AAFA9] float-left">
       <div class="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-        <div class="drawer-content flex flex-col items-center justify-center">
+        <div class="drawer-content flex flex-col items-center justify-cente absolute">
           <!-- Page content here -->
           <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">
             =
@@ -23,7 +22,7 @@
           
           <!-- New Title Div -->
           <div class="text-white text-center mb-4">
-            <h3 class="text-lg font-bold">Judul</h3>
+            <h3 class="text-center text-lg font-bold">Pelayanan Desa</h3>
           </div>
 
           <!-- Sidebar content here -->
@@ -45,7 +44,7 @@
         <ul class="bg-transparent menu menu-vertical lg:menu-horizontal bg-base-200 rounded-box h-3/6">
           <li>
             <!-- User Greeting without Hover Effect -->
-            <a class="hover-none">Hallo, {{$nama}}</a>
+            Hallo, {{$nama}}
           </li>
           <li>
             <!-- SVG Icon with Hover Effect -->
@@ -57,7 +56,6 @@
           </li>
         </ul>
       </div>
-
       <!-- Isi konten -->
       <div class="h-[calc(100vh-8rem)] w-full">
         
