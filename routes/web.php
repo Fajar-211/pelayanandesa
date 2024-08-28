@@ -22,4 +22,7 @@ Route::get('/lojin', function () {
 Route::get('/user', function () {
     return view("user",["nama" => "pengguna"]);
 });
+Route::get('/dashboard-admin', function(){
+    return view("dashboard-admin",["nama" => 'pengguna']);
+});
 require __DIR__.'/auth.php';
