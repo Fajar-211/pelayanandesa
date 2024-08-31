@@ -13,9 +13,15 @@ export default {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                
             },
+            colors:{
+                'custom-blue': '#0FA4AF',
+            }
         },
     },
+    
 
     plugins: [forms,require("daisyui")],
 };
+
