@@ -128,12 +128,27 @@
     
       </div>
       <div class="w-5/6 hidden mt-10" id="DivKas">
-        <!-- Kas Warga -->
-        <button class="btn bg-white text-gray-800 hover:bg-gray-200 focus:outline-none " id="buttonPermintaan" onclick="toggleButton(this)">Kas Warga</button>
-        <button class="btn bg-white text-gray-800 hover:bg-gray-200 focus:outline-none " id="buttonEdit" onclick="toggleButton(this)">Edit</button>
+          <!-- Kas Warga -->
+          <button class="btn bg-white text-gray-800 hover:bg-gray-200 focus:outline-none " id="buttonPermintaan" onclick="toggleButton(this)">Kas Warga</button>
+          <button class="btn bg-white text-gray-800 hover:bg-gray-200 focus:outline-none " id="buttonEdit" onclick="toggleButton(this)">Edit</button>
+          <div id="editFormContainer" style="display: none; margin-top: 20px;">
+            <form id="editForm">
+                <label for="jenis">Pilih</label>
+                <select id="jenis" name="jenis">
+                    <option value="pemasukkan">Pemasukkan</option>
+                    <option value="pengeluaran">Pengeluaran</option>
+                </select>
+
+                <label for="jumlah">Jumlah:</label>
+                <input type="number" id="jumlah" name="jumlah" required>
+
+                <label for="saldo">Saldo Akhir:</label>
+                <input type="number" id="saldo" name="saldo" required>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div> 
       </div>
-
-
 
       <div class="w-5/6 hidden mt-12" id="DivLapor"><!-- Wajib Lapor -->
         <div class="card text-primary-content bg-white">
@@ -289,5 +304,18 @@
       button.classList.add('bg-custom-blue', 'text-white');
       button.classList.remove('bg-white', 'text-gray-800');
     }
+    function togglebuttonEdit() {
+    const formContainer = document.getElementById('editForm');
+    const editButton = document.getElementById('buttonEdit');
+
+    if (formContainer.style.display === 'none' || formContainer.style.display === '') {
+        formContainer.style.display = 'block';
+        editButton.classList.add('active'); // Optionally, add an active class to style the button differently
+    } else {
+        formContainer.style.display = 'none';
+        editButton.classList.remove('active');
+    }
+}
+
   </script>
 </x-app-layout>
