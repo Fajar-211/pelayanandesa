@@ -19,13 +19,19 @@
               <div tabindex="0" role="button" class="btn btn-ghost rounded-btn">
                 <div class="avatar">
                   <div class="w-12 rounded-full">
-                    <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                    <a class="inline-flex items-center justify-center p-2 hover:text-[#000000] mt-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="1.5" stroke="currentColor"
+                        class="h-6 w-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                      </svg>
+                    </a>
                   </div>
                 </div>
               </div>
               <ul tabindex="0" class="menu dropdown-content bg-white rounded-box z-[1] mt-4 w-52 p-2 shadow">
                 <li><a class="text-black" id="showInfo" onclick="showInfo()">Info Profil</a></li>
-                <li><a class="text-red">Log Out</a></li>
+                <li><a class="text-red-600">Log Out</a></li>
               </ul>
             </div>
             <!-- Notifikasi -->
@@ -33,7 +39,13 @@
               <div tabindex="0" role="button" class="btn btn-ghost rounded-btn">
                 <div class="avatar">
                   <div class="w-12 rounded-full">
-                    <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                    <a class="inline-flex items-center justify-center p-2 hover:text-[#000000] mt-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
+                      </svg>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -84,7 +96,17 @@
       </div>
 
       <div class="w-5/6 hidden mt-10" id="DivKas"><!-- Kas Warga -->
-        <h2>Hallo ini kotak kas warga</h2>
+        <div class="card text-primary-content bg-white">
+          <div class="card-body">
+            <form>
+              <label for="start-date">Tanggal Mulai:</label>
+              <input type="date" id="start-date" name="start-date" required />
+
+              <label for="end-date">Tanggal Akhir:</label>
+              <input type="date" id="end-date" name="end-date" required />
+            </form>
+          </div>
+        </div>
       </div>
 
       <div class="w-5/6 hidden mt-12" id="DivLapor"><!-- Wajib Lapor -->
@@ -174,8 +196,8 @@
                 <div class="w-24 rounded-full">
                   <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
                 </div>
-                <input type="file" class="file-input w-12 max-w-xs" />
               </div>
+              <div class="flex justify-center"><input type="file" class="file-input w-full max-w-xs bg-white" /></div>
               <div class="flex justify-center"><input type="text" placeholder="{{$nama}}"
                   class="input w-full max-w-xs bg-[#DEF2F1] text-center" /></div>
             </div>
@@ -206,7 +228,8 @@
               <td class="text-green-500">Tanggal Lahir</td>
             </tr>
             <tr>
-              <td><input type="date" placeholder="Type here" class="input input-bordered w-full max-w-xs bg-[#DEF2F1]" /></td>
+              <td><input type="date" placeholder="Type here"
+                  class="input input-bordered w-full max-w-xs bg-[#DEF2F1]" /></td>
             </tr>
             <tr></tr>
             <tr>
