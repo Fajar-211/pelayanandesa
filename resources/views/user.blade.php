@@ -167,20 +167,60 @@
       </div>
 
       <div class="w-5/6 hidden" id="DivEdit"><!-- Edit Porfile -->
-        <div class="card text-primary-content">
-          <div class="card-body">
-            <div class="avatar justify-center">
-              <div class="w-24 rounded-full">
-                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+        <form action="">
+          <div class="card text-primary-content">
+            <div class="card-body">
+              <div class="avatar flex justify-center items-center">
+                <div class="w-24 rounded-full">
+                  <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                </div>
+                <input type="file" class="file-input w-12 max-w-xs" />
               </div>
+              <div class="flex justify-center"><input type="text" placeholder="{{$nama}}"
+                  class="input w-full max-w-xs bg-[#DEF2F1] text-center" /></div>
             </div>
-            <h2 class="text-center">EDIT PROFIL</h2>
           </div>
-        </div>
-        <div class="card-actions justify-end">
-          <button class="btn btn-secondary text-white">Batal</button>
-          <button class="btn btn-accent text-white">Simpan</button>
-        </div>
+          <table>
+            <tr>
+              <td class="text-green-500">Nomor KK</td>
+            </tr>
+            <tr>
+              <td><input type="text" placeholder="example" class="input w-full max-w-xs bg-[#DEF2F1]" /></td>
+            </tr>
+            <tr></tr>
+            <tr>
+              <td class="text-green-500">NIK</td>
+            </tr>
+            <tr>
+              <td><input type="text" placeholder="example" class="input w-full max-w-xs bg-[#DEF2F1]" /></td>
+            </tr>
+            <tr></tr>
+            <tr>
+              <td class="text-green-500">Jenis Kelamin</td>
+            </tr>
+            <tr>
+              <td><input type="text" placeholder="example" class="input w-full max-w-xs bg-[#DEF2F1]" /></td>
+            </tr>
+            <tr></tr>
+            <tr>
+              <td class="text-green-500">Tanggal Lahir</td>
+            </tr>
+            <tr>
+              <td><input type="date" placeholder="Type here" class="input input-bordered w-full max-w-xs bg-[#DEF2F1]" /></td>
+            </tr>
+            <tr></tr>
+            <tr>
+              <td class="text-green-500">Email</td>
+            </tr>
+            <tr>
+              <td><input type="text" placeholder="Email" class="input w-full max-w-xs bg-[#DEF2F1]" /></td>
+            </tr>
+          </table>
+          <div class="card-actions justify-end mb-8">
+            <button class="btn btn-secondary text-white">Batal</button>
+            <button class="btn btn-accent text-white">Simpan</button>
+          </div>
+        </form>
       </div>
 
 
@@ -243,6 +283,7 @@
       document.getElementById("user").style.display = "none";
       document.getElementById("DivEdit").style.display = "block";
     }
+
 
   </script>
 </x-app-layout>
