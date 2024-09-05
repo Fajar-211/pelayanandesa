@@ -196,8 +196,10 @@
                     </div>
                     </div>
 
-                    <!-- <div class="flex justify-center"> -->
-                    <div class="w-5/6 hidden" id="DivEdit"><!-- Edit Porfile -->
+                    <div class="flex justify-center">
+                    <!-- note -->
+                    <!-- biar nampilin edit profile hidden nya harus di hapus tapi nanti di tiap halaman bakal muncul bagian edit profile -->
+                    <div class="w-5/6 hidden" id="DivEdit"><!-- Edit Porfile --> 
                         <form action="">
                         <div class=" text-primary-content">
                             <div class="card-body">
@@ -260,8 +262,9 @@
                             <div class="card-actions justify-end mb-8">
                                 <button class="btn btn-secondary text-white">Batal</button>
                                 <button class="btn btn-accent text-white">Simpan</button>
+                            </div>
+                        </form>
                         </div>
-                    </form>
                     </div>
                 </div>
         </div>
