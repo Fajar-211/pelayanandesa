@@ -25,4 +25,7 @@ Route::get('/user', function () {
 Route::get('/dashboard-admin', function(){
     return view("dashboard-admin",["nama" => 'pengguna']);
 });
+Route::get('/template', function(){
+    return view("template",["nama" => 'pengguna']);
+});
 require __DIR__.'/auth.php';
