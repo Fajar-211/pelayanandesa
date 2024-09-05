@@ -150,7 +150,7 @@
                                         <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
                                     </div>
                                 </div>
-                                <h2 class="text-center">{{$nama}}</h2>
+                                <h2 class="text-center text-gray-700">{{$nama}}</h2>
                                     <table>
                                     <tr>
                                         <td class="text-green-500">Nomor KK</td>
