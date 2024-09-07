@@ -20,12 +20,15 @@ Route::get('/lojin', function () {
     return view("lojin", ["nama" => "fajar"]);
 });
 Route::get('/user', function () {
-    return view("user",["nama" => "pengguna"]);
+    return view("user",["nama" => "Pengguna"]);
 });
 Route::get('/dashboard-admin', function(){
-    return view("dashboard-admin",["nama" => 'pengguna']);
+    return view("dashboard-admin",["nama" => 'Pengguna']);
 });
 Route::get('/template', function(){
-    return view("template",["nama" => 'pengguna']);
+    return view("template",["nama" => 'Pengguna']);
+});
+Route::get('/template1', function(){
+    return view("template1",["nama" => 'Pengguna']);
 });
 require __DIR__.'/auth.php';
