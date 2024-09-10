@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SuratPengantarController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -25,4 +26,5 @@ Route::get('/user', function () {
 Route::get('/dashboard-admin', function(){
     return view("dashboard-admin",["nama" => 'pengguna']);
 });
+Route::post('/surat-pengantar', [SuratPengantarController::class, 'store'])->name('surat-pengantar.store');
 require __DIR__.'/auth.php';

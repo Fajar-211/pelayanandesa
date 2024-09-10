@@ -31,7 +31,12 @@
               </div>
               <ul tabindex="0" class="menu dropdown-content bg-white rounded-box z-[1] mt-4 w-52 p-2 shadow">
                 <li><a class="text-black" id="showInfo" onclick="showInfo()">Info Profil</a></li>
-                <li><a class="text-red-600">Log Out</a></li>
+                <li>
+                  <form action="{{route('logout')}}" method="POST">
+                    @csrf
+                    <button class="text-red-500">Log Out</button>
+                  </form>
+                </li>
               </ul>
             </div>
             <!-- Notifikasi -->
@@ -65,34 +70,39 @@
 
       <!-- ISI KONTEN (DI BAWAH) -->
       <div class="w-5/6 hidden mt-10" id="DivSurat"><!-- Surat Pengantar -->
-        <div class="card text-primary-content bg-white">
-          <div class="card-body">
-            <h2 class="card-title">ISI FORM</h2>
-            <form action="">
+        <form action="{{ route('surat-pengantar.store') }}" method="POST">
+          @csrf
+          <div class="card text-primary-content bg-white">
+            <div class="card-body">
+              <h2 class="card-title">ISI FORM</h2>
               <table>
                 <tr>
-                  <td>Nomor KK</td>
-                  <td><input type="text" placeholder="" class="input w-full max-w-xs bg-white" /></td>
+                  <td><label for="nokk">Nomor KK</label></td>
+                  <td><input type="text" id="nokk" name="nokk" placeholder="Nomor Kartu Keluarga"
+                      class="input w-full max-w-xs bg-white" required /></td>
                 </tr>
                 <tr>
-                  <td>NIK</td>
-                  <td><input type="text" placeholder="" class="input w-full max-w-xs bg-white" /></td>
+                  <td><label for="nik">NIK</label></td>
+                  <td><input type="text" id="nik" name="nik" placeholder="Nomor Induk KTP"
+                      class="input w-full max-w-xs bg-white" required /></td>
                 </tr>
                 <tr>
-                  <td>Nama</td>
-                  <td><input type="text" placeholder="" class="input w-full max-w-xs bg-white" /></td>
+                  <td><label for="nama">Nama</label></td>
+                  <td><input type="text" id="nama" name="nama" placeholder="Nama" class="input w-full max-w-xs bg-white"
+                      required /></td>
                 </tr>
                 <tr>
-                  <td>Keperluan</td>
-                  <td><textarea class="textarea bg-white" placeholder=""></textarea></td>
+                  <td><label for="keperluan">Keperluan</label></td>
+                  <td><input type="text" id="keperluan" name="keperluan" placeholder="Keperluan"
+                      class="input w-full max-w-xs bg-white" required /></td>
                 </tr>
               </table>
-            </form>
+            </div>
           </div>
-        </div>
-        <div class="card-actions justify-end">
-          <button class="btn btn-accent mt-6">Ajukan</button>
-        </div>
+          <div class="card-actions justify-end">
+            <button type="submit" class="btn btn-accent mt-6">Ajukan</button>
+          </div>
+        </form>
       </div>
 
       <div class="w-5/6 hidden mt-10" id="DivKas"><!-- Kas Warga -->
@@ -104,36 +114,37 @@
 
               <label for="end-date">Tanggal Akhir:</label>
               <input type="date" id="end-date" name="end-date" required />
+              <button class="btn btn-accent">Cek</button>
             </form>
           </div>
         </div>
       </div>
 
       <div class="w-5/6 hidden mt-12" id="DivLapor"><!-- Wajib Lapor -->
-        <div class="card text-primary-content bg-white">
-          <div class="card-body">
-            <h2 class="card-title">ISI FORM</h2>
-            <form action="">
+        <form action="" method="POST">
+          <div class="card text-primary-content bg-white">
+            <div class="card-body">
+              <h2 class="card-title">ISI FORM</h2>
               <table>
                 <tr>
-                  <td>NIK</td>
-                  <td><input type="text" placeholder="" class="input w-full max-w-xs bg-white" /></td>
+                  <td><label for="nikTamu">NIK</label></td>
+                  <td><input type="text" id="nikTamu" name="" placeholder="NIK Tamu" class="input w-full max-w-xs bg-white" required /></td>
                 </tr>
                 <tr>
-                  <td>Nama</td>
-                  <td><input type="text" placeholder="" class="input w-full max-w-xs bg-white" /></td>
+                  <td><label for="namaTamu">Nama</label></td>
+                  <td><input type="text" id="namaTamu" name="" placeholder="Nama Tamu" class="input w-full max-w-xs bg-white" required /></td>
                 </tr>
                 <tr>
-                  <td>Upload Foto</td>
-                  <td><input type="file" class="file-input w-full max-w-xs bg-white" /></td>
+                  <td><label for="uploadKTP">Upload KTP</label></td>
+                  <td><input type="file" id="uploadKTP" name="" class="file-input w-full max-w-xs bg-white" accept=".jpg,.jpeg,.png" required /></td>
                 </tr>
               </table>
-            </form>
+            </div>
           </div>
-        </div>
-        <div class="card-actions justify-end">
-          <button class="btn btn-accent mt-6">Ajukan</button>
-        </div>
+          <div class="card-actions justify-end">
+            <button class="btn btn-accent mt-6 text-white">Ajukan</button>
+          </div>
+        </form>
       </div>
 
       <div class="w-5/6 hidden" id="DivInfo"><!-- Info Porfile -->
@@ -192,12 +203,14 @@
         <form action="">
           <div class="card text-primary-content">
             <div class="card-body">
-              <div class="avatar flex justify-center items-center">
-                <div class="w-24 rounded-full">
-                  <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+              <label for="chooseAvatar">
+                <div class="avatar flex justify-center items-center">
+                  <div class="w-24 rounded-full">
+                    <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                  </div>
                 </div>
-              </div>
-              <div class="flex justify-center"><input type="file" class="file-input w-full max-w-xs bg-white" /></div>
+              </label>
+              <input type="file" id="chooseAvatar" class="hidden" accept=".jpg,.jpeg,.png" accept=".jpg,.jpeg,.png">
               <div class="flex justify-center"><input type="text" placeholder="{{$nama}}"
                   class="input w-full max-w-xs bg-[#DEF2F1] text-center" /></div>
             </div>
@@ -240,7 +253,7 @@
             </tr>
           </table>
           <div class="card-actions justify-end mb-8">
-            <button class="btn btn-secondary text-white">Batal</button>
+            <button class="btn btn-secondary text-white" type="reset" id="batal">Batal</button>
             <button class="btn btn-accent text-white">Simpan</button>
           </div>
         </form>
@@ -306,7 +319,8 @@
       document.getElementById("user").style.display = "none";
       document.getElementById("DivEdit").style.display = "block";
     }
-
+    const batal = document.getElementById('batal');
+    batal.addEventListener('click', showInfo);
 
   </script>
 </x-app-layout>
