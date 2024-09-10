@@ -67,180 +67,139 @@
             <!-- main content -->
             <div class="flex-1  bg-[#DEF2F1] overflow-hidden">
                 <div class="bg-[#DEF2F1] flex justify-center w-full ">
-                <div class="w-5/6 hidden mt-10" id="DivSurat"><!-- Surat Pengantar -->
-                  <div class="flex items-center space-x-2">
-                    <span class="inline-flex items-center justify-center px-4 py-3 text-black bg-white rounded-md">Permintaan</span>
-                    <select class="select join-item w-30">
-                      <option disabled selected>Filter</option>
-                      <option>ops 1</option>
-                      <option>ops 2</option>
-                      <option>ops 3</option>
-                    </select>
-                  </div>
-            <br>
-                <div tabindex="0" class="collapse collapse-arrow border-base-300 bg-base-200 border mb-2">
-                  <div class="collapse-title text-xl font-medium bg-white">Budi</div>
-                  <div class="collapse-content bg-white">
-                  <table>
-                            <tr>
-                              <td>NIK</td>
-                              <td><input type="text" placeholder="" class="input w-full max-w-xs bg-white" /></td>
-                            </tr>
-                            <tr>
-                              <td>Nomor KK</td>
-                              <td><input type="text" placeholder="" class="input w-full max-w-xs bg-white" /></td>
-                            </tr>
-                            <tr>
-                              <td>Nama</td>
-                              <td><input type="text" placeholder="" class="input w-full max-w-xs bg-white" /></td>
-                            </tr>
-                            <tr>
-                              <td>Keperluan</td>
-                              <td><input type="text" placeholder="" class="input w-full max-w-xs bg-white" /></td>
-                            </tr>
-                          </table>
-                          <div class="card-actions justify-end">
-                            <button class="btn text-white btn-accent mt-6 bg-[#0FA4AF]">Terima</button>
-                          </div>
-                  </div>
-                </div>
-                <div tabindex="0" class="collapse collapse-arrow border-base-300 bg-base-200 border mb-2">
-                  <div class="collapse-title text-xl font-medium bg-white">Ahmad</div>
-                  <div class="collapse-content bg-white">
-                  <table>
-                            <tr>
-                              <td>NIK</td>
-                              <td><input type="text" placeholder="" class="input w-full max-w-xs bg-white" /></td>
-                            </tr>
-                            <tr>
-                              <td>Nomor KK</td>
-                              <td><input type="text" placeholder="" class="input w-full max-w-xs bg-white" /></td>
-                            </tr>
-                            <tr>
-                              <td>Nama</td>
-                              <td><input type="text" placeholder="" class="input w-full max-w-xs bg-white" /></td>
-                            </tr>
-                            <tr>
-                              <td>Keperluan</td>
-                              <td><input type="text" placeholder="" class="input w-full max-w-xs bg-white" /></td>
-                            </tr>
-                          </table>
-                          <div class="card-actions justify-end">
-                            <button class="btn text-white btn-accent mt-6 bg-[#0FA4AF]">Terima</button>
-                          </div>
-                  </div>
-                </div>
-              
-            <br>
-                
-                  </div>
-                  <div class="w-5/6 hidden mt-10" id="DivKas">
-                      <!-- Kas Warga -->
-                      <button class="btn bg-white text-gray-800 hover:bg-gray-200 focus:outline-none " id="buttonPermintaan" onclick="toggleButton(this)">Kas Warga</button>
-                      <button class="btn bg-white text-gray-800 hover:bg-gray-200 focus:outline-none " id="buttonEdit" onclick="toggleButton(this)">Edit</button>
-                      <div id="editFormContainer" style="display: none; margin-top: 20px;">
-                        <form id="editForm">
-                            <label for="jenis">Pilih</label>
-                            <select id="jenis" name="jenis">
-                                <option value="pemasukkan">Pemasukkan</option>
-                                <option value="pengeluaran">Pengeluaran</option>
-                            </select>
-
-                            <label for="jumlah">Jumlah:</label>
-                            <input type="number" id="jumlah" name="jumlah" required>
-
-                            <label for="saldo">Saldo Akhir:</label>
-                            <input type="number" id="saldo" name="saldo" required>
-
-                            <button type="submit">Submit</button>
-                        </form>
-                    </div> 
-                  </div>
-
-                  <div class="w-5/6 hidden mt-12" id="DivLapor"><!-- Wajib Lapor -->
+                    <div class="w-5/6 hidden mt-10" id="DivSurat"><!-- Surat Pengantar -->      
                     <div class="card text-primary-content bg-white">
-                      <div class="card-body">
-                        <h2 class="card-title text-black">ISI FORM</h2>
-                        <form action="">
-                          <table class="text-black">
-                            <tr>
-                              <td>NIK</td>
-                              <td><input type="text" placeholder="" class="ml-10 input w-full max-w-xs border-[#e7e7e7]" /></td>
-                            </tr>
-                            <tr>
-                              <td>Nama</td>
-                              <td><input type="text" placeholder="" class="mt-5 ml-10 input w-full max-w-xs border-[#e7e7e7]" /></td>
-                            </tr>
-                            <tr>
-                              <td>Upload Foto</td>
-                              <td><input type="file" class="mt-5 ml-10 file-input w-full max-w-xs bg-white" /></td>
-                            </tr>
-                          </table>
-                        </form>
-                      </div>
-                    </div>
-                    <div class="card-actions justify-end">
-                      <button class="btn text-white btn-accent mt-6 bg-[#0FA4AF]">Ajukan</button>
-                    </div>
-                  </div>
-
-                  <div class="w-5/6 hidden" id="DivInfo"><!-- Info Porfile -->
-                    <div class="card text-primary-content">
-                      <div class="card-body">
-                        <div class="avatar justify-center">
-                          <div class="w-24 rounded-full">
-                            <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
-                          </div>
+                        <div class="text-black justify-center card-body">
+                            <h2 class="card-title">ISI FORM</h2>
+                            <form action="">
+                            <table>
+                                <tr>
+                                <td>Nomor KK</td>
+                                <td><input type="text" placeholder="" class="input w-full max-w-xs bg-white" /></td>
+                                </tr>
+                                <tr>
+                                <td>NIK</td>
+                                <td><input type="text" placeholder="" class="input w-full max-w-xs bg-white" /></td>
+                                </tr>
+                                <tr>
+                                <td>Nama</td>
+                                <td><input type="text" placeholder="" class="input w-full max-w-xs bg-white" /></td>
+                                </tr>
+                                <tr>
+                                <td>Keperluan</td>
+                                <td><textarea class="textarea bg-white" placeholder=""></textarea></td>
+                                </tr>
+                            </table>
+                            </form>
+                            </div>
                         </div>
-                        <h2 class="text-center text-black">{{$nama}}</h2>
-                        <table>
-                          <tr>
-                            <td class="text-green-500">Nomor KK</td>
-                          </tr>
-                          <tr>
-                            <td class="text-stone-400">example</td>
-                          </tr>
-                          <tr></tr>
-                          <tr>
-                            <td class="text-green-500">NIK</td>
-                          </tr>
-                          <tr>
-                            <td class="text-stone-400">example</td>
-                          </tr>
-                          <tr></tr>
-                          <tr>
-                            <td class="text-green-500">Jenis Kelamin</td>
-                          </tr>
-                          <tr>
-                            <td class="text-stone-400">example</td>
-                          </tr>
-                          <tr></tr>
-                          <tr>
-                            <td class="text-green-500">Tanggal Lahir</td>
-                          </tr>
-                          <tr>
-                            <td class="text-stone-400">example</td>
-                          </tr>
-                          <tr></tr>
-                          <tr>
-                            <td class="text-green-500">Email</td>
-                          </tr>
-                          <tr>
-                            <td class="text-stone-400">example</td>
-                          </tr>
-                        </table>
-                      </div>
+                        <div class="card-actions justify-end">
+                            <button class="btn btn-accent mt-6">Ajukan</button>
+                        </div>
                     </div>
-                    <div class="card-actions justify-end">
-                      <button class="btn btn-accent text-white bg-[#0FA4AF]" id="showEdit" onclick="showEdit()">Edit</button>
-                    </div>
-                  </div>
                     </div>
 
-                  <div class="flex justify-center">
+                    <div class="flex justify-center w-full mt-5">
+                    <div class="w-5/6 hidden mt-10" id="DivKas"><!-- Kas Warga -->
+                        <div class="card text-primary-content bg-white">
+                            <div class="card-body">
+                                <form class="text-black">
+                                <label for="start-date">Tanggal Mulai:</label>
+                                <input type="date" id="start-date" name="start-date" required />
+                                <label for="end-date">Tanggal Akhir:</label>
+                                <input type="date" id="end-date" name="end-date" required />
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="flex justify-center w-full mt-10">
+                    <div class="w-5/6 lg:hidden relative hidden" id="DivLapor"><!-- Wajib Lapor -->
+                    <div class="card text-primary-content bg-white">
+                        <div class="text-black card-body">
+                            <h2 class="card-title">ISI FORM</h2>
+                            <form action="">
+                                <table>
+                                    <tr>
+                                        <td>NIK</td>
+                                        <td><input type="text" placeholder="" class="input w-full max-w-xs bg-white" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nama</td>
+                                        <td><input type="text" placeholder="" class="input w-full max-w-xs bg-white" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Upload Foto</td>
+                                        <td><input type="file" class="file-input w-full max-w-xs bg-white" /></td>
+                                    </tr>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card-actions justify-end">
+                        <button class="btn btn-accent mt-6">Ajukan</button>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="flex justify-center">
+                        <div class="w-5/6 hidden" id="DivInfo"><!-- Info Porfile -->
+                        <div class="card text-primary-content">
+                            <div class="card-body">
+                                <div class="avatar justify-center">
+                                    <div class="w-24 rounded-full">
+                                        <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                    </div>
+                                </div>
+                                <h2 class="text-center text-gray-700">{{$nama}}</h2>
+                                    <table>
+                                    <tr>
+                                        <td class="text-green-500">Nomor KK</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-stone-400">example</td>
+                                    </tr>
+                                    <tr></tr>
+                                    <tr>
+                                        <td class="text-green-500">NIK</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-stone-400">example</td>
+                                    </tr>
+                                    <tr></tr>
+                                    <tr>
+                                        <td class="text-green-500">Jenis Kelamin</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-stone-400">example</td>
+                                    </tr>
+                                    <tr></tr>
+                                    <tr>
+                                        <td class="text-green-500">Tanggal Lahir</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-stone-400">example</td>
+                                    </tr>
+                                    <tr></tr>
+                                    <tr>
+                                        <td class="text-green-500">Email</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-stone-400">example</td>
+                                    </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="card-actions justify-end">
+                            <button class="btn btn-accent text-white" id="showEdit" onclick="showEdit()">Edit</button>
+                        </div>
+                        
+                    </div>
+                    </div>
+
+                    <div class="flex justify-center">
                     <!-- note -->
-                    <!-- biar nampilin edit profile, hidden nya harus di hapus tapi nanti di tiap halaman bakal muncul bagian edit profile -->
-                      <div class="w-5/6 hidden" id="DivEdit"><!-- Edit Porfile --> 
+                    <!-- biar nampilin edit profile hidden nya harus di hapus tapi nanti di tiap halaman bakal muncul bagian edit profile -->
+                    <div class="w-5/6 hidden" id="DivEdit"><!-- Edit Porfile --> 
                         <form action="">
                         <div class=" text-primary-content">
                             <div class="card-body">
@@ -290,7 +249,7 @@
                                 </tr>
                                 <tr>
                                     <td><input type="date" placeholder="Type here"
-                                        class="input w-full max-w-xs bg-[#DEF2F1]" /></td>
+                                        class="input input-bordered w-full max-w-xs bg-[#DEF2F1]" /></td>
                                 </tr>
                                 <tr></tr>
                                 <tr>
@@ -306,8 +265,8 @@
                             </div>
                         </form>
                         </div>
-                      </div>
-              </div>
+                    </div>
+                </div>
         </div>
 
         <!-- sidebar content -->
@@ -328,8 +287,6 @@
             <li><a id="showSurat" onclick="showSurat()">Surat pengantar</a></li>
             <li><a id="showKas" onclick="showKas()">Kas warga</a></li>
             <li><a id="showLapor" onclick="showLapor()">Wajib lapor</a></li>
-            <li><a id="showLapor" onclick="showLapor()">Data Warga</a></li>
-            <li><a id="showLapor" onclick="showLapor()">Pemberitahuan</a></li>
             </ul>
         </div>
     </div>
@@ -375,27 +332,5 @@
       document.getElementById("user").style.display = "none";
       document.getElementById("DivEdit").style.display = "block";
     }
-    function toggleButton(button) {
-      const buttons = document.querySelectorAll('#DivKas .btn');
-      buttons.forEach(btn => {
-        btn.classList.remove('bg-custom-blue', 'text-white');
-        btn.classList.add('bg-white', 'text-gray-800');
-      });
-      button.classList.add('bg-custom-blue', 'text-white');
-      button.classList.remove('bg-white', 'text-gray-800');
-    }
-    function togglebuttonEdit() {
-    const formContainer = document.getElementById('editForm');
-    const editButton = document.getElementById('buttonEdit');
-
-    if (formContainer.style.display === 'none' || formContainer.style.display === '') {
-        formContainer.style.display = 'block';
-        editButton.classList.add('active'); // Optionally, add an active class to style the button differently
-    } else {
-        formContainer.style.display = 'none';
-        editButton.classList.remove('active');
-      }
-    }
-
   </script>
 </x-app-layout>
