@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\WajibLaporController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SuratPengantarController;
 
@@ -34,3 +35,6 @@ Route::get('/template1', function(){
 });
 Route::post('/surat-pengantar', [SuratPengantarController::class, 'store'])->name('surat-pengantar.store');
 require __DIR__.'/auth.php';
+Route::post('/wajib_lapors', [WajibLaporController::class, 'store'])->name('wajib_lapors.store')->middleware('auth');
+
+

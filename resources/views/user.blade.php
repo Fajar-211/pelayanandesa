@@ -115,22 +115,23 @@
       </div>
 
       <div class="w-5/6 hidden mt-12" id="DivLapor"><!-- Wajib Lapor -->
-        <form action="" method="POST">
+        <form action="{{ route('wajib_lapors.store') }}" method="POST" enctype="multipart/form-data">
+        @csrf
           <div class="card text-primary-content bg-white">
             <div class="card-body">
               <h2 class="card-title">ISI FORM</h2>
               <table>
                 <tr>
                   <td><label for="nikTamu">NIK</label></td>
-                  <td><input type="text" id="nikTamu" name="" placeholder="NIK Tamu" class="input w-full max-w-xs bg-white" required /></td>
+                  <td><input type="text" id="nikTamu" name="nik_tamu" placeholder="NIK Tamu" class="input w-full max-w-xs bg-white" required /></td>
                 </tr>
                 <tr>
                   <td><label for="namaTamu">Nama</label></td>
-                  <td><input type="text" id="namaTamu" name="" placeholder="Nama Tamu" class="input w-full max-w-xs bg-white" required /></td>
+                  <td><input type="text" id="namaTamu" name="nama_tamu" placeholder="Nama Tamu" class="input w-full max-w-xs bg-white" required /></td>
                 </tr>
                 <tr>
                   <td><label for="uploadKTP">Upload KTP</label></td>
-                  <td><input type="file" id="uploadKTP" name="" class="file-input w-full max-w-xs bg-white" accept=".jpg,.jpeg,.png" required /></td>
+                  <td><input type="file" id="uploadKTP" name="foto_tamu" class="file-input w-full max-w-xs bg-white" accept=".jpg,.jpeg,.png" required /></td>
                 </tr>
               </table>
             </div>
