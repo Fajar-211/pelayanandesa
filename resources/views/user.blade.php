@@ -67,10 +67,10 @@
             <!-- main content -->
             <div class="flex-1  bg-[#DEF2F1] overflow-hidden">
                 <div class="bg-[#DEF2F1] flex justify-center w-full ">
-                    <div class="w-5/6 hidden mt-10" id="DivSurat"><!-- Surat Pengantar -->      
+                    <div class="w-5/6 mt-10" id="DivSurat"><!-- Surat Pengantar -->      
                     <div class="card text-primary-content bg-white">
                         <div class="text-black justify-center card-body">
-                            <h2 class="card-title">ISI FORM</h2>
+                            <h2 class="card-title">Buat Pengajuan</h2>
                             <form action="">
                             <table>
                                 <tr>

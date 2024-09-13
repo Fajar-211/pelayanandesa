@@ -67,7 +67,7 @@
             <!-- main content -->
             <div class="flex-1  bg-[#DEF2F1] overflow-hidden">
                 <div class="bg-[#DEF2F1] flex justify-center w-full ">
-                <div class="w-5/6 hidden mt-10" id="DivSurat"><!-- Surat Pengantar -->
+                <div class="w-5/6 mt-10" id="DivSurat"><!-- Surat Pengantar -->
                   <div class="flex items-center space-x-2">
                     <span class="inline-flex items-center justify-center px-4 py-3 text-black bg-white rounded-md">Permintaan</span>
                     <select class="select join-item w-30">
@@ -135,27 +135,55 @@
                 
                   </div>
                   <div class="w-5/6 hidden mt-10" id="DivKas">
-                      <!-- Kas Warga -->
-                      <button class="btn bg-white text-gray-800 hover:bg-gray-200 focus:outline-none " id="buttonPermintaan" onclick="toggleButton(this)">Kas Warga</button>
-                      <button class="btn bg-white text-gray-800 hover:bg-gray-200 focus:outline-none " id="buttonEdit" onclick="toggleButton(this)">Edit</button>
-                      <div id="editFormContainer" style="display: none; margin-top: 20px;">
-                        <form id="editForm">
-                            <label for="jenis">Pilih</label>
-                            <select id="jenis" name="jenis">
-                                <option value="pemasukkan">Pemasukkan</option>
-                                <option value="pengeluaran">Pengeluaran</option>
-                            </select>
+                    <!-- Kas Warga -->
+                    <button class="btn bg-white text-gray-800 hover:bg-gray-200 focus:outline-none" id="buttonKasWarga" onclick="showKasWarga()">Kas Warga</button>
+                    <button class="btn bg-white text-gray-800 hover:bg-gray-200 focus:outline-none" id="buttonKas" onclick="buttonKas()">Edit</button>
 
-                            <label for="jumlah">Jumlah:</label>
-                            <input type="number" id="jumlah" name="jumlah" required>
-
-                            <label for="saldo">Saldo Akhir:</label>
-                            <input type="number" id="saldo" name="saldo" required>
-
-                            <button type="submit">Submit</button>
-                        </form>
-                    </div> 
-                  </div>
+                    <!-- Halaman Kas Warga -->
+                    <div class="w-5/6 mt-10" id="kasWarga" style="margin-top: 20px;">
+                        <h2>Halaman Tabel Kas Warga</h2>
+                        <!-- Isi halaman Kas Warga -->
+                    </div>
+                    <!-- Halaman Edit Kas -->
+                    <div class="w-5/6 mt-10" id="editKas" style="display: none; margin-top: 20px;">
+                      <div class="card text-primary-content bg-white">
+                        <div class="card-body">    
+                          <form action="">
+                            <table class="text-black">
+                              <tr>
+                                <td>
+                                  <label for="jenis">Pilih</label>
+                                  <select class="ml-10 input w-full max-w-xs border-[#e7e7e7]" id="jenis" name="jenis">
+                                      <option disabled selected>Pilih</option>
+                                      <option value="pemasukkan">Pemasukkan</option>
+                                      <option value="pengeluaran">Pengeluaran</option>
+                                  </select>
+                                </td>
+                                <td>
+                                  
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <label for="jumlah">Jumlah</label>
+                                  <input class="ml-10 input w-full max-w-xs border-[#e7e7e7]" placeholder="Masukkan jumlah" type="number" id="jumlah" name="jumlah" required>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <label for="saldo">Saldo Akhir</label>
+                                  <input class="ml-10 input w-full max-w-xs border-[#e7e7e7]" placeholder="Masukkan jumlah saldo" type="number" id="saldo" name="saldo" required>
+                                </td>
+                              </tr>
+                            </table> 
+                        </div>
+                      </div>
+                      <div class="card-actions justify-end">
+                      <button class="btn text-white btn-accent mt-6 bg-[#0FA4AF]">Submit</button>
+                    </div>
+                    </form>
+                    </div>
+                </div>
 
                   <div class="w-5/6 hidden mt-12" id="DivLapor"><!-- Wajib Lapor -->
                     <div class="card text-primary-content bg-white">
@@ -165,11 +193,11 @@
                           <table class="text-black">
                             <tr>
                               <td>NIK</td>
-                              <td><input type="text" placeholder="" class="ml-10 input w-full max-w-xs border-[#e7e7e7]" /></td>
+                              <td><input type="text" placeholder="Masukkan NIK" class="ml-10 input w-full max-w-xs border-[#e7e7e7]" /></td>
                             </tr>
                             <tr>
                               <td>Nama</td>
-                              <td><input type="text" placeholder="" class="mt-5 ml-10 input w-full max-w-xs border-[#e7e7e7]" /></td>
+                              <td><input type="text" placeholder="Masukkan nama" class="mt-5 ml-10 input w-full max-w-xs border-[#e7e7e7]" /></td>
                             </tr>
                             <tr>
                               <td>Upload Foto</td>
@@ -240,7 +268,7 @@
                   <div class="flex justify-center">
                     <!-- note -->
                     <!-- biar nampilin edit profile, hidden nya harus di hapus tapi nanti di tiap halaman bakal muncul bagian edit profile -->
-                      <div class="w-5/6 hidden" id="DivEdit"><!-- Edit Porfile --> 
+                      <div class="w-5/6 hidden" id="DivEdit"><!-- Edit Profile --> 
                         <form action="">
                         <div class=" text-primary-content">
                             <div class="card-body">
@@ -311,7 +339,7 @@
         </div>
 
         <!-- sidebar content -->
-        <div class="drawer-side">
+          <div class="drawer-side">
             <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay"></label>
             <ul class="menu text-white h-full w-80 p-4 bg-[#3AAFA9]">
             <div class="lg:hidden flex justify-end mb-4">
@@ -331,7 +359,7 @@
             <li><a id="showLapor" onclick="showLapor()">Data Warga</a></li>
             <li><a id="showLapor" onclick="showLapor()">Pemberitahuan</a></li>
             </ul>
-        </div>
+          </div>
     </div>
     
     <script>
@@ -372,30 +400,18 @@
       document.getElementById("DivKas").style.display = "none";
       document.getElementById("DivLapor").style.display = "none";
       document.getElementById("DivInfo").style.display = "none";
-      document.getElementById("user").style.display = "none";
+      document.getElementById("user").style.display = "block";
       document.getElementById("DivEdit").style.display = "block";
     }
-    function toggleButton(button) {
-      const buttons = document.querySelectorAll('#DivKas .btn');
-      buttons.forEach(btn => {
-        btn.classList.remove('bg-custom-blue', 'text-white');
-        btn.classList.add('bg-white', 'text-gray-800');
-      });
-      button.classList.add('bg-custom-blue', 'text-white');
-      button.classList.remove('bg-white', 'text-gray-800');
-    }
-    function togglebuttonEdit() {
-    const formContainer = document.getElementById('editForm');
-    const editButton = document.getElementById('buttonEdit');
-
-    if (formContainer.style.display === 'none' || formContainer.style.display === '') {
-        formContainer.style.display = 'block';
-        editButton.classList.add('active'); // Optionally, add an active class to style the button differently
-    } else {
-        formContainer.style.display = 'none';
-        editButton.classList.remove('active');
-      }
+    function showKasWarga() {
+        document.getElementById('kasWarga').style.display = 'block';
+        document.getElementById('editKas').style.display = 'none';
     }
 
+    function buttonKas() {
+        document.getElementById('kasWarga').style.display = 'none';
+        document.getElementById('editKas').style.display = 'block';
+    }
+    
   </script>
 </x-app-layout>
