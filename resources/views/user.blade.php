@@ -99,199 +99,180 @@
                     </div>
                     </div>
 
-                    <div class="flex justify-center w-full mt-5">
-                    <div class="w-5/6 hidden mt-10" id="DivKas"><!-- Kas Warga -->
-                        <div class="card text-primary-content bg-white">
-                            <div class="card-body">
-                                <form class="text-black">
-                                <label for="start-date">Tanggal Mulai:</label>
-                                <input type="date" id="start-date" name="start-date" required />
-                                <label for="end-date">Tanggal Akhir:</label>
-                                <input type="date" id="end-date" name="end-date" required />
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="flex justify-center w-full mt-10">
-                    <div class="w-5/6 lg:hidden relative hidden" id="DivLapor"><!-- Wajib Lapor -->
-                    <div class="card text-primary-content bg-white">
-                        <div class="text-black card-body">
-                            <h2 class="card-title">ISI FORM</h2>
-                            <form action="">
-                                <table>
-                                    <tr>
-                                        <td>NIK</td>
-                                        <td><input type="text" placeholder="" class="ml-10 input w-full max-w-xs border-[#e7e7e7]" /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Nama</td>
-                                        <td><input type="text" placeholder="" class="mt-5 ml-10 input w-full max-w-xs border-[#e7e7e7]" /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Upload Foto</td>
-                                        <td><input type="file" class="mt-5 ml-10 file-input w-full max-w-xs border-[#e7e7e7]" /></td>
-                                    </tr>
-                                </table>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="card-actions justify-end">
-                        <button class="btn text-white btn-accent bg-[#0FA4AF] mt-6">Ajukan</button>
-                    </div>
-                    </div>
-                    </div>
-                    <div class="flex justify-center">
-                        <div class="w-5/6 hidden" id="DivInfo"><!-- Info Porfile -->
-                        <div class="card text-primary-content">
-                            <div class="card-body">
-                                <div class="avatar justify-center">
-                                    <div class="w-24 rounded-full">
-                                        <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
-                                    </div>
-                                </div>
-                                <h2 class="text-center text-gray-700">{{$nama}}</h2>
-                                    <table>
-                                    <tr>
-                                        <td class="text-green-500">Nomor KK</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-stone-400">example</td>
-                                    </tr>
-                                    <tr></tr>
-                                    <tr>
-                                        <td class="text-green-500">NIK</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-stone-400">example</td>
-                                    </tr>
-                                    <tr></tr>
-                                    <tr>
-                                        <td class="text-green-500">Jenis Kelamin</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-stone-400">example</td>
-                                    </tr>
-                                    <tr></tr>
-                                    <tr>
-                                        <td class="text-green-500">Tanggal Lahir</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-stone-400">example</td>
-                                    </tr>
-                                    <tr></tr>
-                                    <tr>
-                                        <td class="text-green-500">Email</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-stone-400">example</td>
-                                    </tr>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="card-actions justify-end">
-                            <button class="btn btn-accent text-white bg-[#0FA4AF]" id="showEdit" onclick="showEdit()">Edit</button>
-                        </div>
-                        
-                    </div>
-                    </div>
+      <div class="w-5/6 hidden mt-10" id="DivKas"><!-- Kas Warga -->
+        <div class="card text-primary-content bg-white">
+          <div class="card-body">
+            <form>
+              <label for="start-date">Tanggal Mulai:</label>
+              <input type="date" id="start-date" name="start-date" required />
 
-                    <div class="flex justify-center">
-                    <!-- note -->
-                    <!-- biar nampilin edit profile hidden nya harus di hapus tapi nanti di tiap halaman bakal muncul bagian edit profile -->
-                    <div class="w-5/6 hidden" id="DivEdit"><!-- Edit Porfile --> 
-                        <form action="">
-                        <div class=" text-primary-content">
-                            <div class="card-body">
-                                <div class="avatar flex justify-center items-center">
-                                    <div class="w-24 rounded-full">
-                                        <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
-                                    </div>  
-                                    <label for="file-input">
-                                        <button>
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
-                                            </svg>
-                                        </button>
-                                        <div class="flex justify-center">
-                                            <input id="file-input" type="file" class="file-input w-full max-w-xs bg-white hidden" />
-                                        </div>
-                                    </label>
-                                </div>
-                                <div class="flex justify-center"><input type="text" placeholder="{{$nama}}"
-                                    class="input w-full max-w-xs bg-[#DEF2F1] text-center" /></div>
-                                </div>
-                            </div>
-                            <table>
-                                <tr>
-                                    <td class="text-green-500">Nomor KK</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="text" placeholder="example" class="input w-full max-w-xs bg-[#DEF2F1]" /></td>
-                                </tr>
-                                <tr></tr>
-                                <tr>
-                                    <td class="text-green-500">NIK</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="text" placeholder="example" class="input w-full max-w-xs bg-[#DEF2F1]" /></td>
-                                </tr>
-                                <tr></tr>
-                                <tr>
-                                    <td class="text-green-500">Jenis Kelamin</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="text" placeholder="example" class="input w-full max-w-xs bg-[#DEF2F1]" /></td>
-                                </tr>
-                                <tr></tr>
-                                <tr>
-                                    <td class="text-green-500">Tanggal Lahir</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="date" placeholder="Type here"
-                                        class="input w-full max-w-xs bg-[#DEF2F1]" /></td>
-                                </tr>
-                                <tr></tr>
-                                <tr>
-                                    <td class="text-green-500">Email</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="text" placeholder="Email" class="input w-full max-w-xs bg-[#DEF2F1]" /></td>
-                                </tr>
-                            </table>
-                            <div class="card-actions justify-end mb-8">
-                                <button class="btn btn-secondary text-white">Batal</button>
-                                <button class="btn btn-accent text-white">Simpan</button>
-                            </div>
-                        </form>
-                        </div>
-                    </div>
+              <label for="end-date">Tanggal Akhir:</label>
+              <input type="date" id="end-date" name="end-date" required />
+              <button class="btn btn-accent">Cek</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-5/6 hidden mt-12" id="DivLapor"><!-- Wajib Lapor -->
+        <form action="" method="POST">
+          <div class="card text-primary-content bg-white">
+            <div class="card-body">
+              <h2 class="card-title">ISI FORM</h2>
+              <table>
+                <tr>
+                  <td><label for="nikTamu">NIK</label></td>
+                  <td><input type="text" id="nikTamu" name="" placeholder="NIK Tamu" class="input w-full max-w-xs bg-white" required /></td>
+                </tr>
+                <tr>
+                  <td><label for="namaTamu">Nama</label></td>
+                  <td><input type="text" id="namaTamu" name="" placeholder="Nama Tamu" class="input w-full max-w-xs bg-white" required /></td>
+                </tr>
+                <tr>
+                  <td><label for="uploadKTP">Upload KTP</label></td>
+                  <td><input type="file" id="uploadKTP" name="" class="file-input w-full max-w-xs bg-white" accept=".jpg,.jpeg,.png" required /></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="card-actions justify-end">
+            <button class="btn btn-accent mt-6 text-white">Ajukan</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="w-5/6 hidden" id="DivInfo"><!-- Info Porfile -->
+        <div class="card text-primary-content">
+          <div class="card-body">
+            <div class="avatar justify-center">
+              <div class="w-24 rounded-full">
+                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+              </div>
+            </div>
+            <h2 class="text-center">{{$nama}}</h2>
+            <table>
+              <tr>
+                <td class="text-green-500">Nomor KK</td>
+              </tr>
+              <tr>
+                <td class="text-stone-400">example</td>
+              </tr>
+              <tr></tr>
+              <tr>
+                <td class="text-green-500">NIK</td>
+              </tr>
+              <tr>
+                <td class="text-stone-400">example</td>
+              </tr>
+              <tr></tr>
+              <tr>
+                <td class="text-green-500">Jenis Kelamin</td>
+              </tr>
+              <tr>
+                <td class="text-stone-400">example</td>
+              </tr>
+              <tr></tr>
+              <tr>
+                <td class="text-green-500">Tanggal Lahir</td>
+              </tr>
+              <tr>
+                <td class="text-stone-400">example</td>
+              </tr>
+              <tr></tr>
+              <tr>
+                <td class="text-green-500">Email</td>
+              </tr>
+              <tr>
+                <td class="text-stone-400">example</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="card-actions justify-end">
+          <button class="btn btn-accent text-white" id="showEdit" onclick="showEdit()">Edit</button>
+        </div>
+      </div>
+
+      <div class="w-5/6 hidden" id="DivEdit"><!-- Edit Porfile -->
+        <form action="">
+          <div class="card text-primary-content">
+            <div class="card-body">
+              <label for="chooseAvatar">
+                <div class="avatar flex justify-center items-center">
+                  <div class="w-24 rounded-full">
+                    <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                  </div>
                 </div>
-        </div>
+              </label>
+              <input type="file" id="chooseAvatar" class="hidden" accept=".jpg,.jpeg,.png" accept=".jpg,.jpeg,.png">
+              <div class="flex justify-center"><input type="text" placeholder="{{$nama}}"
+                  class="input w-full max-w-xs bg-[#DEF2F1] text-center" /></div>
+            </div>
+          </div>
+          <table>
+            <tr>
+              <td class="text-green-500">Nomor KK</td>
+            </tr>
+            <tr>
+              <td><input type="text" placeholder="example" class="input w-full max-w-xs bg-[#DEF2F1]" /></td>
+            </tr>
+            <tr></tr>
+            <tr>
+              <td class="text-green-500">NIK</td>
+            </tr>
+            <tr>
+              <td><input type="text" placeholder="example" class="input w-full max-w-xs bg-[#DEF2F1]" /></td>
+            </tr>
+            <tr></tr>
+            <tr>
+              <td class="text-green-500">Jenis Kelamin</td>
+            </tr>
+            <tr>
+              <td><input type="text" placeholder="example" class="input w-full max-w-xs bg-[#DEF2F1]" /></td>
+            </tr>
+            <tr></tr>
+            <tr>
+              <td class="text-green-500">Tanggal Lahir</td>
+            </tr>
+            <tr>
+              <td><input type="date" placeholder="Type here"
+                  class="input input-bordered w-full max-w-xs bg-[#DEF2F1]" /></td>
+            </tr>
+            <tr></tr>
+            <tr>
+              <td class="text-green-500">Email</td>
+            </tr>
+            <tr>
+              <td><input type="text" placeholder="Email" class="input w-full max-w-xs bg-[#DEF2F1]" /></td>
+            </tr>
+          </table>
+          <div class="card-actions justify-end mb-8">
+            <button class="btn btn-secondary text-white" type="reset" id="batal">Batal</button>
+            <button class="btn btn-accent text-white">Simpan</button>
+          </div>
+        </form>
+      </div>
 
-        <!-- sidebar content -->
-        <div class="drawer-side">
-            <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay"></label>
-            <ul class="menu text-white h-full w-80 p-4 bg-[#3AAFA9]">
-            <div class="lg:hidden flex justify-end mb-4">
-                <label for="my-drawer-2" class="cursor-pointer">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white hover:text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-                </label>
-            </div>
-            <!-- sidebar content  -->
-            <div class="text-center mb-4 flex items-center justify-center">
-                <h1 class="mt-10 mb-6 text-xl font-bold">RT 3 RW 1</h1>
-            </div>
-            <li><a id="showSurat" onclick="showSurat()">Surat pengantar</a></li>
-            <li><a id="showKas" onclick="showKas()">Kas warga</a></li>
-            <li><a id="showLapor" onclick="showLapor()">Wajib lapor</a></li>
-            </ul>
-        </div>
+
+
+
+      <!-- KOTAK MENU SEBELAH -->
+      <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">
+        Buka Tab
+      </label>
     </div>
-    
-    <script>
+    <div class="drawer-side">
+      <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay"></label>
+      <ul class="menu bg-[#3AAFA9] text-white min-h-full w-80 p-4">
+        <!-- Sidebar content here -->
+        <h1 class="text-center my-10 text-2xl">RT 3 RW 1</h1>
+        <li><a id="showSurat" onclick="showSurat()">Surat pengantar</a></li>
+        <li><a id="showKas" onclick="showKas()">Kas warga</a></li>
+        <li><a id="showLapor" onclick="showLapor()">Wajib lapor</a></li>
+      </ul>
+    </div>
+  </div>
+  <script>
     function showSurat() {
       document.getElementById("DivSurat").style.display = "block";
       document.getElementById("DivKas").style.display = "none";
@@ -332,5 +313,8 @@
       document.getElementById("user").style.display = "none";
       document.getElementById("DivEdit").style.display = "block";
     }
+    const batal = document.getElementById('batal');
+    batal.addEventListener('click', showInfo);
+
   </script>
 </x-app-layout>
