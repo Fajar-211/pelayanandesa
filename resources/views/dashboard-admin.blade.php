@@ -211,6 +211,31 @@
                       <button class="btn text-white btn-accent mt-6 bg-[#0FA4AF]">Ajukan</button>
                     </div>
                   </div>
+                  <div class="w-5/6 hidden mt-12" id="DivNotif"><!-- Pemberitahuan -->
+                    <div class="card text-primary-content bg-white">
+                      <div class="card-body">
+                        <h2 class="card-title text-black">ISI FORM</h2>
+                        <form action="">
+                          <table class="text-black">
+                            <tr>
+                              <td>Nama Acara</td>
+                              <td><input type="text" placeholder="Nama Acara" class="ml-10 input w-full max-w-xs border-[#e7e7e7]" /></td>
+                            </tr>
+                            <tr>
+                              <td>Deskripsi</td>
+                              <td><input type="text" placeholder="Deskripsi" class="mt-5 ml-10 input w-full max-w-xs border-[#e7e7e7]" /></td>
+                            </tr>
+                            <tr>
+                             
+                            </tr>
+                          </table>
+                        </form>
+                      </div>
+                    </div>
+                    <div class="card-actions justify-end">
+                      <button class="btn text-white btn-accent mt-6 bg-[#0FA4AF]">Ajukan</button>
+                    </div>
+                  </div>
 
                   <div class="w-5/6 hidden" id="DivInfo"><!-- Info Porfile -->
                     <div class="card text-primary-content">
@@ -356,8 +381,8 @@
             <li><a id="showSurat" onclick="showSurat()">Surat pengantar</a></li>
             <li><a id="showKas" onclick="showKas()">Kas warga</a></li>
             <li><a id="showLapor" onclick="showLapor()">Wajib lapor</a></li>
-            <li><a id="showLapor" onclick="showLapor()">Data Warga</a></li>
-            <li><a id="showLapor" onclick="showLapor()">Pemberitahuan</a></li>
+            <li><a id="showLapor" onclick="showDataWarga()">Data Warga</a></li>
+            <li><a id="showNotif" onclick="showNotif()">Pemberitahuan</a></li>
             </ul>
           </div>
     </div>
@@ -370,6 +395,7 @@
       document.getElementById("DivInfo").style.display = "none";
       document.getElementById("user").style.display = "block";
       document.getElementById("DivEdit").style.display = "none";
+      document.getElementById("DivNotif").style.display = "none";  
     }
     function showKas() {
       document.getElementById("DivSurat").style.display = "none";
@@ -378,6 +404,7 @@
       document.getElementById("DivInfo").style.display = "none";
       document.getElementById("user").style.display = "block";
       document.getElementById("DivEdit").style.display = "none";
+      document.getElementById("DivNotif").style.display = "none";  
     }
     function showLapor() {
       document.getElementById("DivSurat").style.display = "none";
@@ -386,6 +413,7 @@
       document.getElementById("DivInfo").style.display = "none";
       document.getElementById("user").style.display = "block";
       document.getElementById("DivEdit").style.display = "none";
+      document.getElementById("DivNotif").style.display = "none";  
     }
     function showInfo() {
       document.getElementById("DivSurat").style.display = "none";
@@ -394,6 +422,16 @@
       document.getElementById("DivInfo").style.display = "block";
       document.getElementById("user").style.display = "none";
       document.getElementById("DivEdit").style.display = "none";
+      document.getElementById("DivNotif").style.display = "none";  
+    }
+    function showNotif() {
+      document.getElementById("DivSurat").style.display = "none";
+      document.getElementById("DivKas").style.display = "none";
+      document.getElementById("DivLapor").style.display = "none";
+      document.getElementById("DivInfo").style.display = "none";
+      document.getElementById("user").style.display = "none";
+      document.getElementById("DivEdit").style.display = "none";
+      document.getElementById("DivNotif").style.display = "block";    
     }
     function showEdit() {
       document.getElementById("DivSurat").style.display = "none";
@@ -402,6 +440,7 @@
       document.getElementById("DivInfo").style.display = "none";
       document.getElementById("user").style.display = "block";
       document.getElementById("DivEdit").style.display = "block";
+      document.getElementById("DivNotif").style.display = "none";  
     }
     function showKasWarga() {
         document.getElementById('kasWarga').style.display = 'block';

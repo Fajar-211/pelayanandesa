@@ -30,9 +30,6 @@ Route::get('/dashboard-admin', function(){
 Route::get('/template', function(){
     return view("template",["nama" => 'Pengguna']);
 });
-Route::get('/template1', function(){
-    return view("template1",["nama" => 'Pengguna']);
-});
 Route::post('/surat-pengantar', [SuratPengantarController::class, 'store'])->name('surat-pengantar.store');
 require __DIR__.'/auth.php';
 Route::post('/wajib_lapors', [WajibLaporController::class, 'store'])->name('wajib_lapors.store')->middleware('auth');
