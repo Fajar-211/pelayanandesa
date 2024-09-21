@@ -14,7 +14,7 @@
       <div class="navbar rounded-box mt-10">
         <div class="flex flex-1 justify-end px-2">
           <div class="flex items-stretch">
-            <h2 class="my-4 mr-4 text-black" id="user">Hallo {{$nama}} </h2>
+            <h2 class="my-4 mr-4 text-black" id="user">Hallo </h2>
 
             <!-- Info Profil -->
             <div class="dropdown dropdown-end mr-4">
@@ -59,12 +59,9 @@
               </div>
               <ul tabindex="0" class="menu dropdown-content bg-white rounded-box z-[1] mt-4 w-52 p-2 shadow">
                 <li class="text-center text-black">Notifikasi</li>
-                <li></li>
-                <li><a>Notifikasi 1</a></li>
-                <li><a>Notifikasi 2</a></li>
-                <li><a>Notifikasi 3</a></li>
-                <li><a>Notifikasi 4</a></li>
-                <li><a>Notifikasi 5</a></li>
+                @foreach ($notifikasi as $item)
+                  <li>{{ $item->deskripsi }} ({{ $item->created_at }})</li>
+                @endforeach
               </ul>
             </div>
 
@@ -127,22 +124,25 @@
 
       <div class="w-5/6 hidden mt-12" id="DivLapor"><!-- Wajib Lapor -->
         <form action="{{ route('wajib_lapors.store') }}" method="POST" enctype="multipart/form-data">
-        @csrf
+          @csrf
           <div class="card text-primary-content bg-white">
             <div class="card-body">
               <h2 class="card-title">ISI FORM</h2>
               <table>
                 <tr>
                   <td><label for="nikTamu">NIK</label></td>
-                  <td><input type="text" id="nikTamu" name="nik_tamu" placeholder="NIK Tamu" class="input w-full max-w-xs bg-white" required /></td>
+                  <td><input type="text" id="nikTamu" name="nik_tamu" placeholder="NIK Tamu"
+                      class="input w-full max-w-xs bg-white" required /></td>
                 </tr>
                 <tr>
                   <td><label for="namaTamu">Nama</label></td>
-                  <td><input type="text" id="namaTamu" name="nama_tamu" placeholder="Nama Tamu" class="input w-full max-w-xs bg-white" required /></td>
+                  <td><input type="text" id="namaTamu" name="nama_tamu" placeholder="Nama Tamu"
+                      class="input w-full max-w-xs bg-white" required /></td>
                 </tr>
                 <tr>
                   <td><label for="uploadKTP">Upload KTP</label></td>
-                  <td><input type="file" id="uploadKTP" name="foto_tamu" class="file-input w-full max-w-xs bg-white" accept=".jpg,.jpeg,.png" required /></td>
+                  <td><input type="file" id="uploadKTP" name="foto_tamu" class="file-input w-full max-w-xs bg-white"
+                      accept=".jpg,.jpeg,.png" required /></td>
                 </tr>
               </table>
             </div>
@@ -153,57 +153,57 @@
         </form>
       </div>
 
-                  <div class="w-5/6 hidden" id="DivInfo"><!-- Info Porfile -->
-                    <div class="card text-primary-content">
-                      <div class="card-body">
-                        <div class="avatar justify-center">
-                          <div class="w-24 rounded-full">
-                            <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
-                          </div>
-                        </div>
-                        <h2 class="text-center">{{$nama}}</h2>
-                        <table>
-                          <tr>
-                            <td class="text-green-500">Nomor KK</td>
-                          </tr>
-                          <tr>
-                            <td class="text-stone-400">example</td>
-                          </tr>
-                          <tr></tr>
-                          <tr>
-                            <td class="text-green-500">NIK</td>
-                          </tr>
-                          <tr>
-                            <td class="text-stone-400">example</td>
-                          </tr>
-                          <tr></tr>
-                          <tr>
-                            <td class="text-green-500">Jenis Kelamin</td>
-                          </tr>
-                          <tr>
-                            <td class="text-stone-400">example</td>
-                          </tr>
-                          <tr></tr>
-                          <tr>
-                            <td class="text-green-500">Tanggal Lahir</td>
-                          </tr>
-                          <tr>
-                            <td class="text-stone-400">example</td>
-                          </tr>
-                          <tr></tr>
-                          <tr>
-                            <td class="text-green-500">Email</td>
-                          </tr>
-                          <tr>
-                            <td class="text-stone-400">example</td>
-                          </tr>
-                        </table>
-                      </div>
-                    </div>
-                    <div class="card-actions justify-end">
-                      <button class="btn btn-accent text-white" id="showEdit" onclick="showEdit()">Edit</button>
-                    </div>
-                  </div>
+      <div class="w-5/6 hidden" id="DivInfo"><!-- Info Porfile -->
+        <div class="card text-primary-content">
+          <div class="card-body">
+            <div class="avatar justify-center">
+              <div class="w-24 rounded-full">
+                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+              </div>
+            </div>
+            <h2 class="text-center">Pengguna</h2>
+            <table>
+              <tr>
+                <td class="text-green-500">Nomor KK</td>
+              </tr>
+              <tr>
+                <td class="text-stone-400">example</td>
+              </tr>
+              <tr></tr>
+              <tr>
+                <td class="text-green-500">NIK</td>
+              </tr>
+              <tr>
+                <td class="text-stone-400">example</td>
+              </tr>
+              <tr></tr>
+              <tr>
+                <td class="text-green-500">Jenis Kelamin</td>
+              </tr>
+              <tr>
+                <td class="text-stone-400">example</td>
+              </tr>
+              <tr></tr>
+              <tr>
+                <td class="text-green-500">Tanggal Lahir</td>
+              </tr>
+              <tr>
+                <td class="text-stone-400">example</td>
+              </tr>
+              <tr></tr>
+              <tr>
+                <td class="text-green-500">Email</td>
+              </tr>
+              <tr>
+                <td class="text-stone-400">example</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="card-actions justify-end">
+          <button class="btn btn-accent text-white" id="showEdit" onclick="showEdit()">Edit</button>
+        </div>
+      </div>
 
       <div class="w-5/6 hidden" id="DivEdit"><!-- Edit Porfile -->
         <form action="">
@@ -217,7 +217,7 @@
                 </div>
               </label>
               <input type="file" id="chooseAvatar" class="hidden" accept=".jpg,.jpeg,.png" accept=".jpg,.jpeg,.png">
-              <div class="flex justify-center"><input type="text" placeholder="{{$nama}}"
+              <div class="flex justify-center"><input type="text" placeholder="Pengguna"
                   class="input w-full max-w-xs bg-[#DEF2F1] text-center" /></div>
             </div>
           </div>
@@ -327,7 +327,7 @@
       document.getElementById("user").style.display = "block";
       document.getElementById("DivEdit").style.display = "none";
     }
-    
+
     function showInfo() {
       document.getElementById("DivSurat").style.display = "none";
       document.getElementById("DivKas").style.display = "none";
