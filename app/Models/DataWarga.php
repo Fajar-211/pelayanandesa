@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class DataWarga extends Model
 {
     use HasFactory;
-    protected $table = 'surat_pengantar';
+    // protected $table = 'surat_pengantar';
 
     protected $fillable = [
         'no',

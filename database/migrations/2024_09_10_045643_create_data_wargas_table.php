@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('data_wargas', function (Blueprint $table) {
-            $table->id('no'); // Menjadikan 'no' sebagai primary key dengan tipe data BIGINT (id otomatis menggunakan bigIncrements)
+            $table->id();
             $table->string('nama'); // Nama dengan tipe VARCHAR
             $table->date('tanggal_lahir'); // Tanggal lahir dengan tipe DATE
             $table->string('no_kk', 16); // No Kartu Keluarga (KK) dengan tipe VARCHAR panjang 16
