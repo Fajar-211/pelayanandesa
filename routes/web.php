@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\ImportController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\NotifikasiController;
@@ -39,5 +41,7 @@ require __DIR__.'/auth.php';
 Route::post('/wajib_lapors', [WajibLaporController::class, 'store'])->name('wajib_lapors.store')->middleware('auth');
 Route::post('/notif/store', [NotifikasiController::class, 'store'])->name('notif.store');
 // Route::get('/user', [NotifikasiController::class, 'index']);
+
+Route::post('/data-warga/import', [ImportController::class, 'dataWargaImport'])->name('import.datawarga');
 
 
