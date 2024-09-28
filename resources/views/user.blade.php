@@ -288,7 +288,7 @@
             <ul class="menu bg-[#3AAFA9] text-white min-h-full w-80 p-4">
                 <!-- Sidebar content here -->
                 <h1 class="text-center my-10 text-2xl">RT 3 RW 1</h1>
-                <li><a id="showSurat" onclick="showSurat()">Surat pengantar</a></li>
+                <li><a href="user-surat-pengantar.blade.php" id="showSurat" onclick="showSurat()">Surat pengantar</a></li>
                 <li><a id="showKas" onclick="showKas()">Kas warga</a></li>
                 <li><a id="showLapor" onclick="showLapor()">Wajib lapor</a></li>
             </ul>

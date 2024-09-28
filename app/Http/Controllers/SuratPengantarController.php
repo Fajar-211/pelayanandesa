@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\SuratPengantar;
+use App\Models\Notifikasi;
 
 class SuratPengantarController extends Controller
 {
@@ -22,5 +23,11 @@ class SuratPengantarController extends Controller
 
         // Redirect atau berikan response sukses
         return redirect()->back()->with('success', 'Data berhasil disimpan!');
+    }
+    public function index(){
+        $notifikasi = Notifikasi::orderBy('created_at', 'desc')->take(5)->get();
+
+        // Kirim data ke view
+        return view('user-surat-pengantar', compact('notifikasi'));
     }
 }
