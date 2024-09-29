@@ -6,6 +6,9 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\NotifikasiController;
 use App\Http\Controllers\WajibLaporController;
 use App\Http\Controllers\SuratPengantarController;
+use App\Http\Controllers\KasWargaController;
+use App\Http\Controllers\InfoProfilController;
+use App\Http\Controllers\EditProfilController;
 use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
@@ -24,11 +27,14 @@ Route::middleware('auth')->group(function () {
 Route::get('/lojin', function () {
     return view("lojin", ["nama" => "fajar"]);
 });
+
 Route::get('/user', [UserController::class, 'index'])->middleware(['auth', 'verified'])->name('user');
 
-
 Route::get('/user/surat-pengantar',  [SuratPengantarController::class, 'index']);
-
+Route::get('/user/wajib-lapors',  [WajibLaporController::class, 'index']);
+Route::get('/user/kas-warga',  [KasWargaController::class, 'index']);
+Route::get('/user/info-profil',  [InfoProfilController::class, 'index']);
+Route::get('/user/edit-profil',  [EditProfilController::class, 'index']);
 
 Route::get('/dashboard-admin', function(){
     return view("dashboard-admin",["nama" => 'Pengguna']);

@@ -76,40 +76,68 @@
 
             <!-- Konten halaman lainnya -->
             <!-- ISI KONTEN TAMBAHAN DAPAT DILETAKKAN DI SINI -->
-            <div class="w-5/6 hidden mt-10" id="suratpengantar"><!-- Surat Pengantar -->
-                <form action="{{ route('surat-pengantar.store') }}" method="POST">
-                    @csrf
-                    <div class="card text-primary-content bg-white">
+            <div class="w-5/6 hidden" id="DivEdit"><!-- Edit Porfile -->
+                <form action="">
+                    <div class="card text-primary-content">
                         <div class="card-body">
-                            <h2 class="card-title">ISI FORM</h2>
-                            <table>
-                                <tr>
-                                    <td><label for="nokk">Nomor KK</label></td>
-                                    <td><input type="text" id="nokk" name="nokk"
-                                            placeholder="Nomor Kartu Keluarga" class="input w-full max-w-xs bg-white"
-                                            required /></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="nik">NIK</label></td>
-                                    <td><input type="text" id="nik" name="nik"
-                                            placeholder="Nomor Induk KTP" class="input w-full max-w-xs bg-white"
-                                            required /></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="nama">Nama</label></td>
-                                    <td><input type="text" id="nama" name="nama" placeholder="Nama"
-                                            class="input w-full max-w-xs bg-white" required /></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="keperluan">Keperluan</label></td>
-                                    <td><input type="text" id="keperluan" name="keperluan" placeholder="Keperluan"
-                                            class="input w-full max-w-xs bg-white" required /></td>
-                                </tr>
-                            </table>
+                            <label for="chooseAvatar">
+                                <div class="avatar flex justify-center items-center">
+                                    <div class="w-24 rounded-full">
+                                        <img
+                                            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                    </div>
+                                </div>
+                            </label>
+                            <input type="file" id="chooseAvatar" class="hidden" accept=".jpg,.jpeg,.png"
+                                accept=".jpg,.jpeg,.png">
+                            <div class="flex justify-center"><input type="text" placeholder="Pengguna"
+                                    class="input w-full max-w-xs bg-[#DEF2F1] text-center" /></div>
                         </div>
                     </div>
-                    <div class="card-actions justify-end">
-                        <button type="submit" class="btn btn-accent mt-6">Ajukan</button>
+                    <table>
+                        <tr>
+                            <td class="text-green-500">Nomor KK</td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" placeholder="example"
+                                    class="input w-full max-w-xs bg-[#DEF2F1]" /></td>
+                        </tr>
+                        <tr></tr>
+                        <tr>
+                            <td class="text-green-500">NIK</td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" placeholder="example"
+                                    class="input w-full max-w-xs bg-[#DEF2F1]" /></td>
+                        </tr>
+                        <tr></tr>
+                        <tr>
+                            <td class="text-green-500">Jenis Kelamin</td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" placeholder="example"
+                                    class="input w-full max-w-xs bg-[#DEF2F1]" /></td>
+                        </tr>
+                        <tr></tr>
+                        <tr>
+                            <td class="text-green-500">Tanggal Lahir</td>
+                        </tr>
+                        <tr>
+                            <td><input type="date" placeholder="Type here"
+                                    class="input input-bordered w-full max-w-xs bg-[#DEF2F1]" /></td>
+                        </tr>
+                        <tr></tr>
+                        <tr>
+                            <td class="text-green-500">Email</td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" placeholder="Email"
+                                    class="input w-full max-w-xs bg-[#DEF2F1]" /></td>
+                        </tr>
+                    </table>
+                    <div class="card-actions justify-end mb-8">
+                        <button class="btn btn-secondary text-white" type="reset" onclick="window.history.back();">Batal</button>
+                        <button class="btn btn-accent text-white">Simpan</button>
                     </div>
                 </form>
             </div>
@@ -121,7 +149,7 @@
             <ul class="menu bg-[#3AAFA9] text-white min-h-full w-80 p-4">
                 <!-- Sidebar content here -->
                 <h1 class="text-center my-10 text-2xl">RT 3 RW 1</h1>
-                <li><a href="{{url('/user/surat-pengantar')}}">Surat pengantar</a></li>
+                <li><a href="{{url('/user/surat-pengantar')}}" id="showSurat" onclick="showSurat()">Surat pengantar</a></li>
                 <li><a href="{{url('/user/kas-warga')}}">Kas warga</a></li>
                 <li><a href="{{url('/user/wajib-lapors')}}">Wajib lapor</a></li>
             </ul>
@@ -150,6 +178,6 @@
         `;
             }
         });
-        document.getElementById("suratpengantar").style.display = "block";
+            document.getElementById("DivEdit").style.display = "block";
     </script>
 </x-app-layout>

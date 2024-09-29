@@ -76,42 +76,57 @@
 
             <!-- Konten halaman lainnya -->
             <!-- ISI KONTEN TAMBAHAN DAPAT DILETAKKAN DI SINI -->
-            <div class="w-5/6 hidden mt-10" id="suratpengantar"><!-- Surat Pengantar -->
-                <form action="{{ route('surat-pengantar.store') }}" method="POST">
-                    @csrf
-                    <div class="card text-primary-content bg-white">
-                        <div class="card-body">
-                            <h2 class="card-title">ISI FORM</h2>
-                            <table>
-                                <tr>
-                                    <td><label for="nokk">Nomor KK</label></td>
-                                    <td><input type="text" id="nokk" name="nokk"
-                                            placeholder="Nomor Kartu Keluarga" class="input w-full max-w-xs bg-white"
-                                            required /></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="nik">NIK</label></td>
-                                    <td><input type="text" id="nik" name="nik"
-                                            placeholder="Nomor Induk KTP" class="input w-full max-w-xs bg-white"
-                                            required /></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="nama">Nama</label></td>
-                                    <td><input type="text" id="nama" name="nama" placeholder="Nama"
-                                            class="input w-full max-w-xs bg-white" required /></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="keperluan">Keperluan</label></td>
-                                    <td><input type="text" id="keperluan" name="keperluan" placeholder="Keperluan"
-                                            class="input w-full max-w-xs bg-white" required /></td>
-                                </tr>
-                            </table>
+            <div class="w-5/6 hidden" id="DivInfo"><!-- Info Porfile -->
+                <div class="card text-primary-content">
+                    <div class="card-body">
+                        <div class="avatar justify-center">
+                            <div class="w-24 rounded-full">
+                                <img
+                                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                            </div>
                         </div>
+                        <h2 class="text-center"></h2>
+                        <table>
+                            <tr>
+                                <td class="text-green-500">Nomor KK</td>
+                            </tr>
+                            <tr>
+                                <td class="text-stone-400">example</td>
+                            </tr>
+                            <tr></tr>
+                            <tr>
+                                <td class="text-green-500">NIK</td>
+                            </tr>
+                            <tr>
+                                <td class="text-stone-400">example</td>
+                            </tr>
+                            <tr></tr>
+                            <tr>
+                                <td class="text-green-500">Jenis Kelamin</td>
+                            </tr>
+                            <tr>
+                                <td class="text-stone-400">example</td>
+                            </tr>
+                            <tr></tr>
+                            <tr>
+                                <td class="text-green-500">Tanggal Lahir</td>
+                            </tr>
+                            <tr>
+                                <td class="text-stone-400">example</td>
+                            </tr>
+                            <tr></tr>
+                            <tr>
+                                <td class="text-green-500">Email</td>
+                            </tr>
+                            <tr>
+                                <td class="text-stone-400">example</td>
+                            </tr>
+                        </table>
                     </div>
-                    <div class="card-actions justify-end">
-                        <button type="submit" class="btn btn-accent mt-6">Ajukan</button>
-                    </div>
-                </form>
+                </div>
+                <div class="card-actions justify-end">
+                    <a href="{{url('/user/edit-profil')}}" class="btn btn-accent text-white">Edit</a>
+                </div>
             </div>
 
         </div>
@@ -121,7 +136,7 @@
             <ul class="menu bg-[#3AAFA9] text-white min-h-full w-80 p-4">
                 <!-- Sidebar content here -->
                 <h1 class="text-center my-10 text-2xl">RT 3 RW 1</h1>
-                <li><a href="{{url('/user/surat-pengantar')}}">Surat pengantar</a></li>
+                <li><a href="{{url('/user/surat-pengantar')}}" id="showSurat" onclick="showSurat()">Surat pengantar</a></li>
                 <li><a href="{{url('/user/kas-warga')}}">Kas warga</a></li>
                 <li><a href="{{url('/user/wajib-lapors')}}">Wajib lapor</a></li>
             </ul>
@@ -150,6 +165,8 @@
         `;
             }
         });
-        document.getElementById("suratpengantar").style.display = "block";
+
+        // Fungsi untuk menampilkan konten sesuai pilihan
+            document.getElementById("DivInfo").style.display = "block";
     </script>
 </x-app-layout>

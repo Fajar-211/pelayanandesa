@@ -76,40 +76,35 @@
 
             <!-- Konten halaman lainnya -->
             <!-- ISI KONTEN TAMBAHAN DAPAT DILETAKKAN DI SINI -->
-            <div class="w-5/6 hidden mt-10" id="suratpengantar"><!-- Surat Pengantar -->
-                <form action="{{ route('surat-pengantar.store') }}" method="POST">
+            <div class="w-5/6 hidden mt-12" id="DivLapor"><!-- Wajib Lapor -->
+                <form action="{{ route('wajib_lapors.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="card text-primary-content bg-white">
                         <div class="card-body">
                             <h2 class="card-title">ISI FORM</h2>
                             <table>
                                 <tr>
-                                    <td><label for="nokk">Nomor KK</label></td>
-                                    <td><input type="text" id="nokk" name="nokk"
-                                            placeholder="Nomor Kartu Keluarga" class="input w-full max-w-xs bg-white"
-                                            required /></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="nik">NIK</label></td>
-                                    <td><input type="text" id="nik" name="nik"
-                                            placeholder="Nomor Induk KTP" class="input w-full max-w-xs bg-white"
-                                            required /></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="nama">Nama</label></td>
-                                    <td><input type="text" id="nama" name="nama" placeholder="Nama"
+                                    <td><label for="nikTamu">NIK</label></td>
+                                    <td><input type="text" id="nikTamu" name="nik_tamu" placeholder="NIK Tamu"
                                             class="input w-full max-w-xs bg-white" required /></td>
                                 </tr>
                                 <tr>
-                                    <td><label for="keperluan">Keperluan</label></td>
-                                    <td><input type="text" id="keperluan" name="keperluan" placeholder="Keperluan"
-                                            class="input w-full max-w-xs bg-white" required /></td>
+                                    <td><label for="namaTamu">Nama</label></td>
+                                    <td><input type="text" id="namaTamu" name="nama_tamu"
+                                            placeholder="Nama Tamu" class="input w-full max-w-xs bg-white" required />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label for="uploadKTP">Upload KTP</label></td>
+                                    <td><input type="file" id="uploadKTP" name="foto_tamu"
+                                            class="file-input w-full max-w-xs bg-white" accept=".jpg,.jpeg,.png"
+                                            required /></td>
                                 </tr>
                             </table>
                         </div>
                     </div>
                     <div class="card-actions justify-end">
-                        <button type="submit" class="btn btn-accent mt-6">Ajukan</button>
+                        <button class="btn btn-accent mt-6 text-white">Ajukan</button>
                     </div>
                 </form>
             </div>
@@ -150,6 +145,9 @@
         `;
             }
         });
-        document.getElementById("suratpengantar").style.display = "block";
+
+        // Fungsi untuk menampilkan konten sesuai pilihan
+        document.getElementById("DivLapor").style.display = "block";
+           
     </script>
 </x-app-layout>

@@ -35,7 +35,7 @@
                             </div>
                             <ul tabindex="0"
                                 class="menu dropdown-content bg-white rounded-box z-[1] mt-4 w-52 p-2 shadow">
-                                <li><a class="text-black">Info Profil</a></li>
+                                <li><a href="{{url('/user/info-profil')}}" class="text-black">Info Profil</a></li>
                                 <li>
                                     <form action="{{ route('logout') }}" method="POST">
                                         @csrf
@@ -67,7 +67,7 @@
                                 @foreach ($notifikasi as $item)
                                     <li>{{ $item->deskripsi }} ({{ $item->created_at }})</li>
                                 @endforeach
-                            </ul>
+                            </ul> 
                         </div>
 
                     </div>
@@ -76,7 +76,7 @@
 
             <!-- Konten halaman lainnya -->
             <!-- ISI KONTEN TAMBAHAN DAPAT DILETAKKAN DI SINI -->
-            <div class="w-5/6 hidden mt-10" id="DivKas"><!-- Kas Warga -->
+            <div class="w-5/6 hidden mt-10" id="kas"><!-- Kas Warga -->
                 <div class="card text-primary-content bg-white">
                     <div class="card-body">
                         <form>
@@ -98,9 +98,9 @@
             <ul class="menu bg-[#3AAFA9] text-white min-h-full w-80 p-4">
                 <!-- Sidebar content here -->
                 <h1 class="text-center my-10 text-2xl">RT 3 RW 1</h1>
-                <li><a>Surat pengantar</a></li>
-                <li><a>Kas warga</a></li>
-                <li><a">Wajib lapor</a></li>
+                <li><a href="{{url('/user/surat-pengantar')}}">Surat pengantar</a></li>
+                <li><a href="{{url('/user/kas-warga')}}">Kas warga</a></li>
+                <li><a href="{{url('/user/wajib-lapors')}}">Wajib lapor</a></li>
             </ul>
         </div>
     </div>
@@ -127,4 +127,6 @@
         `;
             }
         });
+        document.getElementById("kas").style.display = "block";
+    </script>
 </x-app-layout>
