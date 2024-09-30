@@ -426,7 +426,7 @@
                     </div>
                     <li><a id="showSurat" onclick="showSurat()">Surat pengantar</a></li>
                     <li><a id="showKas" onclick="showKas()">Kas warga</a></li>
-                    <li><a id="showLapor" onclick="showLapor()">Wajib lapor</a></li>
+                    <li><a id="showLapor" onclick="">Wajib lapor</a></li>
                     <li><a id="showLapor" onclick="showLapor()">Data Warga</a></li>
                     <li><a id="showLapor" onclick="showPemberitahuan()">Pemberitahuan</a></li>
                 </ul>

@@ -171,7 +171,7 @@
                                     src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
                             </div>
                         </div>
-                        <h2 class="text-center">{{ $user->name }}</h2>
+                        <h2 class="text-center text-black">{{ $user->name }}</h2>
                         <table>
                             <tr>
                                 <td class="text-green-500">Nomor KK</td>
@@ -230,7 +230,8 @@
                             <input type="file" id="chooseAvatar" class="hidden" accept=".jpg,.jpeg,.png"
                                 accept=".jpg,.jpeg,.png">
                             <div class="flex justify-center"><input type="text" placeholder="Pengguna"
-                                    class="input w-full max-w-xs bg-[#DEF2F1] text-center" /></div>
+                                    class="input w-full max-w-xs bg-[#DEF2F1] text-center" />  
+                            </div>
                         </div>
                     </div>
                     <table>
