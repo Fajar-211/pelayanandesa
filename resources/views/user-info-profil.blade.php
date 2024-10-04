@@ -35,7 +35,7 @@
                             </div>
                             <ul tabindex="0"
                                 class="menu dropdown-content bg-white rounded-box z-[1] mt-4 w-52 p-2 shadow">
-                                <li><a href="{{url('/user/info-profil')}}" class="text-black">Info Profil</a></li>
+                                <li><a href="{{ url('/user/info-profil') }}" class="text-black">Info Profil</a></li>
                                 <li>
                                     <form action="{{ route('logout') }}" method="POST">
                                         @csrf
@@ -81,8 +81,7 @@
                     <div class="card-body">
                         <div class="avatar justify-center">
                             <div class="w-24 rounded-full">
-                                <img
-                                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
                             </div>
                         </div>
                         <h2 class="text-center"></h2>
@@ -91,14 +90,17 @@
                                 <td class="text-green-500">Nomor KK</td>
                             </tr>
                             <tr>
-                                <td class="text-stone-400">example</td>
+                                <td class="text-stone-400">
+                                    {{ \App\models\DataWarga::where('email', Auth::user()->email)->first()->no_kk }}
+                                </td>
                             </tr>
                             <tr></tr>
                             <tr>
                                 <td class="text-green-500">NIK</td>
                             </tr>
                             <tr>
-                                <td class="text-stone-400">example</td>
+                                <td class="text-stone-400">
+                                    {{ \App\models\DataWarga::where('email', Auth::user()->email)->first()->nik }}</td>
                             </tr>
                             <tr></tr>
                             <tr>
@@ -125,7 +127,7 @@
                     </div>
                 </div>
                 <div class="card-actions justify-end">
-                    <a href="{{url('/user/edit-profil')}}" class="btn btn-accent text-white">Edit</a>
+                    <a href="{{ url('/user/edit-profil') }}" class="btn btn-accent text-white">Edit</a>
                 </div>
             </div>
 
@@ -136,9 +138,10 @@
             <ul class="menu bg-[#3AAFA9] text-white min-h-full w-80 p-4">
                 <!-- Sidebar content here -->
                 <h1 class="text-center my-10 text-2xl">RT 3 RW 1</h1>
-                <li><a href="{{url('/user/surat-pengantar')}}" id="showSurat" onclick="showSurat()">Surat pengantar</a></li>
-                <li><a href="{{url('/user/kas-warga')}}">Kas warga</a></li>
-                <li><a href="{{url('/user/wajib-lapors')}}">Wajib lapor</a></li>
+                <li><a href="{{ url('/user/surat-pengantar') }}" id="showSurat" onclick="showSurat()">Surat
+                        pengantar</a></li>
+                <li><a href="{{ url('/user/kas-warga') }}">Kas warga</a></li>
+                <li><a href="{{ url('/user/wajib-lapors') }}">Wajib lapor</a></li>
             </ul>
         </div>
     </div>
@@ -167,6 +170,6 @@
         });
 
         // Fungsi untuk menampilkan konten sesuai pilihan
-            document.getElementById("DivInfo").style.display = "block";
+        document.getElementById("DivInfo").style.display = "block";
     </script>
 </x-app-layout>
