@@ -15,8 +15,7 @@
                                         d="M4 6h16M4 12h16M4 18h16" />
                                 </svg>
                             </label>
-                            <span class="text-lg lg:text-xl font-semibold ml-10 text-[#2B7A78]">Hallo,
-                                </span>
+                            <span class="text-lg lg:text-xl font-semibold ml-10 text-[#2B7A78]">Hallo,</span>
                         </div>
 
                         <div class="flex items-center">
@@ -39,7 +38,10 @@
                                     class="menu dropdown-content bg-white rounded-box z-[1] mt-4 w-52 p-2 shadow">
                                     <li><a class="text-black" href="{{url('/admin/info-profile')}}">Info Profil</a></li>
                                     @csrf
-                                    <li><a class="text-red-600">Log Out</a></li>
+                                    <li><form action="{{ route('logout') }}" method="POST">
+                                        @csrf
+                                        <button class="text-red-500">Log Out</button>
+                                    </form></li>
                                 </ul>
                             </div>
                         </div>
@@ -123,104 +125,7 @@
                             <br>
                         </div>
                     </div>
-                        <div class="w-5/6 hidden mt-10" id="DivKas">
-                            <!-- Kas Warga -->
-                            <button class="btn bg-white text-gray-800 hover:bg-gray-200 focus:outline-none"
-                                id="buttonKasWarga" onclick="showKasWarga()">Kas Warga</button>
-                            <button class="btn bg-white text-gray-800 hover:bg-gray-200 focus:outline-none"
-                                id="buttonKas" onclick="buttonKas()">Edit</button>
-
-                            <!-- Halaman Kas Warga -->
-                            <div class="w-5/6 mt-10" id="kasWarga" style="margin-top: 20px;">
-                                <h2>Halaman Tabel Kas Warga</h2>
-                                <!-- Isi halaman Kas Warga -->
-                            </div>
-                            <!-- Halaman Edit Kas -->
-                            <div class="w-5/6 mt-10" id="editKas" style="display: none; margin-top: 20px;">
-                                <div class="card text-primary-content bg-white">
-                                    <div class="card-body">
-                                        <form action="">
-                                            <table class="text-black">
-                                                <tr>
-                                                    <td>
-                                                        <label for="jenis">Pilih</label>
-                                                        <select class="ml-10 input w-full max-w-xs border-[#e7e7e7]"
-                                                            id="jenis" name="jenis">
-                                                            <option disabled selected>Pilih</option>
-                                                            <option value="pemasukkan">Pemasukkan</option>
-                                                            <option value="pengeluaran">Pengeluaran</option>
-                                                        </select>
-                                                    </td>
-                                                    <td>
-
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <label for="jumlah">Jumlah</label>
-                                                        <input class="ml-10 input w-full max-w-xs border-[#e7e7e7]"
-                                                            placeholder="Masukkan jumlah" type="number"
-                                                            id="jumlah" name="jumlah" required>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <label for="saldo">Saldo Akhir</label>
-                                                        <input class="ml-10 input w-full max-w-xs border-[#e7e7e7]"
-                                                            placeholder="Masukkan jumlah saldo" type="number"
-                                                            id="saldo" name="saldo" required>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                    </div>
-                                </div>
-                                <div class="card-actions justify-end">
-                                    <button class="btn text-white btn-accent mt-6 bg-[#0FA4AF]">Submit</button>
-                                </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="bg-[#DEF2F1] flex justify-center w-full ">
-                        <div class="w-5/6 hidden mt-12" id="DivDataWarga"><!-- Data Warga -->
-                            <div class="card text-primary-content bg-white">
-                                <div class="card-body">
-                                    <h2 class="card-title text-black">Data Warga</h2>
-                                    <form action="{{ route('import.datawarga') }}" method="POST"
-                                        enctype="multipart/form-data">
-                                        @csrf
-                                        <input type="file" name="file" accept=".xlsx">
-                                        <button type="submit" class="btn">Import</button>
-                                    </form>
-                                    <livewire:data-warga-table />
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-
-                        <div class="bg-[#DEF2F1] flex justify-center w-full ">
-                            <div class="w-5/6 hidden mt-12" id="DivPemberitahuan">
-                                <div class="card text-primary-content bg-white">
-                                    <div class="card-body">
-                                        <form action="{{ route('notif.store') }}" method="post">
-                                            @csrf
-                                            <table>
-                                                <tr>
-                                                    <td><label class="text-black" for="deskripsi">Notifikasi</label></td>
-                                                    <td><input type="text" id="deskripsi" name="deskripsi" placeholder="notifikasi" class="input w-full max-w-xs bg-white" required /></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><button class="btn btn-accent text-white">Kirim</button></td>
-                                                    <td></td>
-                                                </tr>
-
-                                            </table>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                
+                </div>
             </div>
 
             <!-- sidebar content -->
@@ -240,13 +145,12 @@
                     <div class="text-center mb-4 flex items-center justify-center">
                         <h1 class="mt-10 mb-6 text-xl font-bold">RT 3 RW 1</h1>
                     </div>
-                    <li><a href="{{url('/admin/surat-pengantar')}}" id="showSurat" onclick="showSurat()">Surat pengantar</a></li>
-                    <li><a href="{{url('/admin/kas-warga')}}" >Kas warga</a></li>
-                    <li><a href="{{url('/admin/wajib-lapor')}}" >Wajib lapor</a></li>
+                    <li><a href="{{url('/admin/surat-pengantar')}}">Surat pengantar</a></li>
+                    <li><a href="{{url('/admin/kas-warga')}}">Kas warga</a></li>
+                    <li><a href="{{url('/admin/wajib-lapor')}}">Wajib lapor</a></li>
                     <li><a href="{{url('/admin/data-warga')}}">Data Warga</a></li>
                     <li><a href="{{url('/admin/pemberitahuan')}}">Pemberitahuan</a></li>
                 </ul>
             </div>
         </div>
-    
 </x-app-layout>

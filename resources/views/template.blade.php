@@ -268,7 +268,7 @@
                 <div class="flex justify-center">
                     <!-- note -->
                     <!-- biar nampilin edit profile, hidden nya harus di hapus tapi nanti di tiap halaman bakal muncul bagian edit profile -->
-                      <div class="w-5/6 " id="DivEdit"><!-- Edit Profile --> 
+                      <div class="w-5/6 hidden" id="DivEdit"><!-- Edit Profile --> 
                         <form action="">
                         <div class=" text-primary-content">
                             <div class="card-body">

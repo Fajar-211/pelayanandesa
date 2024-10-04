@@ -14,7 +14,7 @@ export default {
         './vendor/power-components/livewire-powergrid/src/Themes/Tailwind.php'
     ],
     presets: [
-        //require("./vendor/wireui/wireui/tailwind.config.js"),
+        // require("./vendor/wireui/wireui/tailwind.config.js"),
         require("./vendor/power-components/livewire-powergrid/tailwind.config.js"), 
     ],
 

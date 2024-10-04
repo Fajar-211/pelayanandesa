@@ -230,7 +230,8 @@
                             <input type="file" id="chooseAvatar" class="hidden" accept=".jpg,.jpeg,.png"
                                 accept=".jpg,.jpeg,.png">
                             <div class="flex justify-center"><input type="text" placeholder="Pengguna"
-                                    class="input w-full max-w-xs bg-[#DEF2F1] text-center" /></div>
+                                    class="input w-full max-w-xs bg-[#DEF2F1] text-center" />  
+                            </div>
                         </div>
                     </div>
                     <table>

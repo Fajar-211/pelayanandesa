@@ -10,14 +10,21 @@ use App\Http\Controllers\KasWargaController;
 use App\Http\Controllers\InfoProfilController;
 use App\Http\Controllers\EditProfilController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminSuratPengantarController;
+use App\Http\Controllers\AdminKasWargaController;
+use App\Http\Controllers\AdminDataWargaController;
+use App\Http\Controllers\AdminWajibLaporController;
+use App\Http\Controllers\AdminNotifikasiController;
+use App\Http\Controllers\AdminInfoProfileController;
+use App\Http\Controllers\AdminEditProfileController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/user', function () {
+    return view('user');
+})->middleware(['auth', 'verified'])->name('user');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -35,6 +42,13 @@ Route::get('/user/wajib-lapors',  [WajibLaporController::class, 'index']);
 Route::get('/user/kas-warga',  [KasWargaController::class, 'index']);
 Route::get('/user/info-profil',  [InfoProfilController::class, 'index']);
 Route::get('/user/edit-profil',  [EditProfilController::class, 'index']);
+Route::get('/admin/surat-pengantar',  [AdminSuratPengantarController::class,'view']);
+Route::get('/admin/wajib-lapor',  [AdminWajibLaporController::class,'view']);
+Route::get('/admin/data-warga',  [AdminDataWargaController::class,'view']);
+Route::get('/admin/kas-warga',  [AdminKasWargaController::class,'view']);
+Route::get('/admin/pemberitahuan',  [AdminNotifikasiController::class,'view']);
+Route::get('/admin/info-profile',  [AdminInfoProfileController::class,'view']);
+Route::get('/admin/edit-profile',  [AdminEditProfileController::class,'view']);
 
 Route::get('/dashboard-admin', function(){
     return view("dashboard-admin",["nama" => 'Pengguna']);
