@@ -85,25 +85,19 @@
                             <table>
                                 <tr>
                                     <td><label for="nokk">Nomor KK</label></td>
-                                    <td><input type="text" id="nokk" name="nokk"
-                                            placeholder="Nomor Kartu Keluarga" class="input w-full max-w-xs bg-white"
-                                            required /></td>
+                                    <td><input type="text" id="nokk" name="nokk" placeholder="Nomor Kartu Keluarga" class="input w-full max-w-xs bg-white" required /></td>
                                 </tr>
                                 <tr>
                                     <td><label for="nik">NIK</label></td>
-                                    <td><input type="text" id="nik" name="nik"
-                                            placeholder="Nomor Induk KTP" class="input w-full max-w-xs bg-white"
-                                            required /></td>
+                                    <td><input type="text" id="nik" name="nik" placeholder="Nomor Induk KTP" class="input w-full max-w-xs bg-white" required /></td>
                                 </tr>
                                 <tr>
                                     <td><label for="nama">Nama</label></td>
-                                    <td><input type="text" id="nama" name="nama" placeholder="Nama"
-                                            class="input w-full max-w-xs bg-white" required /></td>
+                                    <td><input type="text" id="nama" name="nama" placeholder="Nama" class="input w-full max-w-xs bg-white" required /></td>
                                 </tr>
                                 <tr>
                                     <td><label for="keperluan">Keperluan</label></td>
-                                    <td><input type="text" id="keperluan" name="keperluan" placeholder="Keperluan"
-                                            class="input w-full max-w-xs bg-white" required /></td>
+                                    <td><input type="text" id="keperluan" name="keperluan" placeholder="Keperluan" class="input w-full max-w-xs bg-white" required /></td>
                                 </tr>
                             </table>
                         </div>

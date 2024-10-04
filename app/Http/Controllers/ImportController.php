@@ -29,4 +29,5 @@ class ImportController extends Controller
         $this->ImportData(new DataWargasImport, $file);
         return redirect()->back();
     }
+    
 }

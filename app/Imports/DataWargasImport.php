@@ -17,6 +17,7 @@ class DataWargasImport implements ToModel, WithHeadingRow
     */
     public function model(array $row)
     {
+        // dd($row['nama']);
         DataWarga::create([
             'nama' => $row['nama'],
             'tanggal_lahir' => \Carbon\Carbon::parse($row['tanggal_lahir'])->format('Y-m-d'),
