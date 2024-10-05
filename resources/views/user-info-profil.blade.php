@@ -114,11 +114,14 @@
                                 <td class="text-green-500">Tanggal Lahir</td>
                             </tr>
                             <tr>
-                                <td class="text-stone-400">example</td>
+                                <td class="text-stone-400">
+                                    {{ \App\models\DataWarga::where('email', Auth::user()->email)->first()->tanggal_lahir }}</td>
                             </tr>
                             <tr></tr>
                             <tr>
-                                <td class="text-green-500">Email</td>
+                                <td class="text-green-500">
+                                {{ \App\models\DataWarga::where('email', Auth::user()->email)->first()->email }}
+                                </td>
                             </tr>
                             <tr>
                                 <td class="text-stone-400">example</td>

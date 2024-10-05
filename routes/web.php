@@ -42,6 +42,7 @@ Route::get('/user/wajib-lapors',  [WajibLaporController::class, 'index']);
 Route::get('/user/kas-warga',  [KasWargaController::class, 'index']);
 Route::get('/user/info-profil',  [InfoProfilController::class, 'index']);
 Route::get('/user/edit-profil',  [EditProfilController::class, 'index']);
+Route::get('/admin/',  [AdminController::class,'view']);
 Route::get('/admin/surat-pengantar',  [AdminSuratPengantarController::class,'view']);
 Route::get('/admin/wajib-lapor',  [AdminWajibLaporController::class,'view']);
 Route::get('/admin/data-warga',  [AdminDataWargaController::class,'view']);
@@ -50,9 +51,6 @@ Route::get('/admin/pemberitahuan',  [AdminNotifikasiController::class,'view']);
 Route::get('/admin/info-profile',  [AdminInfoProfileController::class,'view']);
 Route::get('/admin/edit-profile',  [AdminEditProfileController::class,'view']);
 
-Route::get('/dashboard-admin', function(){
-    return view("dashboard-admin",["nama" => 'Pengguna']);
-});
 Route::get('/template', function(){
     return view("template",["nama" => 'Pengguna']);
 });
@@ -60,8 +58,11 @@ Route::get('/template1', function(){
     return view("template1",["nama" => 'Pengguna']);
 });
 Route::post('/user/surat-pengantar', [SuratPengantarController::class, 'store'])->name('surat-pengantar.store');
+Route::get('surat-pengantar/create', [SuratPengantarController::class, 'create'])->name('surat-pengantar.create');
 require __DIR__.'/auth.php';
 Route::post('/wajib_lapors', [WajibLaporController::class, 'store'])->name('wajib_lapors.store')->middleware('auth');
+Route::get('wajib_lapor/create', [WajibLaporController::class, 'create'])->name('wajib_lapors.create');
+
 Route::post('/notif/store', [NotifikasiController::class, 'store'])->name('notif.store');
 // Route::get('/user', [NotifikasiController::class, 'index']);
 

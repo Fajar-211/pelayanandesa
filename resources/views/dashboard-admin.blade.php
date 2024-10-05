@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <!-- main content -->
-                <div class="flex-1  bg-[#DEF2F1] overflow-hidden">
+                <div class="flex-1  bg-[#DEF2F1] overflow-y=auto">
                     <div class="bg-[#DEF2F1] flex justify-center w-full ">
                         <div class="w-5/6 mt-10" id="DivSurat"><!-- Surat Pengantar -->
                             <div class="flex items-center space-x-2">
@@ -60,29 +60,30 @@
                                 </select>
                             </div>
                             <br>
+                            @foreach ($SuratPengantar as $surat)
                             <div tabindex="0" class="collapse collapse-arrow border-base-300 bg-base-200 border mb-2">
-                                <div class="collapse-title text-xl font-medium bg-white">Budi</div>
+                                <div class="collapse-title text-xl font-medium bg-white">{{$surat->nama}}</div>
                                 <div class="collapse-content bg-white">
                                     <table>
                                         <tr>
                                             <td>NIK</td>
                                             <td><input type="text" placeholder=""
-                                                    class="input w-full max-w-xs bg-white" /></td>
+                                                    class="input w-full max-w-xs bg-white" />{{$surat->nik}}</td>
                                         </tr>
                                         <tr>
                                             <td>Nomor KK</td>
                                             <td><input type="text" placeholder=""
-                                                    class="input w-full max-w-xs bg-white" /></td>
+                                                    class="input w-full max-w-xs bg-white" />{{$surat->nokk}}</td>
                                         </tr>
                                         <tr>
                                             <td>Nama</td>
                                             <td><input type="text" placeholder=""
-                                                    class="input w-full max-w-xs bg-white" /></td>
+                                                    class="input w-full max-w-xs bg-white" />{{$surat->nama}}</td>
                                         </tr>
                                         <tr>
                                             <td>Keperluan</td>
                                             <td><input type="text" placeholder=""
-                                                    class="input w-full max-w-xs bg-white" /></td>
+                                                    class="input w-full max-w-xs bg-white" />{{$surat->keperluan}}</td>
                                         </tr>
                                     </table>
                                     <div class="card-actions justify-end">
@@ -90,136 +91,81 @@
                                     </div>
                                 </div>
                             </div>
-                            <div tabindex="0" class="collapse collapse-arrow border-base-300 bg-base-200 border mb-2">
-                                <div class="collapse-title text-xl font-medium bg-white">Ahmad</div>
-                                <div class="collapse-content bg-white">
-                                    <table>
-                                        <tr>
-                                            <td>NIK</td>
-                                            <td><input type="text" placeholder=""
-                                                    class="input w-full max-w-xs bg-white" /></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Nomor KK</td>
-                                            <td><input type="text" placeholder=""
-                                                    class="input w-full max-w-xs bg-white" /></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Nama</td>
-                                            <td><input type="text" placeholder=""
-                                                    class="input w-full max-w-xs bg-white" /></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Keperluan</td>
-                                            <td><input type="text" placeholder=""
-                                                    class="input w-full max-w-xs bg-white" /></td>
-                                        </tr>
-                                    </table>
-                                    <div class="card-actions justify-end">
-                                        <button class="btn text-white btn-accent mt-6 bg-[#0FA4AF]">Terima</button>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                             <br>
                         </div>
                     </div>
-                        <div class="w-5/6 hidden mt-10" id="DivKas">
-                            <!-- Kas Warga -->
-                            <button class="btn bg-white text-gray-800 hover:bg-gray-200 focus:outline-none"
-                                id="buttonKasWarga" onclick="showKasWarga()">Kas Warga</button>
-                            <button class="btn bg-white text-gray-800 hover:bg-gray-200 focus:outline-none"
-                                id="buttonKas" onclick="buttonKas()">Edit</button>
-
-                            <!-- Halaman Kas Warga -->
-                            <div class="w-5/6 mt-10" id="kasWarga" style="margin-top: 20px;">
-                                <h2>Halaman Tabel Kas Warga</h2>
-                                <!-- Isi halaman Kas Warga -->
+                        <div class="w-5/6 mt-10" id="DivWajibLapor"><!-- Wajib Lapor -->
+                            <div class="flex items-center space-x-2">
+                                <span
+                                    class="inline-flex items-center justify-center px-4 py-3 text-black bg-white rounded-md">Laporan</span>
+                                <select class="select join-item w-30">
+                                    <option disabled selected>Filter</option>
+                                    <option>ops 1</option>
+                                    <option>ops 2</option>
+                                    <option>ops 3</option>
+                                </select>
                             </div>
-                            <!-- Halaman Edit Kas -->
-                            <div class="w-5/6 mt-10" id="editKas" style="display: none; margin-top: 20px;">
+                            <br>
+                            @foreach ($WajibLapor as $lapor)
+                            <div tabindex="0" class="collapse collapse-arrow border-base-300 bg-base-200 border mb-2">
+                                <div class="collapse-title text-xl font-medium bg-white">{{$lapor->nama_tamu}}</div>
+                                <div class="collapse-content bg-white">
+                                    <table>
+                                        <tr>
+                                            <td>NIK</td>
+                                            <td><input type="text" placeholder=""
+                                                    class="input w-full max-w-xs bg-white" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nama</td>
+                                            <td><input type="text" placeholder=""
+                                                    class="input w-full max-w-xs bg-white" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Foto</td>
+                                            <td><input type="text" placeholder=""
+                                                    class="input w-full max-w-xs bg-white" /></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            @endforeach
+                            <br>
+                        </div>
+                            <div class="w-5/6 mt-12" id="DivDataWarga"><!-- Data Warga -->
                                 <div class="card text-primary-content bg-white">
                                     <div class="card-body">
-                                        <form action="">
-                                            <table class="text-black">
-                                                <tr>
-                                                    <td>
-                                                        <label for="jenis">Pilih</label>
-                                                        <select class="ml-10 input w-full max-w-xs border-[#e7e7e7]"
-                                                            id="jenis" name="jenis">
-                                                            <option disabled selected>Pilih</option>
-                                                            <option value="pemasukkan">Pemasukkan</option>
-                                                            <option value="pengeluaran">Pengeluaran</option>
-                                                        </select>
-                                                    </td>
-                                                    <td>
-
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <label for="jumlah">Jumlah</label>
-                                                        <input class="ml-10 input w-full max-w-xs border-[#e7e7e7]"
-                                                            placeholder="Masukkan jumlah" type="number"
-                                                            id="jumlah" name="jumlah" required>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <label for="saldo">Saldo Akhir</label>
-                                                        <input class="ml-10 input w-full max-w-xs border-[#e7e7e7]"
-                                                            placeholder="Masukkan jumlah saldo" type="number"
-                                                            id="saldo" name="saldo" required>
-                                                    </td>
-                                                </tr>
-                                            </table>
+                                        <h2 class="card-title text-black">Data Warga</h2>
+                                        <form action="{{ route('import.datawarga') }}" method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            <input type="file" name="file" accept=".xlsx">
+                                            <button type="submit" class="btn">Import</button>
+                                        </form>
+                                        <livewire:data-warga-table />
                                     </div>
                                 </div>
-                                <div class="card-actions justify-end">
-                                    <button class="btn text-white btn-accent mt-6 bg-[#0FA4AF]">Submit</button>
-                                </div>
-                                </form>
                             </div>
-                        </div>
-                        <div class="bg-[#DEF2F1] flex justify-center w-full ">
-                        <div class="w-5/6 hidden mt-12" id="DivDataWarga"><!-- Data Warga -->
-                            <div class="card text-primary-content bg-white">
-                                <div class="card-body">
-                                    <h2 class="card-title text-black">Data Warga</h2>
-                                    <form action="{{ route('import.datawarga') }}" method="POST"
-                                        enctype="multipart/form-data">
-                                        @csrf
-                                        <input type="file" name="file" accept=".xlsx">
-                                        <button type="submit" class="btn">Import</button>
-                                    </form>
-                                    <livewire:data-warga-table />
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-
-                        <div class="bg-[#DEF2F1] flex justify-center w-full ">
-                            <div class="w-5/6 hidden mt-12" id="DivPemberitahuan">
+                            <div class="w-5/6 mt-12" id="DivPemberitahuan">
                                 <div class="card text-primary-content bg-white">
                                     <div class="card-body">
+                                        <h2 class="card-title text-black">Kirim Notifikasi</h2>
                                         <form action="{{ route('notif.store') }}" method="post">
                                             @csrf
                                             <table>
                                                 <tr>
                                                     <td><label class="text-black" for="deskripsi">Notifikasi</label></td>
-                                                    <td><input type="text" id="deskripsi" name="deskripsi" placeholder="notifikasi" class="input w-full max-w-xs bg-white" required /></td>
+                                                    <td><input type="text" id="deskripsi" name="deskripsi" placeholder="notifikasi" class="input text-black w-full max-w-xs bg-white" required /></td>
                                                 </tr>
-                                                <tr>
-                                                    <td><button class="btn btn-accent text-white">Kirim</button></td>
-                                                    <td></td>
-                                                </tr>
-
                                             </table>
+                                            <div class="card-actions justify-end">
+                                                <button type="submit" class="btn btn-accent text-white">Kirim</button></td>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                </div>
                 
             </div>
 

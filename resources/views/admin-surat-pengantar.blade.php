@@ -3,7 +3,7 @@
         <div class="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
             <!-- drawer content -->
-            <div class="drawer-content flex flex-col h-screen">
+            <div class="drawer-content flex flex-col h-screen ">
                 <!-- wrapper for spacing -->
                 <div class="header-wrapper bg-[#DEF2F1] px-4 py-2 lg:px-4 lg:py-2">
                     <div class="header-box bg-[#DEF2F1] rounded-lg flex justify-between items-center py-4 px-6 lg:px-12">
@@ -15,7 +15,7 @@
                                         d="M4 6h16M4 12h16M4 18h16" />
                                 </svg>
                             </label>
-                            <span class="text-lg lg:text-xl font-semibold ml-10 text-[#2B7A78]">Hallo,</span>
+                            <span class="text-lg lg:text-xl font-semibold ml-10 text-[#2B7A78]">Hallo, </span>
                         </div>
 
                         <div class="flex items-center">
@@ -48,7 +48,7 @@
                     </div>
                 </div>
                 <!-- main content -->
-                <div class="flex-1  bg-[#DEF2F1] overflow-hidden">
+                <div class="flex-1  bg-[#DEF2F1] overflow-y=auto">
                     <div class="bg-[#DEF2F1] flex justify-center w-full ">
                         <div class="w-5/6 mt-10" id="DivSurat"><!-- Surat Pengantar -->
                             <div class="flex items-center space-x-2">
@@ -62,29 +62,30 @@
                                 </select>
                             </div>
                             <br>
+                            @foreach ($SuratPengantar as $surat)
                             <div tabindex="0" class="collapse collapse-arrow border-base-300 bg-base-200 border mb-2">
-                                <div class="collapse-title text-xl font-medium bg-white">Budi</div>
+                                <div class="collapse-title text-xl font-medium bg-white">{{$surat->nama}}</div>
                                 <div class="collapse-content bg-white">
                                     <table>
                                         <tr>
                                             <td>NIK</td>
                                             <td><input type="text" placeholder=""
-                                                    class="input w-full max-w-xs bg-white" /></td>
+                                                    class="input w-full max-w-xs bg-white" />{{$surat->nik}}</td>
                                         </tr>
                                         <tr>
                                             <td>Nomor KK</td>
                                             <td><input type="text" placeholder=""
-                                                    class="input w-full max-w-xs bg-white" /></td>
+                                                    class="input w-full max-w-xs bg-white" />{{$surat->nokk}}</td>
                                         </tr>
                                         <tr>
                                             <td>Nama</td>
                                             <td><input type="text" placeholder=""
-                                                    class="input w-full max-w-xs bg-white" /></td>
+                                                    class="input w-full max-w-xs bg-white" />{{$surat->nama}}</td>
                                         </tr>
                                         <tr>
                                             <td>Keperluan</td>
                                             <td><input type="text" placeholder=""
-                                                    class="input w-full max-w-xs bg-white" /></td>
+                                                    class="input w-full max-w-xs bg-white" />{{$surat->keperluan}}</td>
                                         </tr>
                                     </table>
                                     <div class="card-actions justify-end">
@@ -92,36 +93,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div tabindex="0" class="collapse collapse-arrow border-base-300 bg-base-200 border mb-2">
-                                <div class="collapse-title text-xl font-medium bg-white">Ahmad</div>
-                                <div class="collapse-content bg-white">
-                                    <table>
-                                        <tr>
-                                            <td>NIK</td>
-                                            <td><input type="text" placeholder=""
-                                                    class="input w-full max-w-xs bg-white" /></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Nomor KK</td>
-                                            <td><input type="text" placeholder=""
-                                                    class="input w-full max-w-xs bg-white" /></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Nama</td>
-                                            <td><input type="text" placeholder=""
-                                                    class="input w-full max-w-xs bg-white" /></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Keperluan</td>
-                                            <td><input type="text" placeholder=""
-                                                    class="input w-full max-w-xs bg-white" /></td>
-                                        </tr>
-                                    </table>
-                                    <div class="card-actions justify-end">
-                                        <button class="btn text-white btn-accent mt-6 bg-[#0FA4AF]">Terima</button>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                             <br>
                         </div>
                     </div>
