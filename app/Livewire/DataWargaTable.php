@@ -51,6 +51,7 @@ final class DataWargaTable extends PowerGridComponent
             ->add('no_kk')
             ->add('nik')
             ->add('email')
+            ->add('jenis_kelamin')
             ->add('created_at');
     }
 
@@ -74,6 +75,10 @@ final class DataWargaTable extends PowerGridComponent
                 ->searchable(),
 
             Column::make('Email', 'email')
+                ->sortable()
+                ->searchable(),
+            
+            Column::make('Jenis_Kelamin', 'jenis_kelamin')
                 ->sortable()
                 ->searchable(),
 

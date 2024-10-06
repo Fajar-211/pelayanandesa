@@ -15,6 +15,7 @@ class DataWarga extends Model
         'tanggal_lahir',
         'no_kk',
         'nik',
+        'jenis_kelamin',
         'email',
     ];
 }

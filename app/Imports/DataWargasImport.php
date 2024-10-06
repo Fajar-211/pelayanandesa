@@ -23,6 +23,7 @@ class DataWargasImport implements ToModel, WithHeadingRow
             'tanggal_lahir' => \Carbon\Carbon::parse($row['tanggal_lahir'])->format('Y-m-d'),
             'nik' => $row['nik'],
             'no_kk' => $row['nomor_kk'],
+            'jenis_kelamin' => $row['jenis_kelamin'],
             'email' => $row['email'],
         ]);
 

@@ -81,7 +81,8 @@
             <!-- Konten halaman lainnya -->
             <!-- ISI KONTEN TAMBAHAN DAPAT DILETAKKAN DI SINI -->
             <div class="w-5/6 hidden" id="DivEdit"><!-- Edit Porfile -->
-                <form action="">
+                <form action="POST" method="">
+                    @csrf
                     <div class="card text-primary-content">
                         <div class="card-body">
                             <label for="chooseAvatar">
@@ -94,7 +95,7 @@
                             </label>
                             <input type="file" id="chooseAvatar" class="hidden" accept=".jpg,.jpeg,.png"
                                 accept=".jpg,.jpeg,.png">
-                            <div class="flex justify-center"><input type="text" placeholder="Pengguna"
+                            <div class="flex justify-center"><input type="text" placeholder="{{ \App\models\DataWarga::where('email', Auth::user()->email)->first()->nama }}"
                                     class="input w-full max-w-xs bg-[#DEF2F1] text-center" /></div>
                         </div>
                     </div>
@@ -103,7 +104,7 @@
                             <td class="text-green-500">Nomor KK</td>
                         </tr>
                         <tr>
-                            <td><input type="text" placeholder="example"
+                            <td><input type="text" placeholder="{{ \App\models\DataWarga::where('email', Auth::user()->email)->first()->no_kk }}"
                                     class="input w-full max-w-xs bg-[#DEF2F1]" /></td>
                         </tr>
                         <tr></tr>
@@ -111,7 +112,7 @@
                             <td class="text-green-500">NIK</td>
                         </tr>
                         <tr>
-                            <td><input type="text" placeholder="example"
+                            <td><input type="text" placeholder="{{ \App\models\DataWarga::where('email', Auth::user()->email)->first()->nik }}"
                                     class="input w-full max-w-xs bg-[#DEF2F1]" /></td>
                         </tr>
                         <tr></tr>
@@ -119,7 +120,7 @@
                             <td class="text-green-500">Jenis Kelamin</td>
                         </tr>
                         <tr>
-                            <td><input type="text" placeholder="example"
+                            <td><input type="text" placeholder="{{ \App\models\DataWarga::where('email', Auth::user()->email)->first()->jenis_kelamin }}"
                                     class="input w-full max-w-xs bg-[#DEF2F1]" /></td>
                         </tr>
                         <tr></tr>
@@ -135,7 +136,7 @@
                             <td class="text-green-500">Email</td>
                         </tr>
                         <tr>
-                            <td><input type="text" placeholder="Email"
+                            <td><input type="text" placeholder="{{ \App\models\DataWarga::where('email', Auth::user()->email)->first()->email }}"
                                     class="input w-full max-w-xs bg-[#DEF2F1]" /></td>
                         </tr>
                     </table>
