@@ -54,14 +54,11 @@
                             <div class="flex items-center space-x-2">
                                 <span
                                     class="inline-flex items-center justify-center px-4 py-3 text-black bg-white rounded-md">Permintaan</span>
-                                <select class="select join-item w-30">
-                                    <option disabled selected>Filter</option>
-                                    <option>ops 1</option>
-                                    <option>ops 2</option>
-                                    <option>ops 3</option>
-                                </select>
                             </div>
                             <br>
+                            @if($SuratPengantar->isEmpty())
+                            <h1>Data Kosong</h1>
+                            @else
                             @foreach ($SuratPengantar as $surat)
                             <div tabindex="0" class="collapse collapse-arrow border-base-300 bg-base-200 border mb-2">
                                 <div class="collapse-title text-xl font-medium bg-white">{{$surat->nama}}</div>
@@ -94,6 +91,7 @@
                                 </div>
                             </div>
                             @endforeach
+                            @endif
                             <br>
                         </div>
                     </div>

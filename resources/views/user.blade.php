@@ -64,9 +64,13 @@
                             <ul tabindex="0"
                                 class="menu dropdown-content bg-white rounded-box z-[1] mt-4 w-52 p-2 shadow">
                                 <li class="text-center text-black">Notifikasi</li>
+                                @if($notifikasi->isEmpty())
+                                <p class="mt-2 mb-2 items-center justify-center">Tidak Ada Notifikasi</p>
+                                @else
                                 @foreach ($notifikasi as $item)
                                     <li>{{ $item->deskripsi }} ({{ $item->created_at }})</li>
                                 @endforeach
+                                @endif
                             </ul>
                         </div>
 
@@ -76,7 +80,7 @@
 
             <!-- Konten halaman lainnya -->
             <!-- ISI KONTEN TAMBAHAN DAPAT DILETAKKAN DI SINI -->
-            <div class="w-5/6 hidden mt-10" id="DivSurat"><!-- Surat Pengantar -->
+            <div class="w-5/6 mt-10" id="DivSurat"><!-- Surat Pengantar -->
                 <form action="{{ route('surat-pengantar.store') }}" method="POST">
                     @csrf
                     <div class="card text-primary-content bg-white">
