@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <!-- main content -->
-                <div class="flex-1  bg-[#DEF2F1] overflow-hidden">
+                <div class="flex-1  bg-[#DEF2F1] overflow-y=auto">
                     <div class="bg-[#DEF2F1] flex justify-center w-full ">
                         <div class="w-5/6 " id="DivEdit"><!-- Edit Porfile -->
                             <form action="">
