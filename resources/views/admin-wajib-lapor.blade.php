@@ -50,62 +50,45 @@
                 <!-- main content -->
                 <div class="flex-1  bg-[#DEF2F1] overflow-hidden">
                     <div class="bg-[#DEF2F1] flex justify-center w-full ">
-                        <div class="w-5/6 mt-10" id="DivSurat"><!-- Surat Pengantar -->
+                        <div class="w-5/6 mt-10" id="DivWajibLapor"><!-- Wajib Lapor -->
                             <div class="flex items-center space-x-2">
                                 <span
                                     class="inline-flex items-center justify-center px-4 py-3 text-black bg-white rounded-md">Laporan</span>
-                                <select class="select join-item w-30">
+                                <!-- <select class="select join-item w-30">
                                     <option disabled selected>Filter</option>
                                     <option>ops 1</option>
                                     <option>ops 2</option>
                                     <option>ops 3</option>
-                                </select>
+                                </select> -->
                             </div>
                             <br>
+                            @if($WajibLapor->isEmpty())
+                            <h1>Data Kosong</h1>
+                            @else
+                            @foreach ($WajibLapor as $lapor)
                             <div tabindex="0" class="collapse collapse-arrow border-base-300 bg-base-200 border mb-2">
-                                <div class="collapse-title text-xl font-medium bg-white">Suep</div>
+                                <div class="collapse-title text-xl font-medium bg-white">{{$lapor->nama_tamu}}</div>
                                 <div class="collapse-content bg-white">
                                     <table>
                                         <tr>
                                             <td>NIK</td>
-                                            <td><input type="text" placeholder=""
-                                                    class="input w-full max-w-xs bg-white" /></td>
+                                            <td><input type="text" placeholder="" class="input w-full max-w-xs bg-white" />{{$lapor->nik_tamu}}</td>
                                         </tr>
                                         <tr>
                                             <td>Nama</td>
-                                            <td><input type="text" placeholder=""
-                                                    class="input w-full max-w-xs bg-white" /></td>
+                                            <td><input type="text" placeholder="" class="input w-full max-w-xs bg-white" />{{$lapor->nama_tamu}}</td>
                                         </tr>
                                         <tr>
                                             <td>Foto</td>
-                                            <td><input type="text" placeholder=""
-                                                    class="input w-full max-w-xs bg-white" /></td>
+                                            <td><input type="text" placeholder="" class="input w-full max-w-xs bg-white" />
+                                        <img src="" alt="foto tamu">
+                                        </td>
                                         </tr>
                                     </table>
                                 </div>
                             </div>
-                            <div tabindex="0" class="collapse collapse-arrow border-base-300 bg-base-200 border mb-2">
-                                <div class="collapse-title text-xl font-medium bg-white">Joko</div>
-                                <div class="collapse-content bg-white">
-                                    <table>
-                                        <tr>
-                                            <td>NIK</td>
-                                            <td><input type="text" placeholder=""
-                                                    class="input w-full max-w-xs bg-white" /></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Nama</td>
-                                            <td><input type="text" placeholder=""
-                                                    class="input w-full max-w-xs bg-white" /></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Foto</td>
-                                            <td><input type="text" placeholder=""
-                                                    class="input w-full max-w-xs bg-white" /></td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
+                            @endforeach
+                            @endif
                             <br>
                         </div>
                     </div>
