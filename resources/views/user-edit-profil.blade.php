@@ -78,10 +78,21 @@
                 </div>
             </div>
 
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+
             <!-- Konten halaman lainnya -->
             <!-- ISI KONTEN TAMBAHAN DAPAT DILETAKKAN DI SINI -->
             <div class="w-5/6 hidden" id="DivEdit"><!-- Edit Porfile -->
-                <form action="POST" method="{{url('profil.update')}}">
+                <form action="{{route('profile.update')}}" method="POST">
                     @csrf
                     <div class="card text-primary-content">
                         <div class="card-body">
