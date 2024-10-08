@@ -16,6 +16,8 @@ use App\Http\Controllers\AdminDataWargaController;
 use App\Http\Controllers\AdminWajibLaporController;
 use App\Http\Controllers\AdminNotifikasiController;
 use App\Http\Controllers\AdminInfoProfileController;
+use App\Http\Controllers\AdminEditProfileController;
+use App\Http\Controllers\AdminController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -39,7 +41,7 @@ Route::get('/user', [UserController::class, 'index'])->middleware(['auth', 'veri
 Route::get('/user/surat-pengantar',  [SuratPengantarController::class, 'index']);
 Route::get('/user/wajib-lapors',  [WajibLaporController::class, 'index']);
 Route::get('/user/kas-warga',  [KasWargaController::class, 'index']);
-Route::get('/user/info-profil',  [InfoProfilController::class, 'index']);
+Route::get('/user/info-profil',  [InfoProfilController::class, 'index'])->name('profile.info');
 Route::get('/user/edit-profil',  [EditProfilController::class, 'index']);
 Route::get('/admin',  [AdminController::class,'view']);
 Route::get('/admin/surat-pengantar',  [AdminSuratPengantarController::class,'view']);
@@ -62,6 +64,9 @@ Route::post('/wajib_lapors', [WajibLaporController::class, 'store'])->name('waji
 Route::get('wajib_lapor/create', [WajibLaporController::class, 'create'])->name('wajib_lapors.create');
 
 Route::post('/notif/store', [NotifikasiController::class, 'store'])->name('notif.store');
+Route::get('/user/info-profile', [EditProfilController::class, 'showProfile'])->name('profile.show');
+
+Route::post('/user/edit-profil', [EditProfilController::class, 'edit'])->name('profile.update');
 // Route::get('/user', [NotifikasiController::class, 'index']);
 
 Route::post('/data-warga/import', [ImportController::class, 'dataWargaImport'])->name('import.datawarga');
