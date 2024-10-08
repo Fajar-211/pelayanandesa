@@ -75,7 +75,7 @@
                                         <tr>
                                             <td>Foto</td>
                                             <td><input type="text" placeholder="" class="input w-full max-w-xs bg-white" />
-                                        <img src="{{ $lapor->foto_tamu }}" alt="foto tamu">
+                                        <img src="{{ Storage::url('foto_tamu/'.$lapor->foto_tamu) }}" alt="foto tamu">
                                         </td>
                                         </tr>
                                     </table>
