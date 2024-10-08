@@ -16,7 +16,6 @@ use App\Http\Controllers\AdminDataWargaController;
 use App\Http\Controllers\AdminWajibLaporController;
 use App\Http\Controllers\AdminNotifikasiController;
 use App\Http\Controllers\AdminInfoProfileController;
-use App\Http\Controllers\AdminEditProfileController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -49,7 +48,6 @@ Route::get('/admin/data-warga',  [AdminDataWargaController::class,'view']);
 Route::get('/admin/kas-warga',  [AdminKasWargaController::class,'view']);
 Route::get('/admin/pemberitahuan',  [AdminNotifikasiController::class,'view']);
 Route::get('/admin/info-profile',  [AdminInfoProfileController::class,'view']);
-Route::get('/admin/edit-profile',  [AdminEditProfileController::class,'view']);
 
 Route::get('/template', function(){
     return view("template",["nama" => 'Pengguna']);
