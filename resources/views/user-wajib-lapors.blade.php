@@ -108,7 +108,7 @@
                         </div>
                     </div>
                     <div class="card-actions justify-end">
-                        <button class="btn btn-accent mt-6 text-white">Ajukan</button>
+                        <button class="btn btn-accent mt-6 text-white" type="submit">Ajukan</button>
                     </div>
                 </form>
             </div>

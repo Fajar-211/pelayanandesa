@@ -12,4 +12,5 @@ class AdminWajibLaporController extends Controller
         $WajibLapor = WajibLapor::all(); // mengambil data dari wajib lapor
         return view('admin-wajib-lapor', compact('WajibLapor'));
     }
+    
 }

@@ -60,7 +60,7 @@
                             <h1>Data Kosong</h1>
                             @else
                             @foreach ($SuratPengantar as $surat)
-                            <div tabindex="0" class="collapse collapse-arrow border-base-300 bg-base-200 border mb-2">
+                            <div tabindex="0" class="collapse collapse-arrow  bg-base-200 mb-2">
                                 <div class="collapse-title text-xl font-medium bg-white">{{$surat->nama}}</div>
                                 <div class="collapse-content bg-white">
                                     <table>
@@ -85,9 +85,9 @@
                                                     class="input w-full max-w-xs bg-white" />{{$surat->keperluan}}</td>
                                         </tr>
                                     </table>
-                                    <div class="card-actions justify-end">
+                                    <!-- <div class="card-actions justify-end">
                                         <button class="btn text-white btn-accent mt-6 bg-[#0FA4AF]">Terima</button>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                             @endforeach

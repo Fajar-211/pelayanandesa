@@ -55,7 +55,9 @@
                                             src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
                                     </div>
                                 </div>
-                                <h2 class="text-center"></h2>
+                                <h2 class="text-center text-black">
+                                {{ \App\models\DataWarga::where('email', Auth::user()->email)->first()->nama }}
+                                </h2>
                                 <table>
                                     <tr>
                                         <td class="text-green-500">Nomor KK</td>
@@ -94,9 +96,6 @@
                                     </tr>
                                 </table>
                             </div>
-                        </div>
-                        <div class="card-actions justify-end">
-                            <a href="{{ url('/admin/edit-profile') }}" class="btn btn-accent text-white">Edit</a>
                         </div>
                     </div>
                 </div>

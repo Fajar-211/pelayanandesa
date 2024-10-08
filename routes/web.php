@@ -50,7 +50,6 @@ Route::get('/admin/data-warga',  [AdminDataWargaController::class,'view']);
 Route::get('/admin/kas-warga',  [AdminKasWargaController::class,'view']);
 Route::get('/admin/pemberitahuan',  [AdminNotifikasiController::class,'view']);
 Route::get('/admin/info-profile',  [AdminInfoProfileController::class,'view']);
-Route::get('/admin/edit-profile',  [AdminEditProfileController::class,'view']);
 
 Route::get('/template', function(){
     return view("template",["nama" => 'Pengguna']);
