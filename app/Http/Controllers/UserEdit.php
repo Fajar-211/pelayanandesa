@@ -3,26 +3,46 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Notifikasi;
-use App\Models\DataWarga;
 use Illuminate\Support\Facades\Auth;
-class EditProfilController extends Controller
+use App\Models\DataWarga;
+
+class UserEdit extends Controller
 {
-    public function index(){
-        $notifikasi = Notifikasi::orderBy('created_at', 'desc')->take(5)->get();
-
-        // Kirim data ke view
-        return view('user-edit-profil', compact('notifikasi'));
-    }
-    public function showProfile()
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
     {
-        // Ambil data user yang login berdasarkan email
-        $email = Auth::user()->email;
-        $dataWarga = DataWarga::where('email', $email)->first();
-
-        // Kirim dataWarga ke view profile.blade.php
-        return view('user/edit-profil', compact('dataWarga'));
+        //
     }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
     public function edit(Request $request)
     {
         $request->validate([
@@ -47,5 +67,21 @@ class EditProfilController extends Controller
         Auth::logout();
 
         return redirect('/login')->with('success', 'Profil dan email berhasil diperbarui. Silakan login kembali.');
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
     }
 }

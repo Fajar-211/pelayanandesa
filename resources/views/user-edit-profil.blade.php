@@ -81,7 +81,7 @@
             <!-- Konten halaman lainnya -->
             <!-- ISI KONTEN TAMBAHAN DAPAT DILETAKKAN DI SINI -->
             <div class="w-5/6 hidden" id="DivEdit"><!-- Edit Porfile -->
-                <form action="POST" method="">
+                <form action="POST" method="{{url('profil.update')}}">
                     @csrf
                     <div class="card text-primary-content">
                         <div class="card-body">
@@ -96,7 +96,7 @@
                             <input type="file" id="chooseAvatar" class="hidden" accept=".jpg,.jpeg,.png"
                                 accept=".jpg,.jpeg,.png">
                             <div class="flex justify-center"><input type="text" placeholder="{{ \App\models\DataWarga::where('email', Auth::user()->email)->first()->nama }}"
-                                    class="input w-full max-w-xs bg-[#DEF2F1] text-center" /></div>
+                                name="nama"  value="{{ $dataWarga->nama }}"   class="input w-full max-w-xs bg-[#DEF2F1] text-center" /></div>
                         </div>
                     </div>
                     <table>
@@ -105,7 +105,7 @@
                         </tr>
                         <tr>
                             <td><input type="text" placeholder="{{ \App\models\DataWarga::where('email', Auth::user()->email)->first()->no_kk }}"
-                                    class="input w-full max-w-xs bg-[#DEF2F1]" /></td>
+                                name="no_kk" value="{{ $dataWarga->no_kk }}"    class="input w-full max-w-xs bg-[#DEF2F1]" /></td>
                         </tr>
                         <tr></tr>
                         <tr>
@@ -113,7 +113,7 @@
                         </tr>
                         <tr>
                             <td><input type="text" placeholder="{{ \App\models\DataWarga::where('email', Auth::user()->email)->first()->nik }}"
-                                    class="input w-full max-w-xs bg-[#DEF2F1]" /></td>
+                                 name="nik" value="{{ $dataWarga->nama }}"   class="input w-full max-w-xs bg-[#DEF2F1]" /></td>
                         </tr>
                         <tr></tr>
                         <tr>
@@ -121,7 +121,7 @@
                         </tr>
                         <tr>
                             <td><input type="text" placeholder="{{ \App\models\DataWarga::where('email', Auth::user()->email)->first()->jenis_kelamin }}"
-                                    class="input w-full max-w-xs bg-[#DEF2F1]" /></td>
+                                name="jenis_kelamin" value="{{ $dataWarga->jenis_kelamin }}"    class="input w-full max-w-xs bg-[#DEF2F1]" /></td>
                         </tr>
                         <tr></tr>
                         <tr>
@@ -129,7 +129,7 @@
                         </tr>
                         <tr>
                             <td><input type="date" placeholder="Type here"
-                                    class="input input-bordered w-full max-w-xs bg-[#DEF2F1]" /></td>
+                                name="tanggal_lahir" value="{{ $dataWarga->tanggal_lahir }}"    class="input input-bordered w-full max-w-xs bg-[#DEF2F1]" /></td>
                         </tr>
                         <tr></tr>
                         <tr>
@@ -137,12 +137,12 @@
                         </tr>
                         <tr>
                             <td><input type="text" placeholder="{{ \App\models\DataWarga::where('email', Auth::user()->email)->first()->email }}"
-                                    class="input w-full max-w-xs bg-[#DEF2F1]" /></td>
+                                name="email" value="{{ $dataWarga->email }}"   class="input w-full max-w-xs bg-[#DEF2F1]" /></td>
                         </tr>
                     </table>
                     <div class="card-actions justify-end mb-8">
                         <button class="btn btn-secondary text-white" type="reset" onclick="window.history.back();">Batal</button>
-                        <button class="btn btn-accent text-white">Simpan</button>
+                        <button class="btn btn-accent text-white" type="submit">Simpan</button>
                     </div>
                 </form>
             </div>
