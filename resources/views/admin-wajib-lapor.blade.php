@@ -48,7 +48,7 @@
                     </div>
                 </div>
                 <!-- main content -->
-                <div class="flex-1  bg-[#DEF2F1] overflow-hidden">
+                <div class="flex-1  bg-[#DEF2F1] overflow-y-auto">
                     <div class="bg-[#DEF2F1] flex justify-center w-full ">
                         <div class="w-5/6 mt-10" id="DivWajibLapor"><!-- Wajib Lapor -->
                             <div class="flex items-center space-x-2">
@@ -74,7 +74,7 @@
                                         </tr>
                                         <tr>
                                             <td>Foto</td>
-                                            <td><input type="text" placeholder="" class="input w-full max-w-xs bg-white" />
+                                            <td><input type="text" placeholder="" class="input w-full max-w-xs bg-white width-100px height-100px" />
                                         <img src="{{ Storage::url('foto_tamu/'.$lapor->foto_tamu) }}" alt="foto tamu">
                                         </td>
                                         </tr>

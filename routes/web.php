@@ -32,6 +32,14 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+Route::middleware('auth:admin')->group(function () {
+    Route::get('/admin/surat-pengantar', function () {
+        return view('admin-surat-pengantar'); // ini mengarahkan ke view admin-surat-pengantar.blade.php
+    })->name('admin.surat-pengantar');
+
+    // Route lainnya...
+});
+
 Route::get('/lojin', function () {
     return view("lojin", ["nama" => "fajar"]);
 });
