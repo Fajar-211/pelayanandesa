@@ -66,7 +66,7 @@ Route::get('wajib_lapor/create', [WajibLaporController::class, 'create'])->name(
 Route::post('/notif/store', [NotifikasiController::class, 'store'])->name('notif.store');
 Route::get('/user/info-profile', [EditProfilController::class, 'showProfile'])->name('profile.show');
 
-Route::post('/user/edit-profil', [EditProfilController::class, 'edit'])->name('profile.update');
+Route::put('/user/edit-profil', [EditProfilController::class, 'edit'])->name('profile.update');
 // Route::get('/user', [NotifikasiController::class, 'index']);
 
 Route::post('/data-warga/import', [ImportController::class, 'dataWargaImport'])->name('import.datawarga');

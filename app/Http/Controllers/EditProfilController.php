@@ -34,6 +34,12 @@ class EditProfilController extends Controller
         $user = Auth::user();
         $dataWarga = DataWarga::where('email', $user->email)->first();
 
+        if ($request->hasFile('foto_profil')) {
+            // Simpan file baru
+            $path = $request->file('foto_profil')->store('foto_profil', 'public');
+            $dataWarga->foto_profil = $path;
+        }
+
         if($dataWarga->email == $request->email) {
             $request->validate([
                 'nama' => 'required|string|max:255',

@@ -16,7 +16,8 @@
                 <div class="flex flex-1 justify-end px-2">
                     <div class="flex items-stretch">
                         <h2 class="my-4 mr-4 text-black" id="user">Hallo,
-                            {{ \App\models\DataWarga::where('email', Auth::user()->email)->first()->nama }} </h2>
+                            {{ \App\models\DataWarga::where('email', Auth::user()->email)->first()->nama }}
+                        </h2>
 
                         <!-- Info Profil -->
                         <div class="dropdown dropdown-end mr-4">
@@ -102,6 +103,27 @@
                             </select>
                             <button class="btn btn-accent ml-5 text-white">Cek</button>
                         </form>
+                        @php
+                            use PowerGrid\PowerGrid;
+                        @endphp
+
+                        {!! PowerGrid::init($kasWargas)
+    ->columns([
+        PowerGrid::column('bulan')->title('Bulan'),
+        PowerGrid::column('tanggal')->title('Tanggal'),
+        PowerGrid::column('info_pemasukan')->title('Info Pemasukan'),
+        PowerGrid::column('saldo_masuk')->title('Saldo Masuk'),
+        PowerGrid::column('info_pengeluaran')->title('Info Pengeluaran'),
+        PowerGrid::column('saldo_keluar')->title('Saldo Keluar'),
+        PowerGrid::column('saldo')->title('Saldo'),
+        PowerGrid::column('saldo_awal_tahun')->title('Saldo Awal Tahun'),
+        PowerGrid::column('total_saldo')->title('Total Saldo'),
+    ])
+    ->export()
+    ->pagination(10)
+    ->render()
+!!}
+
                     </div>
                 </div>
             </div>

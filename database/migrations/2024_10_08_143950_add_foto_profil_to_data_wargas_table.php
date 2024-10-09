@@ -11,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('kas_wargas', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('data_wargas', function (Blueprint $table) {
+            $table->string('foto_profil')->nullable();  // Menambahkan kolom foto_profil yang bisa null
         });
     }
 
@@ -22,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('kas_wargas');
+        Schema::table('data_wargas', function (Blueprint $table) {
+            $table->dropColumn('foto_profil');  // Menghapus kolom jika rollback
+        });
     }
 };
