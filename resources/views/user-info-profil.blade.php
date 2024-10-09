@@ -83,9 +83,9 @@
             <div class="w-5/6 hidden" id="DivInfo"><!-- Info Porfile -->
                 <div class="card text-primary-content">
                     <div class="card-body">
-                        <div class="avatar justify-center">
+                        <div class="avatar justify-center cursor-pointer">
                             <div class="w-24 rounded-full">
-                                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                <img src="{{ asset('storage/' . $dataWarga->foto_profil) }}" alt="Foto Profil" style="width: 150px; height: 150px;" />
                             </div>
                         </div>
                         <h2 class="text-center"></h2>

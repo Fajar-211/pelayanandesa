@@ -92,8 +92,9 @@
             <!-- Konten halaman lainnya -->
             <!-- ISI KONTEN TAMBAHAN DAPAT DILETAKKAN DI SINI -->
             <div class="w-5/6 hidden" id="DivEdit"><!-- Edit Porfile -->
-                <form action="{{route('profile.update')}}" method="POST">
+                <form action="{{route('profile.update')}}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT') 
                     <div class="card text-primary-content">
                         <div class="card-body">
                             <label for="chooseAvatar">
@@ -104,7 +105,7 @@
                                     </div>
                                 </div>
                             </label>
-                            <input type="file" id="chooseAvatar" class="hidden" accept=".jpg,.jpeg,.png"
+                            <input type="file" id="chooseAvatar" name="foto_profil" id="foto_profil" class="hidden" accept=".jpg,.jpeg,.png"
                                 accept=".jpg,.jpeg,.png">
                             <div class="flex justify-center"><input type="text" placeholder="{{ \App\models\DataWarga::where('email', Auth::user()->email)->first()->nama }}"
                                 name="nama"  value="{{ $dataWarga->nama }}"   class="input w-full max-w-xs bg-[#DEF2F1] text-center" /></div>

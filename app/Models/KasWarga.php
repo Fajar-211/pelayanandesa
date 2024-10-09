@@ -8,6 +8,4 @@ use Illuminate\Database\Eloquent\Model;
 class KasWarga extends Model
 {
     use HasFactory;
-
- //
 }

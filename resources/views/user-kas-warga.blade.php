@@ -16,7 +16,8 @@
                 <div class="flex flex-1 justify-end px-2">
                     <div class="flex items-stretch">
                         <h2 class="my-4 mr-4 text-black" id="user">Hallo,
-                            {{ \App\models\DataWarga::where('email', Auth::user()->email)->first()->nama }} </h2>
+                            {{ \App\models\DataWarga::where('email', Auth::user()->email)->first()->nama }}
+                        </h2>
 
                         <!-- Info Profil -->
                         <div class="dropdown dropdown-end mr-4">
@@ -87,7 +88,7 @@
                         <form>
                             <select class="select select-info w-full max-w-xs text-white bg-[#3AAFA9]">
                                 <option disabled selected>Pilih Bulan</option>
-                                <option>Januari</option>
+                                <option value="januari">Januari</option>
                                 <option>Febuari</option>
                                 <option>Maret</option>
                                 <option>April</option>
@@ -102,6 +103,9 @@
                             </select>
                             <button class="btn btn-accent ml-5 text-white">Cek</button>
                         </form>
+
+                        <livewire:kas-warga-table bulan="januari"/>
+
                     </div>
                 </div>
             </div>
