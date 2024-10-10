@@ -15,7 +15,7 @@
             <div class="navbar rounded-box mt-10">
                 <div class="flex flex-1 justify-end px-2">
                     <div class="flex items-stretch">
-                        <h2 class="my-4 mr-4 text-black" id="user">Hallo </h2>
+                        <h2 class="my-4 mr-4 text-black" id="user">Hallo, {{ \App\models\DataWarga::where('email', Auth::user()->email)->first()->nama }} </h2>
 
                         <!-- Info Profil -->
                         <div class="dropdown dropdown-end mr-4">

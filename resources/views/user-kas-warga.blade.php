@@ -15,7 +15,9 @@
             <div class="navbar rounded-box mt-10">
                 <div class="flex flex-1 justify-end px-2">
                     <div class="flex items-stretch">
-                        <h2 class="my-4 mr-4 text-black" id="user">Hallo </h2>
+                        <h2 class="my-4 mr-4 text-black" id="user">Hallo,
+                            {{ \App\models\DataWarga::where('email', Auth::user()->email)->first()->nama }}
+                        </h2>
 
                         <!-- Info Profil -->
                         <div class="dropdown dropdown-end mr-4">
@@ -65,13 +67,13 @@
                                 class="menu dropdown-content bg-white rounded-box z-[1] mt-4 w-52 p-2 shadow">
                                 <li class="text-center text-black">Notifikasi</li>
                                 @if($notifikasi->isEmpty())
-                                <p class="mt-2 mb-2 items-center justify-center">Tidak Ada Notifikasi</p>
+                                    <p class="mt-2 mb-2 items-center justify-center">Tidak Ada Notifikasi</p>
                                 @else
-                                @foreach ($notifikasi as $item)
-                                    <li>{{ $item->deskripsi }} ({{ $item->created_at }})</li>
-                                @endforeach
+                                    @foreach ($notifikasi as $item)
+                                        <li>{{ $item->deskripsi }} ({{ $item->created_at }})</li>
+                                    @endforeach
                                 @endif
-                            </ul> 
+                            </ul>
                         </div>
 
                     </div>
@@ -84,13 +86,26 @@
                 <div class="card text-primary-content bg-white">
                     <div class="card-body">
                         <form>
-                            <label for="start-date">Tanggal Mulai:</label>
-                            <input type="date" id="start-date" name="start-date" required />
-
-                            <label for="end-date">Tanggal Akhir:</label>
-                            <input type="date" id="end-date" name="end-date" required />
-                            <button class="btn btn-accent">Cek</button>
+                            <select class="select select-info w-full max-w-xs text-white bg-[#3AAFA9]">
+                                <option disabled selected>Pilih Bulan</option>
+                                <option value="januari">Januari</option>
+                                <option>Febuari</option>
+                                <option>Maret</option>
+                                <option>April</option>
+                                <option value="">Mei</option>
+                                <option value="">Juni</option>
+                                <option value="">Juli</option>
+                                <option value="">Agustus</option>
+                                <option value="">September</option>
+                                <option value="">Oktober</option>
+                                <option value="">November</option>
+                                <option value="">Desember</option>
+                            </select>
+                            <button class="btn btn-accent ml-5 text-white">Cek</button>
                         </form>
+
+                        <livewire:kas-warga-table bulan="januari"/>
+
                     </div>
                 </div>
             </div>
@@ -114,7 +129,7 @@
         const drawerCheckbox = document.getElementById('my-drawer-2');
         const toggleButton = document.getElementById('toggleButton');
 
-        drawerCheckbox.addEventListener('change', function() {
+        drawerCheckbox.addEventListener('change', function () {
             if (drawerCheckbox.checked) {
                 // Ganti ikon ke minus
                 toggleButton.innerHTML = `

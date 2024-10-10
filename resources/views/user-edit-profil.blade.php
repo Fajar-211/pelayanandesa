@@ -15,7 +15,7 @@
             <div class="navbar rounded-box mt-10">
                 <div class="flex flex-1 justify-end px-2">
                     <div class="flex items-stretch">
-                        <h2 class="my-4 mr-4 text-black" id="user">Hallo </h2>
+                        <h2 class="my-4 mr-4 text-black" id="user">Hallo, {{ \App\models\DataWarga::where('email', Auth::user()->email)->first()->nama }} </h2>
 
                         <!-- Info Profil -->
                         <div class="dropdown dropdown-end mr-4">
@@ -78,10 +78,23 @@
                 </div>
             </div>
 
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+
             <!-- Konten halaman lainnya -->
             <!-- ISI KONTEN TAMBAHAN DAPAT DILETAKKAN DI SINI -->
             <div class="w-5/6 hidden" id="DivEdit"><!-- Edit Porfile -->
-                <form action="">
+                <form action="{{route('profile.update')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT') 
                     <div class="card text-primary-content">
                         <div class="card-body">
                             <label for="chooseAvatar">
@@ -92,10 +105,10 @@
                                     </div>
                                 </div>
                             </label>
-                            <input type="file" id="chooseAvatar" class="hidden" accept=".jpg,.jpeg,.png"
+                            <input type="file" id="chooseAvatar" name="foto_profil" id="foto_profil" class="hidden" accept=".jpg,.jpeg,.png"
                                 accept=".jpg,.jpeg,.png">
-                            <div class="flex justify-center"><input type="text" placeholder="Pengguna"
-                                    class="input w-full max-w-xs bg-[#DEF2F1] text-center" /></div>
+                            <div class="flex justify-center"><input type="text" placeholder="{{ \App\models\DataWarga::where('email', Auth::user()->email)->first()->nama }}"
+                                name="nama"  value="{{ $dataWarga->nama }}"   class="input w-full max-w-xs bg-[#DEF2F1] text-center" /></div>
                         </div>
                     </div>
                     <table>
@@ -103,24 +116,24 @@
                             <td class="text-green-500">Nomor KK</td>
                         </tr>
                         <tr>
-                            <td><input type="text" placeholder="example"
-                                    class="input w-full max-w-xs bg-[#DEF2F1]" /></td>
+                            <td><input type="text" placeholder="{{ \App\models\DataWarga::where('email', Auth::user()->email)->first()->no_kk }}"
+                                name="no_kk" value="{{ $dataWarga->no_kk }}"    class="input w-full max-w-xs bg-[#DEF2F1]" /></td>
                         </tr>
                         <tr></tr>
                         <tr>
                             <td class="text-green-500">NIK</td>
                         </tr>
                         <tr>
-                            <td><input type="text" placeholder="example"
-                                    class="input w-full max-w-xs bg-[#DEF2F1]" /></td>
+                            <td><input type="text" placeholder="{{ \App\models\DataWarga::where('email', Auth::user()->email)->first()->nik }}"
+                                 name="nik" value="{{ $dataWarga->nama }}"   class="input w-full max-w-xs bg-[#DEF2F1]" /></td>
                         </tr>
                         <tr></tr>
                         <tr>
                             <td class="text-green-500">Jenis Kelamin</td>
                         </tr>
                         <tr>
-                            <td><input type="text" placeholder="example"
-                                    class="input w-full max-w-xs bg-[#DEF2F1]" /></td>
+                            <td><input type="text" placeholder="{{ \App\models\DataWarga::where('email', Auth::user()->email)->first()->jenis_kelamin }}"
+                                name="jenis_kelamin" value="{{ $dataWarga->jenis_kelamin }}"    class="input w-full max-w-xs bg-[#DEF2F1]" /></td>
                         </tr>
                         <tr></tr>
                         <tr>
@@ -128,20 +141,20 @@
                         </tr>
                         <tr>
                             <td><input type="date" placeholder="Type here"
-                                    class="input input-bordered w-full max-w-xs bg-[#DEF2F1]" /></td>
+                                name="tanggal_lahir" value="{{ $dataWarga->tanggal_lahir }}"    class="input input-bordered w-full max-w-xs bg-[#DEF2F1]" /></td>
                         </tr>
                         <tr></tr>
                         <tr>
                             <td class="text-green-500">Email</td>
                         </tr>
                         <tr>
-                            <td><input type="text" placeholder="Email"
-                                    class="input w-full max-w-xs bg-[#DEF2F1]" /></td>
+                            <td><input type="text" placeholder="{{ \App\models\DataWarga::where('email', Auth::user()->email)->first()->email }}"
+                                name="email" value="{{ $dataWarga->email }}"   class="input w-full max-w-xs bg-[#DEF2F1]" /></td>
                         </tr>
                     </table>
                     <div class="card-actions justify-end mb-8">
                         <button class="btn btn-secondary text-white" type="reset" onclick="window.history.back();">Batal</button>
-                        <button class="btn btn-accent text-white">Simpan</button>
+                        <button class="btn btn-accent text-white" type="submit">Simpan</button>
                     </div>
                 </form>
             </div>

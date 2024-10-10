@@ -15,7 +15,7 @@
             <div class="navbar rounded-box mt-10">
                 <div class="flex flex-1 justify-end px-2">
                     <div class="flex items-stretch">
-                        <h2 class="my-4 mr-4 text-black" id="user">Hallo </h2>
+                        <h2 class="my-4 mr-4 text-black" id="user">Hallo,  {{ \App\models\DataWarga::where('email', Auth::user()->email)->first()->nama }} </h2>
 
                         <!-- Info Profil -->
                         <div class="dropdown dropdown-end mr-4">
@@ -83,9 +83,9 @@
             <div class="w-5/6 hidden" id="DivInfo"><!-- Info Porfile -->
                 <div class="card text-primary-content">
                     <div class="card-body">
-                        <div class="avatar justify-center">
+                        <div class="avatar justify-center cursor-pointer">
                             <div class="w-24 rounded-full">
-                                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                <img src="{{ asset('storage/' . $dataWarga->foto_profil) }}" alt="Foto Profil" style="width: 150px; height: 150px;" />
                             </div>
                         </div>
                         <h2 class="text-center"></h2>
@@ -111,7 +111,7 @@
                                 <td class="text-green-500">Jenis Kelamin</td>
                             </tr>
                             <tr>
-                                <td class="text-stone-400">example</td>
+                                <td class="text-stone-400">{{ \App\models\DataWarga::where('email', operator: Auth::user()->email)->first()->jenis_kelamin }}</td>
                             </tr>
                             <tr></tr>
                             <tr>
@@ -119,16 +119,14 @@
                             </tr>
                             <tr>
                                 <td class="text-stone-400">
-                                    {{ \App\models\DataWarga::where('email', Auth::user()->email)->first()->tanggal_lahir }}</td>
+                                    {{ \App\models\DataWarga::where('email', operator: Auth::user()->email)->first()->tanggal_lahir }}</td>
                             </tr>
                             <tr></tr>
                             <tr>
-                                <td class="text-green-500">
-                                {{ \App\models\DataWarga::where('email', Auth::user()->email)->first()->email }}
-                                </td>
+                                <td class="text-green-500">Email</td>
                             </tr>
                             <tr>
-                                <td class="text-stone-400">example</td>
+                                <td class="text-stone-400">{{ \App\models\DataWarga::where('email', Auth::user()->email)->first()->email }}</td>
                             </tr>
                         </table>
                     </div>
