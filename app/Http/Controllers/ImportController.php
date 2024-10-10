@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Imports\DataWargasImport;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
+use Spatie\Permission\Models\Role;
 
 class ImportController extends Controller
 {

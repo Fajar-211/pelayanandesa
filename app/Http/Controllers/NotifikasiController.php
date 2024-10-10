@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Notifikasi;
+use Spatie\Permission\Models\Role;
 
 class NotifikasiController extends Controller
 {

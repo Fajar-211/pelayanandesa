@@ -15,7 +15,7 @@
             <div class="navbar rounded-box mt-10">
                 <div class="flex flex-1 justify-end px-2">
                     <div class="flex items-stretch">
-                        <h2 class="my-4 mr-4 text-black" id="user">Hallo,  {{ \App\models\DataWarga::where('email', Auth::user()->email)->first()->nama }} </h2>
+                        <h2 class="my-4 mr-4 text-black" id="user">Info Profile</h2>
 
                         <!-- Info Profil -->
                         <div class="dropdown dropdown-end mr-4">
@@ -88,7 +88,7 @@
                                 <img src="{{ asset('storage/' . $dataWarga->foto_profil) }}" alt="Foto Profil" style="width: 150px; height: 150px;" />
                             </div>
                         </div>
-                        <h2 class="text-center"></h2>
+                        <h2 class="text-center text-black">{{ \App\models\DataWarga::where('email', Auth::user()->email)->first()->nama }}</h2>
                         <table>
                             <tr>
                                 <td class="text-green-500">Nomor KK</td>

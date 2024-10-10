@@ -15,7 +15,7 @@
             <div class="navbar rounded-box mt-10">
                 <div class="flex flex-1 justify-end px-2">
                     <div class="flex items-stretch">
-                        <h2 class="my-4 mr-4 text-black" id="user">Hallo, {{ \App\models\DataWarga::where('email', Auth::user()->email)->first()->nama }} </h2>
+                        <h2 class="my-4 mr-4 text-black" id="user">Edit Profile </h2>
 
                         <!-- Info Profil -->
                         <div class="dropdown dropdown-end mr-4">
@@ -100,15 +100,14 @@
                             <label for="chooseAvatar">
                                 <div class="avatar flex justify-center items-center">
                                     <div class="w-24 rounded-full">
-                                        <img
-                                            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                    <img src="{{ asset('storage/' . $dataWarga->foto_profil) }}" alt="Foto Profil" style="width: 150px; height: 150px;" />
                                     </div>
                                 </div>
                             </label>
                             <input type="file" id="chooseAvatar" name="foto_profil" id="foto_profil" class="hidden" accept=".jpg,.jpeg,.png"
                                 accept=".jpg,.jpeg,.png">
                             <div class="flex justify-center"><input type="text" placeholder="{{ \App\models\DataWarga::where('email', Auth::user()->email)->first()->nama }}"
-                                name="nama"  value="{{ $dataWarga->nama }}"   class="input w-full max-w-xs bg-[#DEF2F1] text-center" /></div>
+                                name="nama"  value="{{ $dataWarga->nama }}"   class="input w-full max-w-xs bg-[#DEF2F1] text-center text-black" /></div>
                         </div>
                     </div>
                     <table>

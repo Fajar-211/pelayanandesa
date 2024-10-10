@@ -6,6 +6,7 @@ use App\Models\KasWarga;
 use Illuminate\Http\Request;
 use App\Models\Notifikasi;
 use App\Models\KasWargaImport;
+use Spatie\Permission\Models\Role;
 
 class KasWargaController extends Controller
 {

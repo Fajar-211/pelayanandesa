@@ -15,7 +15,7 @@
                                         d="M4 6h16M4 12h16M4 18h16" />
                                 </svg>
                             </label>
-                            <span class="text-lg lg:text-xl font-semibold ml-10 text-[#2B7A78]">Hallo,
+                            <span class="text-lg lg:text-xl font-semibold ml-10 text-[#2B7A78]">Hallo, {{ \App\models\User::where('email', Auth::user()->email)->first()->name }}
                                 </span>
                         </div>
 
@@ -49,10 +49,10 @@
                     </div>
                 </div>
                 <!-- main content -->
-                <!-- <div class="flex-1  bg-[#DEF2F1] overflow-hidden">
+                <div class="flex-1  bg-[#DEF2F1] overflow-hidden">
                     <div class="bg-[#DEF2F1] flex justify-center w-full ">
                         <div class="w-5/6 mt-12" id="DivDataWarga"><!-- Data Warga -->
-                                <!-- <div class="card text-primary-content bg-white">
+                                <div class="card text-primary-content bg-white">
                                     <div class="card-body">
                                         <h2 class="card-title text-black">Kas Warga</h2>
                                         <form action="{{ route('import.datawarga') }}" method="POST"
@@ -67,7 +67,7 @@
                         </div>
                         
                     </div>
-                </div> --> -->
+                </div>
             </div>
 
             <!-- sidebar content -->

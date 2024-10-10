@@ -14,12 +14,12 @@ class FirstAdminSeeder extends Seeder
      */
     public function run(): void
     {
-
-        $adminPertama = User::create([
+        $FirstAdmin = User::create([
             'name' => 'Admin',
             'email' => 'admin@gmail.com',
             'password' => Hash::make('admin123'),
         ]);
+        $FirstAdmin->assignRole('admin');
 
     }
 }

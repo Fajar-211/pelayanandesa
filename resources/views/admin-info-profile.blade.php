@@ -15,7 +15,7 @@
                                     d="M4 6h16M4 12h16M4 18h16" />
                             </svg>
                         </label>
-                        <span class="text-lg lg:text-xl font-semibold ml-10 text-[#2B7A78]">Hallo,</span>
+                        <span class="text-lg lg:text-xl font-semibold ml-10 text-[#2B7A78]">Info Profile</span>
                     </div>
 
                     <div class="flex items-center">
@@ -36,8 +36,13 @@
                             </div>
                             <ul tabindex="0"
                                 class="menu dropdown-content bg-white rounded-box z-[1] mt-4 w-52 p-2 shadow">
-                                <li><a class="text-black" href="{{ url('/admin/info-profil') }}">Info Profil</a></li>
-                                <li><a class="text-red-600">Log Out</a></li>
+                                <li><a class="text-black" href="{{ url('/admin/info-profile') }}">Info Profil</a></li>
+                                <li>
+                                    <form action="{{ route('logout') }}" method="POST">
+                                        @csrf
+                                        <button class="text-red-500">Log Out</button>
+                                    </form>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -51,48 +56,27 @@
                             <div class="card-body">
                                 <div class="avatar justify-center">
                                     <div class="w-24 rounded-full">
-                                        <img
-                                            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                        <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
                                     </div>
                                 </div>
-                                <h2 class="text-center text-black">
-                                {{ \App\models\DataWarga::where('email', Auth::user()->email)->first()->nama }}
+                                <h2 class="text-center text-black">{{ \App\models\User::where('email', Auth::user()->email)->first()->name }}
                                 </h2>
                                 <table>
                                     <tr>
-                                        <td class="text-green-500">Nomor KK</td>
+                                        <td class="text-green-500">Nama</td>
                                     </tr>
                                     <tr>
                                         <td class="text-stone-400">
-                                            example</td>
-                                    </tr>
-                                    <tr></tr>
-                                    <tr>
-                                        <td class="text-green-500">NIK</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-stone-400">example</td>
-                                    </tr>
-                                    <tr></tr>
-                                    <tr>
-                                        <td class="text-green-500">Jenis Kelamin</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-stone-400">example</td>
-                                    </tr>
-                                    <tr></tr>
-                                    <tr>
-                                        <td class="text-green-500">Tanggal Lahir</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-stone-400">example</td>
+                                        {{ \App\models\User::where('email', Auth::user()->email)->first()->name }}</td>
                                     </tr>
                                     <tr></tr>
                                     <tr>
                                         <td class="text-green-500">Email</td>
                                     </tr>
                                     <tr>
-                                        <td class="text-stone-400">example</td>
+                                        <td class="text-stone-400">
+                                        {{ \App\models\User::where('email', Auth::user()->email)->first()->email }}
+                                        </td>
                                     </tr>
                                 </table>
                             </div>

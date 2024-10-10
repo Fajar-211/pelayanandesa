@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\SuratPengantar;
 use App\Models\Notifikasi;
+use Spatie\Permission\Models\Role;
 
 class SuratPengantarController extends Controller
 {
