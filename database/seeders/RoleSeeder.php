@@ -16,23 +16,5 @@ class RoleSeeder extends Seeder
         $role = Role::create(['name' => 'warga']);
         $role = Role::create(['name' => 'admin']);
 
-        // $wargapermissions = [
-        //     'view surat pengantar',
-        //     'view wajib lapor',
-        //     'view kas warga',
-        // ];
-        // $adminpermissions = [
-        //     'view surat pengantar',
-        //     'view wajib lapor',
-        //     'view kas warga',
-        //     'view data warga',
-        //     'view pemberitahuan',
-        // ];
-
-        // foreach ($permissions as $permission) {
-        //     Permission::create(['name' => $permission]);
-        // }
-        // $adminRole->givePermissionTo($adminpermissions);
-        // $wargaRole->givePermissionTo($wargapermissions);
     }
 }
