@@ -20,7 +20,6 @@ final class KasWargaTable extends PowerGridComponent
 {
     use WithExport;
     public $bulan;
-
     public function setUp(): array
     {
         $this->showCheckBox();
@@ -52,6 +51,13 @@ final class KasWargaTable extends PowerGridComponent
             ->add('id')
             ->add('bulan')
             ->add('tanggal')
+            ->add('info_pemasukan')
+            ->add('saldo_masuk')
+            ->add('info_pengeluaran')
+            ->add('saldo_keluar')
+            ->add('saldo')
+            ->add('saldo_awal_tahun')
+            ->add('total_saldo')
             ->add('created_at');
     }
 
@@ -70,7 +76,35 @@ final class KasWargaTable extends PowerGridComponent
             Column::make('Tanggal', 'tanggal')
             ->sortable()
             ->searchable(),
+
+            Column::make('Info Pemasukan', 'info_pemasukan')
+            ->sortable()
+            ->searchable(),
+
+            Column::make('Saldo Masuk', 'saldo_masuk')
+            ->sortable()
+            ->searchable(),
+
+            Column::make('Info Pengeluaran', 'info_pengeluaran')
+            ->sortable()
+            ->searchable(),
+
+            Column::make('Saldo Keluar', 'saldo_keluar')
+            ->sortable()
+            ->searchable(),
             
+            Column::make('Saldo', 'saldo')
+            ->sortable()
+            ->searchable(),
+
+            Column::make('Saldo Awal Tahun', 'saldo_awal_tahun')
+            ->sortable()
+            ->searchable(),
+
+            Column::make('Total Saldo', 'total_saldo')
+            ->sortable()
+            ->searchable(),
+
             Column::make('Created at', 'created_at')
                 ->sortable()
                 ->searchable(),

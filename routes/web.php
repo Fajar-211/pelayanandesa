@@ -18,6 +18,7 @@ use App\Http\Controllers\AdminNotifikasiController;
 use App\Http\Controllers\AdminInfoProfileController;
 use App\Http\Controllers\AdminEditProfileController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\KasWargaImportController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -70,5 +71,6 @@ Route::put('/user/edit-profil', [EditProfilController::class, 'edit'])->name('pr
 // Route::get('/user', [NotifikasiController::class, 'index']);
 
 Route::post('/data-warga/import', [ImportController::class, 'dataWargaImport'])->name('import.datawarga');
+Route::post('/kas-warga/import', [KasWargaImportController::class, 'KasWargaImport'])->name('import.kaswarga');
 
 

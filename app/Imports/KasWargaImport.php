@@ -15,15 +15,15 @@ class KasWargaImport implements ToModel
     public function model(array $row)
     {
         return new KasWarga([
-            'bulan' => $row[0], // Sesuaikan indeks dengan kolom di Excel
-            'tanggal' => $row[1],
-            'info_pemasukan' => $row[2],
-            'saldo_masuk' => $row[3],
-            'info_pengeluaran' => $row[4],
-            'saldo_keluar' => $row[5],
-            'saldo' => $row[6],
-            'saldo_awal_tahun' => $row[7],
-            'total_saldo' => $row[8],
+            'bulan' => $row['bulan'],
+            'tanggal' => \Carbon\Carbon::parse($row['tanggal_lahir'])->format('Y-m-d'),
+            'info_pemasukan' => $row['info_pemasukan'],
+            'saldo_masuk' => $row['saldo_masuk'],
+            'info_pengeluaran' => $row['info_pengeluaran'],
+            'saldo_keluar' => $row['saldo_keluar'],
+            'saldo' => $row['saldo'],
+            'saldo_awal_tahun' => $row['saldo_awal_tahun'],
+            'total_saldo' => $row['total_saldo'],
         ]);
     }
 }

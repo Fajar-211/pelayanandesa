@@ -49,14 +49,14 @@
                     </div>
                 </div>
                 <!-- main content -->
-                <!-- <div class="flex-1  bg-[#DEF2F1] overflow-hidden">
+                <div class="flex-1  bg-[#DEF2F1] overflow-hidden">
                     <div class="bg-[#DEF2F1] flex justify-center w-full ">
-                        <div class="w-5/6 mt-12" id="DivDataWarga"><!-- Data Warga -->
-                                <!-- <div class="card text-primary-content bg-white">
+                        <div class="bg-[#DEF2F1] flex justify-center w-full ">
+                            <div class="w-5/6 mt-12" id="DivDataWarga"><!-- Data Warga -->
+                                <div class="card text-primary-content bg-white">
                                     <div class="card-body">
                                         <h2 class="card-title text-black">Kas Warga</h2>
-                                        <form action="{{ route('import.datawarga') }}" method="POST"
-                                            enctype="multipart/form-data">
+                                        <form action="{{ route('import.kaswarga') }}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <input type="file" name="file" accept=".xlsx">
                                             <button type="submit" class="btn">Import</button>
@@ -64,10 +64,10 @@
                                         <livewire:kas-warga-table />
                                     </div>
                                 </div>
+                            </div>
                         </div>
-                        
                     </div>
-                </div> --> -->
+                </div>
             </div>
 
             <!-- sidebar content -->

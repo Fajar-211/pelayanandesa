@@ -2,20 +2,30 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\KasWarga;
 use Illuminate\Http\Request;
 use App\Imports\KasWargaImport;
 use Maatwebsite\Excel\Facades\Excel;
 
 class KasWargaImportController extends Controller
 {
-    public function import(Request $request)
+    private function SaveFile(Request $request)
     {
-        $request->validate([
-            'file' => 'required|mimes:xlsx,csv,xls',
-        ]);
+        $file = $request->file('file');
+		$nama_file = rand().$file->getClientOriginalName();
+		$file->move('imported', $nama_file);
 
-        Excel::import(new KasWargaImport, $request->file('file'));
-
-        return redirect()->back()->with('success', 'Data berhasil diimport.');
+        return public_path("/imported/".$nama_file);
+    }
+    private function ImportData($importClass, $file)
+    {
+        Excel::import($importClass, $file);
+        unlink($file);
+        return;
+    }
+    public function kasWargaImport(Request $request) {
+        $file = $this->SaveFile($request);
+        $this->ImportData(new KasWargaImport, $file);
+        return redirect()->back();
     }
 }
