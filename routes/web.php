@@ -18,46 +18,46 @@ use App\Http\Controllers\AdminNotifikasiController;
 use App\Http\Controllers\AdminInfoProfileController;
 use App\Http\Controllers\AdminEditProfileController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\KasWargaImportController;
+use Spatie\Permission\Models\Role;
+
 
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/user', function () {
-    return view('user');
-})->middleware(['auth', 'verified'])->name('user');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
 Route::get('/lojin', function () {
     return view("lojin", ["nama" => "fajar"]);
 });
 
-Route::get('/user', [UserController::class, 'index'])->middleware(['auth', 'verified'])->name('user');
-
-Route::get('/user/surat-pengantar',  [SuratPengantarController::class, 'index']);
-Route::get('/user/wajib-lapors',  [WajibLaporController::class, 'index']);
-Route::get('/user/kas-warga',  [KasWargaController::class, 'index']);
-Route::get('/user/info-profil',  [InfoProfilController::class, 'index'])->name('profile.info');
-Route::get('/user/edit-profil',  [EditProfilController::class, 'index']);
-Route::get('/admin',  [AdminController::class,'view']);
-Route::get('/admin/surat-pengantar',  [AdminSuratPengantarController::class,'view']);
-Route::get('/admin/wajib-lapor',  [AdminWajibLaporController::class,'view']);
-Route::get('/admin/data-warga',  [AdminDataWargaController::class,'view']);
-Route::get('/admin/kas-warga',  [AdminKasWargaController::class,'view']);
-Route::get('/admin/pemberitahuan',  [AdminNotifikasiController::class,'view']);
-Route::get('/admin/info-profile',  [AdminInfoProfileController::class,'view']);
-
-Route::get('/template', function(){
-    return view("template",["nama" => 'Pengguna']);
+Route::middleware(['auth', 'role:warga'])->group(function () {
+    Route::get('/user/', [UserController::class, 'index'])->name('user');
+    Route::get('/user/surat-pengantar', [SuratPengantarController::class, 'index'])->name('user.surat');
+    Route::get('/user/wajib-lapors', [WajibLaporController::class, 'index'])->name('user.wajib_lapors');
+    Route::get('/user/kas-warga', [KasWargaController::class, 'index'])->name('user.kas_warga');
+    Route::get('/user/info-profil', [InfoProfilController::class, 'index'])->name('profile.info');
+    Route::get('/user/edit-profil', [EditProfilController::class, 'index'])->name('profile.edit');
+    Route::post('/user/surat-pengantar', [SuratPengantarController::class, 'store'])->name('surat-pengantar.store');
+    Route::post('/wajib_lapors', [WajibLaporController::class, 'store'])->name('wajib_lapors.store');
+    Route::put('/user/edit-profil', [EditProfilController::class, 'edit'])->name('profile.update');
 });
-Route::get('/template1', function(){
-    return view("template1",["nama" => 'Pengguna']);
+
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/admin/', [AdminController::class, 'view'])->name('admin.surat');
+    Route::get('/admin/surat-pengantar', [AdminSuratPengantarController::class, 'view'])->name('admin.surat');
+    Route::get('/admin/wajib-lapor', [AdminWajibLaporController::class, 'view'])->name('admin.wajib_lapor');
+    Route::get('/admin/data-warga', [AdminDataWargaController::class, 'view'])->name('admin.data_warga');
+    Route::get('/admin/kas-warga', [AdminKasWargaController::class, 'view'])->name('admin.kas_warga');
+    Route::get('/admin/pemberitahuan', [AdminNotifikasiController::class, 'view'])->name('admin.notifikasi');
+    Route::get('/admin/info-profile', [AdminInfoProfileController::class, 'view'])->name('admin.info_profile');
+    Route::post('/data-warga/import', [ImportController::class, 'dataWargaImport'])->name('import.datawarga');
 });
+
 Route::post('/user/surat-pengantar', [SuratPengantarController::class, 'store'])->name('surat-pengantar.store');
 Route::get('surat-pengantar/create', [SuratPengantarController::class, 'create'])->name('surat-pengantar.create');
 require __DIR__.'/auth.php';
@@ -67,10 +67,5 @@ Route::get('wajib_lapor/create', [WajibLaporController::class, 'create'])->name(
 Route::post('/notif/store', [NotifikasiController::class, 'store'])->name('notif.store');
 Route::get('/user/info-profile', [EditProfilController::class, 'showProfile'])->name('profile.show');
 
-Route::put('/user/edit-profil', [EditProfilController::class, 'edit'])->name('profile.update');
-// Route::get('/user', [NotifikasiController::class, 'index']);
-
-Route::post('/data-warga/import', [ImportController::class, 'dataWargaImport'])->name('import.datawarga');
-Route::post('/kas-warga/import', [KasWargaImportController::class, 'KasWargaImport'])->name('import.kaswarga');
-
-
+// Route::put('/user/edit-profil', [EditProfilController::class, 'edit'])->name('profile.update');
+// Route::post('/data-warga/import', [ImportController::class, 'dataWargaImport'])->name('import.datawarga');

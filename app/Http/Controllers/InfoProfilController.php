@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Notifikasi;
 use Illuminate\Support\Facades\Auth;
 use App\Models\DataWarga;
+use Spatie\Permission\Models\Role;
+
 class InfoProfilController extends Controller
 {
     public function index(){

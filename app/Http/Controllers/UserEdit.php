@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\DataWarga;
+use Spatie\Permission\Models\Role;
 
 class UserEdit extends Controller
 {
@@ -13,7 +14,7 @@ class UserEdit extends Controller
      */
     public function index()
     {
-        //
+        // 
     }
 
     /**
@@ -67,6 +68,7 @@ class UserEdit extends Controller
         Auth::logout();
 
         return redirect('/login')->with('success', 'Profil dan email berhasil diperbarui. Silakan login kembali.');
+        
     }
 
     /**

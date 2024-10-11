@@ -15,7 +15,7 @@
                                         d="M4 6h16M4 12h16M4 18h16" />
                                 </svg>
                             </label>
-                            <span class="text-lg lg:text-xl font-semibold ml-10 text-[#2B7A78]">Hallo</span>
+                            <span class="text-lg lg:text-xl font-semibold ml-10 text-[#2B7A78]">Hallo, {{ \App\models\User::where('email', Auth::user()->email)->first()->name }}</span>
                         </div>
 
                         <div class="flex items-center">
