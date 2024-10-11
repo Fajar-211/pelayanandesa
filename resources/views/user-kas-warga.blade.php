@@ -83,8 +83,8 @@
             <div class="w-5/6 hidden mt-10" id="kas"><!-- Kas Warga -->
                 <div class="card text-primary-content bg-white">
                     <div class="card-body">
-                        <form>
-                            <select name="bulan" class="select select-info w-full max-w-xs text-white bg-[#3AAFA9]">
+                        <form wire:submit.prevent="methodInLivewireComponent">
+                            <select name="bulan" wire:model="selectedBulan" class="select select-info w-full max-w-xs text-white bg-[#3AAFA9]">
                                 <option disabled selected>Pilih Bulan</option>
                                 <option value="januari">Januari</option>
                                 <option value="febuari">Febuari</option>
@@ -102,7 +102,7 @@
                             <button class="btn btn-accent ml-5 text-white" type="submit">Cek</button>
                         </form>
 
-                        <livewire:kas-warga-table bulan="januari"/>
+                        <livewire:kas-warga-table />
 
                     </div>
                 </div>

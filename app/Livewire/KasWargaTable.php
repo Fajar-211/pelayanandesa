@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Livewire;
+
+namespace App\Http\Livewire;
 
 use App\Models\KasWarga;
 use Illuminate\Support\Carbon;
@@ -15,11 +16,12 @@ use PowerComponents\LivewirePowerGrid\PowerGrid;
 use PowerComponents\LivewirePowerGrid\PowerGridFields;
 use PowerComponents\LivewirePowerGrid\PowerGridComponent;
 use PowerComponents\LivewirePowerGrid\Traits\WithExport;
-
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 final class KasWargaTable extends PowerGridComponent
 {
     use WithExport;
-    public $bulan;
+    public $selectedBulan;
     public function setUp(): array
     {
         $this->showCheckBox();
@@ -37,7 +39,9 @@ final class KasWargaTable extends PowerGridComponent
 
     public function datasource(): Builder
     {
-        return KasWarga::where('bulan', $this->bulan);
+        return KasWarga::when($this->selectedBulan, function ($query) {
+            return $query->where('bulan', $this->selectedBulan);
+        });
     }
 
     public function relationSearch(): array
@@ -117,6 +121,16 @@ final class KasWargaTable extends PowerGridComponent
         return [
         ];
     }
+    public function render(): Factory|View
+{
+    $dataKasWarga = KasWarga::when($this->selectedBulan, function ($query) {
+        return $query->where('bulan', $this->selectedBulan);
+    })->get();
+
+    return view('resources/views/user-kas-warga', [
+        'kaswarga' => $dataKasWarga,
+    ]);
+}
 
 
 

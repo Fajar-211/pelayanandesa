@@ -19,7 +19,8 @@ use App\Http\Controllers\AdminInfoProfileController;
 use App\Http\Controllers\AdminEditProfileController;
 use App\Http\Controllers\AdminController;
 use Spatie\Permission\Models\Role;
-
+use App\Http\Controllers\KasWargaImportController;
+use App\Http\Livewire\KasWargaTable;
 
 Route::get('/', function () {
     return view('welcome');
@@ -45,6 +46,7 @@ Route::middleware(['auth', 'role:warga'])->group(function () {
     Route::post('/user/surat-pengantar', [SuratPengantarController::class, 'store'])->name('surat-pengantar.store');
     Route::post('/wajib_lapors', [WajibLaporController::class, 'store'])->name('wajib_lapors.store');
     Route::put('/user/edit-profil', [EditProfilController::class, 'edit'])->name('profile.update');
+    
 });
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
@@ -68,4 +70,4 @@ Route::post('/notif/store', [NotifikasiController::class, 'store'])->name('notif
 Route::get('/user/info-profile', [EditProfilController::class, 'showProfile'])->name('profile.show');
 
 // Route::put('/user/edit-profil', [EditProfilController::class, 'edit'])->name('profile.update');
-// Route::post('/data-warga/import', [ImportController::class, 'dataWargaImport'])->name('import.datawarga');
+Route::post('/kas-warga/import', [KasWargaImportController::class, 'kasWargaImport'])->name('import.kaswarga');
