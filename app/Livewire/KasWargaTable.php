@@ -23,12 +23,12 @@ final class KasWargaTable extends PowerGridComponent
 
     public function setUp(): array
     {
-        $this->showCheckBox();
+        // $this->showCheckBox();
 
         return [
-            Exportable::make('export')
-                ->striped()
-                ->type(Exportable::TYPE_XLS, Exportable::TYPE_CSV),
+            // Exportable::make('export')
+            //     ->striped()
+            //     ->type(Exportable::TYPE_XLS, Exportable::TYPE_CSV),
             Header::make()->showSearchInput(),
             Footer::make()
                 ->showPerPage()
@@ -68,8 +68,8 @@ final class KasWargaTable extends PowerGridComponent
     {
         return [
             Column::make('Id', 'id'),
-            Column::make('Created at', 'created_at_formatted', 'created_at')
-                ->sortable(),
+            // Column::make('Created at', 'created_at_formatted', 'created_at')
+            //     ->sortable(),
 
             Column::make('Bulan', 'bulan')
                 ->sortable()
@@ -108,9 +108,9 @@ final class KasWargaTable extends PowerGridComponent
             ->sortable()
             ->searchable(),
 
-            Column::make('Created at', 'created_at')
-                ->sortable()
-                ->searchable(),
+            // Column::make('Created at', 'created_at')
+            //     ->sortable()
+            //     ->searchable(),
             // Column::action('Action')
         ];
     }
