@@ -27,7 +27,7 @@ Route::get('/', function () {
     $user = Auth::user();
 
     if(!$user) {
-        return view('welcome');
+        return view('/auth/login');
     }
 
     if($user->hasRole('admin')) {
