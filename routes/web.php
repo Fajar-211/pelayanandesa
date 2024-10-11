@@ -1,28 +1,44 @@
 <?php
 
-use App\Http\Controllers\ImportController;
+use Spatie\Permission\Models\Role;
+use App\Http\Livewire\KasWargaTable;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ImportController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\KasWargaController;
+use App\Http\Controllers\EditProfilController;
+use App\Http\Controllers\InfoProfilController;
 use App\Http\Controllers\NotifikasiController;
 use App\Http\Controllers\WajibLaporController;
-use App\Http\Controllers\SuratPengantarController;
-use App\Http\Controllers\KasWargaController;
-use App\Http\Controllers\InfoProfilController;
-use App\Http\Controllers\EditProfilController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\AdminSuratPengantarController;
 use App\Http\Controllers\AdminKasWargaController;
 use App\Http\Controllers\AdminDataWargaController;
-use App\Http\Controllers\AdminWajibLaporController;
+use App\Http\Controllers\KasWargaImportController;
+use App\Http\Controllers\SuratPengantarController;
 use App\Http\Controllers\AdminNotifikasiController;
-use App\Http\Controllers\AdminInfoProfileController;
+use App\Http\Controllers\AdminWajibLaporController;
 use App\Http\Controllers\AdminEditProfileController;
-use App\Http\Controllers\AdminController;
-use App\Imports\KasWargaImport;
-use Spatie\Permission\Models\Role;
+use App\Http\Controllers\AdminInfoProfileController;
+use App\Http\Controllers\AdminSuratPengantarController;
 
 Route::get('/', function () {
-    return view('/auth/login');
+    $user = Auth::user();
+
+    if(!$user) {
+        return view('welcome');
+    }
+
+    if($user->hasRole('admin')) {
+        return redirect()->route('admin.surat');
+    }
+
+    if($user->hasRole('warga')) {
+        return redirect()->route('user');
+    }
+
+    return view('welcome');
 });
 
 Route::middleware('auth')->group(function () {
@@ -41,6 +57,7 @@ Route::middleware(['auth', 'verified', 'role:warga'])->group(function () {
     Route::post('/user/surat-pengantar', [SuratPengantarController::class, 'store'])->name('surat-pengantar.store');
     Route::post('/wajib_lapors', [WajibLaporController::class, 'store'])->name('wajib_lapors.store');
     Route::put('/user/edit-profil', [EditProfilController::class, 'edit'])->name('profile.update');
+    
 });
 
 Route::middleware(['auth', 'verified', 'role:admin'])->group(function () {
@@ -65,4 +82,4 @@ Route::post('/notif/store', [NotifikasiController::class, 'store'])->name('notif
 Route::get('/user/info-profile', [EditProfilController::class, 'showProfile'])->name('profile.show');
 
 // Route::put('/user/edit-profil', [EditProfilController::class, 'edit'])->name('profile.update');
-// Route::post('/data-warga/import', [ImportController::class, 'dataWargaImport'])->name('import.datawarga');
+Route::post('/kas-warga/import', [KasWargaImportController::class, 'kasWargaImport'])->name('import.kaswarga');

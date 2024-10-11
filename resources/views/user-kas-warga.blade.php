@@ -83,13 +83,13 @@
             <div class="w-5/6 hidden mt-10" id="kas"><!-- Kas Warga -->
                 <div class="card text-primary-content bg-white">
                     <div class="card-body">
-                        <form>
-                            <select class="select select-info w-full max-w-xs text-white bg-[#3AAFA9]">
+                        <form wire:submit.prevent="methodInLivewireComponent">
+                            <select name="bulan" wire:model="selectedBulan" class="select select-info w-full max-w-xs text-white bg-[#3AAFA9]">
                                 <option disabled selected>Pilih Bulan</option>
                                 <option value="januari">Januari</option>
-                                <option>Febuari</option>
-                                <option>Maret</option>
-                                <option>April</option>
+                                <option value="februari">Februari</option>
+                                <option value="maret">Maret</option>
+                                <option value="april">April</option>
                                 <option value="">Mei</option>
                                 <option value="">Juni</option>
                                 <option value="">Juli</option>
@@ -99,10 +99,10 @@
                                 <option value="">November</option>
                                 <option value="">Desember</option>
                             </select>
-                            <button class="btn btn-accent ml-5 text-white">Cek</button>
+                            <button class="btn btn-accent ml-5 text-white" type="submit">Cek</button>
                         </form>
 
-                        <livewire:kas-warga-table bulan="januari"/>
+                        <livewire:kas-warga-table selectedBulan="{{ $bulan }}" />
 
                     </div>
                 </div>

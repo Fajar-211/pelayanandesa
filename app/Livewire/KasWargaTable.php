@@ -19,7 +19,7 @@ use PowerComponents\LivewirePowerGrid\Traits\WithExport;
 final class KasWargaTable extends PowerGridComponent
 {
     use WithExport;
-    public $bulan;
+    public $selectedBulan;
 
     public function setUp(): array
     {
@@ -38,7 +38,9 @@ final class KasWargaTable extends PowerGridComponent
 
     public function datasource(): Builder
     {
-        return KasWarga::where('bulan', $this->bulan);
+        return KasWarga::when($this->selectedBulan, function ($query) {
+            return $query->where('bulan', $this->selectedBulan);
+        });
     }
 
     public function relationSearch(): array
@@ -52,6 +54,13 @@ final class KasWargaTable extends PowerGridComponent
             ->add('id')
             ->add('bulan')
             ->add('tanggal')
+            ->add('info_pemasukan')
+            ->add('saldo_masuk')
+            ->add('info_pengeluaran')
+            ->add('saldo_keluar')
+            ->add('saldo')
+            ->add('saldo_awal_tahun')
+            ->add('total_saldo')
             ->add('created_at');
     }
 
@@ -70,7 +79,35 @@ final class KasWargaTable extends PowerGridComponent
             Column::make('Tanggal', 'tanggal')
             ->sortable()
             ->searchable(),
+
+            Column::make('Info Pemasukan', 'info_pemasukan')
+            ->sortable()
+            ->searchable(),
+
+            Column::make('Saldo Masuk', 'saldo_masuk')
+            ->sortable()
+            ->searchable(),
+
+            Column::make('Info Pengeluaran', 'info_pengeluaran')
+            ->sortable()
+            ->searchable(),
+
+            Column::make('Saldo Keluar', 'saldo_keluar')
+            ->sortable()
+            ->searchable(),
             
+            Column::make('Saldo', 'saldo')
+            ->sortable()
+            ->searchable(),
+
+            Column::make('Saldo Awal Tahun', 'saldo_awal_tahun')
+            ->sortable()
+            ->searchable(),
+
+            Column::make('Total Saldo', 'total_saldo')
+            ->sortable()
+            ->searchable(),
+
             Column::make('Created at', 'created_at')
                 ->sortable()
                 ->searchable(),
@@ -83,29 +120,4 @@ final class KasWargaTable extends PowerGridComponent
         return [
         ];
     }
-
-
-
-    // public function actions(KasWarga $row): array
-    // {
-    //     return [
-    //         Button::add('edit')
-    //             ->slot('Edit: '.$row->id)
-    //             ->id()
-    //             ->class('pg-btn-white dark:ring-pg-primary-600 dark:border-pg-primary-600 dark:hover:bg-pg-primary-700 dark:ring-offset-pg-primary-800 dark:text-pg-primary-300 dark:bg-pg-primary-700')
-    //             ->dispatch('edit', ['rowId' => $row->id])
-    //     ];
-    // }
-
-    /*
-    public function actionRules($row): array
-    {
-       return [
-            // Hide button edit for ID 1
-            Rule::button('edit')
-                ->when(fn($row) => $row->id === 1)
-                ->hide(),
-        ];
-    }
-    */
 }
