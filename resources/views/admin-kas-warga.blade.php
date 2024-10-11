@@ -55,7 +55,7 @@
                                 <div class="card text-primary-content bg-white">
                                     <div class="card-body">
                                         <h2 class="card-title text-black">Kas Warga</h2>
-                                        <form action="{{ route('import.datawarga') }}" method="POST"
+                                        <form action="{{ route('import.kas_warga') }}" method="POST"
                                             enctype="multipart/form-data">
                                             @csrf
                                             <input type="file" name="file" accept=".xlsx">

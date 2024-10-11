@@ -85,27 +85,27 @@
                     @csrf
                     <div class="card text-primary-content bg-white">
                         <div class="card-body">
-                            <h2 class="card-title">ISI FORM</h2>
+                            <h2 class="card-title text-black">ISI FORM</h2>
                             <table>
                                 <tr>
-                                    <td><label for="nokk">Nomor KK</label></td>
+                                    <td><label for="nokk" class="text-black">Nomor KK</label></td>
                                     <td><input type="text" id="nokk" name="nokk"
                                             placeholder="Nomor Kartu Keluarga" class="input w-full max-w-xs bg-white"
                                             required /></td>
                                 </tr>
                                 <tr>
-                                    <td><label for="nik">NIK</label></td>
+                                    <td><label for="nik" class="text-black">NIK</label></td>
                                     <td><input type="text" id="nik" name="nik"
                                             placeholder="Nomor Induk KTP" class="input w-full max-w-xs bg-white"
                                             required /></td>
                                 </tr>
                                 <tr>
-                                    <td><label for="nama">Nama</label></td>
+                                    <td><label for="nama" class="text-black">Nama</label></td>
                                     <td><input type="text" id="nama" name="nama" placeholder="Nama"
                                             class="input w-full max-w-xs bg-white" required /></td>
                                 </tr>
                                 <tr>
-                                    <td><label for="keperluan">Keperluan</label></td>
+                                    <td><label for="keperluan" class="text-black">Keperluan</label></td>
                                     <td><input type="text" id="keperluan" name="keperluan" placeholder="Keperluan"
                                             class="input w-full max-w-xs bg-white" required /></td>
                                 </tr>

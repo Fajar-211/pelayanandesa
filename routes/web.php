@@ -18,11 +18,11 @@ use App\Http\Controllers\AdminNotifikasiController;
 use App\Http\Controllers\AdminInfoProfileController;
 use App\Http\Controllers\AdminEditProfileController;
 use App\Http\Controllers\AdminController;
+use App\Imports\KasWargaImport;
 use Spatie\Permission\Models\Role;
 
-
 Route::get('/', function () {
-    return view('welcome');
+    return view('/auth/login');
 });
 
 Route::middleware('auth')->group(function () {
@@ -31,11 +31,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/lojin', function () {
-    return view("lojin", ["nama" => "fajar"]);
-});
-
-Route::middleware(['auth', 'role:warga'])->group(function () {
+Route::middleware(['auth', 'verified', 'role:warga'])->group(function () {
     Route::get('/user/', [UserController::class, 'index'])->name('user');
     Route::get('/user/surat-pengantar', [SuratPengantarController::class, 'index'])->name('user.surat');
     Route::get('/user/wajib-lapors', [WajibLaporController::class, 'index'])->name('user.wajib_lapors');
@@ -47,7 +43,7 @@ Route::middleware(['auth', 'role:warga'])->group(function () {
     Route::put('/user/edit-profil', [EditProfilController::class, 'edit'])->name('profile.update');
 });
 
-Route::middleware(['auth', 'role:admin'])->group(function () {
+Route::middleware(['auth', 'verified', 'role:admin'])->group(function () {
     Route::get('/admin/', [AdminController::class, 'view'])->name('admin.surat');
     Route::get('/admin/surat-pengantar', [AdminSuratPengantarController::class, 'view'])->name('admin.surat');
     Route::get('/admin/wajib-lapor', [AdminWajibLaporController::class, 'view'])->name('admin.wajib_lapor');
@@ -56,6 +52,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/pemberitahuan', [AdminNotifikasiController::class, 'view'])->name('admin.notifikasi');
     Route::get('/admin/info-profile', [AdminInfoProfileController::class, 'view'])->name('admin.info_profile');
     Route::post('/data-warga/import', [ImportController::class, 'dataWargaImport'])->name('import.datawarga');
+    Route::post('/kas_warga/import', [KasWargaImportController::class, 'KasWarga'])->name('import.kas_warga');
 });
 
 Route::post('/user/surat-pengantar', [SuratPengantarController::class, 'store'])->name('surat-pengantar.store');
