@@ -87,7 +87,7 @@
                             <select name="bulan" wire:model="selectedBulan" class="select select-info w-full max-w-xs text-white bg-[#3AAFA9]">
                                 <option disabled selected>Pilih Bulan</option>
                                 <option value="januari">Januari</option>
-                                <option value="febuari">Febuari</option>
+                                <option value="februari">Februari</option>
                                 <option value="maret">Maret</option>
                                 <option value="april">April</option>
                                 <option value="">Mei</option>
@@ -102,7 +102,7 @@
                             <button class="btn btn-accent ml-5 text-white" type="submit">Cek</button>
                         </form>
 
-                        <livewire:kas-warga-table />
+                        <livewire:kas-warga-table selectedBulan="{{ $bulan }}" />
 
                     </div>
                 </div>
