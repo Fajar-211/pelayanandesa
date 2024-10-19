@@ -13,6 +13,7 @@ use App\Http\Controllers\EditProfilController;
 use App\Http\Controllers\InfoProfilController;
 use App\Http\Controllers\NotifikasiController;
 use App\Http\Controllers\WajibLaporController;
+use App\Http\Controllers\AdminSettingController;
 use App\Http\Controllers\AdminKasWargaController;
 use App\Http\Controllers\AdminDataWargaController;
 use App\Http\Controllers\KasWargaImportController;
@@ -57,6 +58,7 @@ Route::middleware(['auth', 'verified', 'role:warga'])->group(function () {
     Route::post('/user/surat-pengantar', [SuratPengantarController::class, 'store'])->name('surat-pengantar.store');
     Route::post('/wajib_lapors', [WajibLaporController::class, 'store'])->name('wajib_lapors.store');
     Route::put('/user/edit-profil', [EditProfilController::class, 'edit'])->name('profile.update');
+    Route::get('/user/surat-pengantar/{id}/download', [SuratPengantarController::class, 'download'])->name('surat-pengantar.download');
     
 });
 
@@ -70,6 +72,10 @@ Route::middleware(['auth', 'verified', 'role:admin'])->group(function () {
     Route::get('/admin/info-profile', [AdminInfoProfileController::class, 'view'])->name('admin.info_profile');
     Route::post('/data-warga/import', [ImportController::class, 'dataWargaImport'])->name('import.datawarga');
     Route::post('/kas_warga/import', [KasWargaImportController::class, 'KasWarga'])->name('import.kas_warga');
+    Route::get('/admin/surat-pengantar/{id}/approve', [AdminSuratPengantarController::class, 'approve'])->name('admin.surat-pengantar.approve');
+    Route::get('/admin/surat-pengantar/{id}/reject', [AdminSuratPengantarController::class, 'reject'])->name('admin.surat-pengantar.reject');
+    Route::get('/admin/setting', [AdminSettingController::class, 'index'])->name('admin.setting');
+    Route::post('/admin/setting/signature', [AdminSettingController::class, 'signature'])->name('admin.setting.signature');
 });
 
 Route::post('/user/surat-pengantar', [SuratPengantarController::class, 'store'])->name('surat-pengantar.store');

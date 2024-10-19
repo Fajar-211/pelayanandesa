@@ -110,7 +110,13 @@
                         <button type="submit" class="btn btn-accent mt-6">Ajukan</button>
                     </div>
                 </form>
+
+
+                <h1 class="text-black font-semibold uppercase tracking-wide text-xl mb-5">List Pengajuan Surat Pengantar</h1>
+    
+                <livewire:user-surat-pengantar-table userId="{{ Auth::id() }}" />
             </div>
+
 
         </div>
         <!-- Drawer Sidebar -->

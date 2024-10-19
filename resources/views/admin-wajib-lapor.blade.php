@@ -111,6 +111,7 @@
                     <li><a href="{{url('/admin/wajib-lapor')}}">Wajib lapor</a></li>
                     <li><a href="{{url('/admin/data-warga')}}">Data Warga</a></li>
                     <li><a href="{{url('/admin/pemberitahuan')}}">Pemberitahuan</a></li>
+                    <li><a href="{{ url('/admin/setting') }}">Setting</a></li>
                 </ul>
             </div>
         </div>

@@ -12,10 +12,13 @@ return new class extends Migration
     public function up()
 {
     Schema::create('surat_pengantar', function (Blueprint $table) {
+        $table->id();
+        $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
         $table->string('nokk');
         $table->string('nik');
         $table->string('nama');
         $table->string('keperluan');
+        $table->string('status')->default('pending');
         $table->timestamps();
     });
 }
